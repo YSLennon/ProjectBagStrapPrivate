@@ -1,7 +1,6 @@
-
-
 # 빌드 스테이지
-FROM amazoncorretto:17 AS builder
+FROM eclipse-temurin:17-alpine AS build
+RUN apk add --no-cache bash
 
 WORKDIR /app
 
@@ -9,6 +8,7 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
+RUN chmod +x mvnw
 RUN ./mvnw dependency:go-offline -B
 
 COPY . .
@@ -19,7 +19,7 @@ RUN ./mvnw package -DskipTests
 
 
 # 런타임 스테이지
-FROM amazoncorretto:17 AS builder
+FROM eclipse-temurin:17-jre-alpine as runtime
 
 WORKDIR /app
 
@@ -32,6 +32,7 @@ USER worker:worker
 
 ENV PROFILE=${PROFILE}
 
-EXPOSE 8081
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "main.jar"]
+
