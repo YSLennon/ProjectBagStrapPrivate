@@ -609,7 +609,7 @@
 				  
               };
               $.ajax({
-                  url:"/updateCommentReResult.dox",
+                  url:"/bagStrap/updateCommentReResult.dox",
                   dataType:"json",    
                   type : "POST", 
                   data : nparmap,
@@ -622,7 +622,7 @@
                           formData.append('file1', self.file);
                           formData.append('idx', idx);
                           $.ajax({
-                              url: '/fileUpload.dox',
+                              url: '/bagStrap/fileUpload.dox',
                               type: 'POST',
                               data: formData,
                               processData: false,  
@@ -657,7 +657,7 @@
 	              var boardId = self.boardId;
 	              var nparmap = {commentId : commentId};
 	              $.ajax({
-	                  url:"/updateCommentREY.dox",
+	                  url:"/bagStrap/updateCommentREY.dox",
 	                  dataType:"json",    
 	                  type : "POST", 
 	                  data : nparmap,
@@ -679,7 +679,7 @@
                var boardId = self.boardId;
                var nparmap = {boardId : boardId};
                $.ajax({
-                   url:"/updateCommentRENO.dox",
+                   url:"/bagStrap/updateCommentRENO.dox",
                    dataType:"json",    
                    type : "POST", 
                    data : nparmap,
@@ -694,7 +694,7 @@
 				self.imageView = '1'; 
                 var nparmap = {boardId : boardId};
                 $.ajax({
-                    url:"/updateCommentNO.dox",
+                    url:"/bagStrap/updateCommentNO.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -714,7 +714,7 @@
                     content : comcontents
                 };
                 $.ajax({
-                    url:"/updateCommentResult.dox",
+                    url:"/bagStrap/updateCommentResult.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -726,7 +726,7 @@
                             formData.append('file1', self.file);
                             formData.append('idx', idx);
                             $.ajax({
-                                url: '/fileUpload.dox',
+                                url: '/bagStrap/fileUpload.dox',
                                 type: 'POST',
                                 data: formData,
                                 processData: false,  
@@ -755,7 +755,7 @@
                 var boardId = self.boardId;
                 var nparmap = {commentId : commentId};
                 $.ajax({
-                    url:"/updateComment.dox",
+                    url:"/bagStrap/updateComment.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -771,7 +771,7 @@
                 var boardId = self.boardId;
                 var nparmap = {boardId : boardId};
                 $.ajax({
-                    url:"/updateCommentNO.dox",
+                    url:"/bagStrap/updateCommentNO.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -785,7 +785,7 @@
                 var self = this;
                 var nparmap = {commentId : commentId, commentstatus : commentstatus };
                 $.ajax({
-                    url:"/updateStatusBoardComment.dox",
+                    url:"/bagStrap/updateStatusBoardComment.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -804,7 +804,7 @@
                 var self = this;
                 var nparmap = {commentId : commentId};
                 $.ajax({
-                    url:"/deleteBoardComment.dox",
+                    url:"/bagStrap/deleteBoardComment.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -816,13 +816,13 @@
                 });
             },            
             fnUpdate(boardId){
-                $.pageChange("/study-comm-Update",{boardId : boardId});
+                $.pageChange("/bagStrap/study-comm-Update",{boardId : boardId});
             },
             fnhide(boardstatus){
                 var self = this;
                 var nparmap = {boardId : self.boardId, boardstatus : boardstatus };
                 $.ajax({
-                    url:"/updateStatusBoard.dox",
+                    url:"/bagStrap/updateStatusBoard.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -833,7 +833,7 @@
                         }else{
                             alert("숨김처리 완료");
                         }
-                        location.href="study-comm"
+                        location.href="bagStrap/study-comm"
                     }
                 });
             },    
@@ -841,14 +841,14 @@
                 var self = this;
                 var nparmap = {boardId : self.boardId};
                 $.ajax({
-                    url:"/deleteBoard.dox",
+                    url:"/bagStrap/deleteBoard.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
                     success : function(data) { 
                        
                         alert(data.message);
-                        location.href="/study-comm"
+                        location.href="/bagStrap/study-comm"
                     }
                 });
             },            
@@ -860,20 +860,20 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				location.href="commInsert"					
+				location.href="bagStrap/commInsert"
 				}
             },
             fnBack(){
                 history.back();
             },
             fnBoardTypeList(boardTypeId,name){
-                $.pageChange("/study-comm",{boardTypeId2 : boardTypeId, name : name});
+                $.pageChange("/bagStrap/study-comm",{boardTypeId2 : boardTypeId, name : name});
             },        
             fnView(){
                 var self = this;
                 var nparmap = {boardId : self.boardId};
                 $.ajax({
-                    url:"/selectCommView.dox",
+                    url:"/bagStrap/selectCommView.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -888,7 +888,7 @@
                 var self = this;
                 var nparmap = {};
                 $.ajax({
-                    url:"sharedHeader.dox",
+                    url:"bagStrap/sharedHeader.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -919,7 +919,7 @@
 
                 var nparmap = {boardId : self.boardId,contents : self.contents,userId : self.sessionUserId };
                 $.ajax({
-                    url:"/insertViewComment.dox",
+                    url:"/bagStrap/insertViewComment.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -931,7 +931,7 @@
                             formData.append('file1', self.file);
                             formData.append('idx', idx);
                             $.ajax({
-                                url: '/fileUpload.dox',
+                                url: '/bagStrap/fileUpload.dox',
                                 type: 'POST',
                                 data: formData,
                                 processData: false,  
@@ -980,7 +980,7 @@
                 var nparmap = {boardId : boardId,
                                userId : self.sessionUserId};
                 $.ajax({
-                    url:"/insertCommLike.dox",
+                    url:"/bagStrap/insertCommLike.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -995,7 +995,7 @@
                 var nparmap = {boardId : boardId,
                                userId : self.sessionUserId};
                 $.ajax({
-                    url:"/insertCommentLike.dox",
+                    url:"/bagStrap/insertCommentLike.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -1010,7 +1010,7 @@
                 var nparmap = {boardId : boardId,
                                userId : self.sessionUserId};
                 $.ajax({
-                    url:"/deleteCommentLike.dox",
+                    url:"/bagStrap/deleteCommentLike.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -1025,7 +1025,7 @@
                 var nparmap = {boardId : boardId,
                                userId : self.sessionUserId};
                 $.ajax({
-                    url:"/deleteCommentLike.dox",
+                    url:"/bagStrap/deleteCommentLike.dox",
                     dataType:"json",    
                     type : "POST", 
                     data : nparmap,
@@ -1049,7 +1049,7 @@
                     userId: self.sessionUserId
                 };
                 $.ajax({
-                    url: "/selectLikeCheck.dox",
+                    url: "/bagStrap/selectLikeCheck.dox",
                     dataType: "json",
                     type: "POST",
                     data: nparmap,
@@ -1080,7 +1080,7 @@
                 });
             },
 			fnUserboard(author,userNickName){
-		     	 $.pageChange("/study-comm-myboard",{author : author, itemMode : "board", userNickName : userNickName});
+		     	 $.pageChange("/bagStrap/study-comm-myboard",{author : author, itemMode : "board", userNickName : userNickName});
 	  	    }, 
 			fnLogin(){
 				var self = this;
@@ -1090,7 +1090,7 @@
 
 				};
 				$.ajax({
-					url:"/login.dox",
+					url:"/bagStrap/login.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

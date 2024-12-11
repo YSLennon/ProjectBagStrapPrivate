@@ -669,7 +669,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"/selectOrderComplete.dox",
+					url:"/bagStrap/selectOrderComplete.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -687,11 +687,11 @@
             },
 			goToDetail(str, id){
 				if(str === 'book'){
-					$.pageChange("/shop/detail", {bookId:id})
+					$.pageChange("/bagStrap/shop/detail", {bookId:id})
 				} else if(str === 'study'){
-					$.pageChange("/study-group-detail", {boardNo:id})
+					$.pageChange("/bagStrap/study-group-detail", {boardNo:id})
 				} else {
-					$.pageChange("/study-group-list", {subjectTypeId: 2000})
+					$.pageChange("/bagStrap/study-group-list", {subjectTypeId: 2000})
 				}
 			}
         },

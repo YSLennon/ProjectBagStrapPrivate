@@ -485,7 +485,7 @@
 				pageSize: self.pageSize
 				};
 				$.ajax({
-					url:"/adminOrderList.dox",
+					url:"/bagStrap/adminOrderList.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -509,7 +509,7 @@
 					orderId : orderId
 				};
 				$.ajax({
-					url:"/updateOrderStatus.dox",
+					url:"/bagStrap/updateOrderStatus.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -536,7 +536,7 @@
 					orderList: JSON.stringify(list)
 				};
 				$.ajax({
-					url:"/finishRefundApplication.dox",
+					url:"/bagStrap/finishRefundApplication.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

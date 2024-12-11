@@ -73,8 +73,8 @@
 			<h3 class="study-comm-sidebard-h3">MyShop</h3>
 			<div class="study-comm-sidebard-section">
 	            <ul>
-	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/myshop/orders')">내 주문내역</a></li>
-	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/myshop/refunds')">내 환불내역</a></li>
+	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/myshop/orders')">내 주문내역</a></li>
+	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/myshop/refunds')">내 환불내역</a></li>
 	            </ul>
 			</div>
         </div>
@@ -82,9 +82,9 @@
 			<h3 class="study-comm-sidebard-h3">CSCenter</h3>
 			<div class="study-comm-sidebard-section">
 	            <ul>
-					<li><a href="/noticelist">공지사항</a></li>
-					<li><a href="javascript:;" @click="checkLoginAndPageChange('/inquiry')">문의하기</a></li>
-					<li><a href="javascript:;" @click="checkLoginAndPageChange('/myinquiry')">내 문의내역</a></li>
+					<li><a href="/bagStrap/noticelist">공지사항</a></li>
+					<li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/inquiry')">문의하기</a></li>
+					<li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/myinquiry')">내 문의내역</a></li>
 	            </ul>
 			</div>
         </div>
@@ -92,9 +92,9 @@
 			<h3 class="study-comm-sidebard-h3">Admin</h3>
 			<div class="study-comm-sidebard-section">
 	            <ul>
-					<li><a href="/admin/orders">주문 관리</a></li>
-					<li><a href="/admin/studyList">스터디 신청</a></li>
-					<li><a href="/admin-users">유저 관리</a></li>
+					<li><a href="/bagStrap/admin/orders">주문 관리</a></li>
+					<li><a href="/bagStrap/admin/studyList">스터디 신청</a></li>
+					<li><a href="/bagStrap/admin-users">유저 관리</a></li>
 					
 	            </ul>
 			</div>
@@ -103,8 +103,8 @@
 			<h3 class="study-comm-sidebard-h3">MyInfo</h3>
 			<div class="study-comm-sidebard-section">
 	            <ul>
-	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/myinfo')">회원정보 수정</a></li>
-	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/quit')">회원 탈퇴</a></li>
+	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/myinfo')">회원정보 수정</a></li>
+	                <li><a href="javascript:;" @click="checkLoginAndPageChange('/bagStrap/quit')">회원 탈퇴</a></li>
 	            </ul>
 			</div>
         </div>
@@ -124,7 +124,7 @@
 	        methods: {
 				fnPageChangeStudy(){
 					var self = this;
-					$.pageChange("/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+					$.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
 				},
 				checkLoginAndPageChange(path){
 					var self = this;
@@ -137,7 +137,7 @@
 				fnSession() {
 					var self = this;
 					$.ajax({
-						url: "sharedHeader.dox",
+						url: "bagStrap/sharedHeader.dox",
 						dataType: "json",	
 						type: "POST", 
 						success: function(data) {

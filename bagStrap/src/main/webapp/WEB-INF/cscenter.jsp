@@ -74,14 +74,14 @@
 				<p>※고객 문의는 로그인을 해야 합니다.</p>
 			</span>	
 			<nav class=menu>
-				<a href="noticelist">공지사항</a><hr>
-				<a href="faqlist">자주 묻는 질문</a><hr>
+				<a href="bagStrap/noticelist">공지사항</a><hr>
+				<a href="bagStrap/faqlist">자주 묻는 질문</a><hr>
 				<span v-if=isLogin>	
-					<a href="inquiry">문의하기</a><hr>
-					<a href="myinquiry">내가 한 문의</a><hr>
+					<a href="bagStrap/inquiry">문의하기</a><hr>
+					<a href="bagStrap/myinquiry">내가 한 문의</a><hr>
 				</span>
 				<span v-if=isAdmin>
-					<a href="history">문의 내역</a>
+					<a href="bagStrap/history">문의 내역</a>
 				</span>		
 			</nav>	
 		</div>

@@ -34,7 +34,7 @@
             <hr>
             <p><strong>MyShop</strong></p>
             <ul>
-                <li><a href="/myshop/orders">내 주문내역</a></li>
+                <li><a href="/bagStrap/myshop/orders">내 주문내역</a></li>
                 <li><a href="javascript:;">내 환불내역</a></li>
             </ul>
         </div>
@@ -74,7 +74,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"selectStuCommType.dox",
+					url:"bagStrap/selectStuCommType.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -87,7 +87,7 @@
 				});
             },
 			fnboardview(boardTypeId){
-				$.pageChange("/study_comm",{boardTypeId : boardTypeId});
+				$.pageChange("/bagStrap/study_comm",{boardTypeId : boardTypeId});
 			}
         },
         mounted() {

@@ -241,7 +241,7 @@
 				};
 				
 				$.ajax({
-					url: "histroy-inq.dox",
+					url: "bagStrap/histroy-inq.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: nparmap,
@@ -254,7 +254,7 @@
             },
 			fnSession() {
 			    $.ajax({
-			        url: "sharedHeader.dox",
+			        url: "bagStrap/sharedHeader.dox",
 			        dataType: "json",	
 			        type: "POST", 
 			        success: (data) => {
@@ -277,7 +277,7 @@
 					inquiryId: self.checkId	
 				};
 				$.ajax({
-					url:"update-inq.dox",
+					url:"bagStrap/update-inq.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -291,7 +291,7 @@
 				});
 			},
 			fnAnswerInq(inquiryId) {
-				$.pageChange("answerinq",{inquiryId: inquiryId});
+				$.pageChange("bagStrap/answerinq",{inquiryId: inquiryId});
 			}
         },
         mounted() {

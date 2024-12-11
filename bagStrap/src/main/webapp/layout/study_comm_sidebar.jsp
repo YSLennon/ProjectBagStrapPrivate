@@ -224,7 +224,7 @@
         },
         methods: {
 			fnStudy(){
-				location.href="/study-group-list";
+				location.href="/bagStrap/study-group-list";
 			},
 			fnboardview(boardTypeId,name){
 				var self = this;
@@ -239,7 +239,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"sharedHeader.dox",
+					url:"bagStrap/sharedHeader.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -266,7 +266,7 @@
 				var nparmap = { userId : sessionUserId
 				};
 				$.ajax({
-					url:"sidebarCnt.dox",
+					url:"bagStrap/sidebarCnt.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -284,7 +284,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"selectStuCommType.dox",
+					url:"bagStrap/selectStuCommType.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -297,10 +297,10 @@
 				});
             },
 			fnboardview(boardTypeId,name){
-				$.pageChange("/study-comm",{boardTypeId : boardTypeId, name : name});
+				$.pageChange("/bagStrap/study-comm",{boardTypeId : boardTypeId, name : name});
 			},
 			fnView(boardId){
-				 $.pageChange("/study-comm-detail",{boardId : boardId});
+				 $.pageChange("/bagStrap/study-comm-detail",{boardId : boardId});
 			},
 			fnMyboard(){
 				var self = this;
@@ -310,7 +310,7 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				 $.pageChange("/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
+				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
 				}
 		    },
 			fnMycomment(){
@@ -321,7 +321,7 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				 $.pageChange("/study-comm-myboard",{itemMode : "comment"});				
+				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "comment"});
 				}
 		    },
 			fnLogin(){
@@ -332,7 +332,7 @@
 
 				};
 				$.ajax({
-					url:"/login.dox",
+					url:"/bagStrap/login.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

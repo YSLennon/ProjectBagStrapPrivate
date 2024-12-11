@@ -378,13 +378,13 @@
 	        },
 	        methods: {
 				fnView(bookId) {
-					$.pageChange("/shop/detail", { bookId: bookId });
+					$.pageChange("/bagStrap/shop/detail", { bookId: bookId });
 				},
 				fnIntroList(){
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"selectIntroBook.dox",
+	                    url:"bagStrap/selectIntroBook.dox",
 	                    dataType:"json",
 	                    type : "POST",
 	                    data : nparmap,
@@ -398,7 +398,7 @@
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"intro.dox",
+	                    url:"bagStrap/intro.dox",
 	                    dataType:"json",
 	                    type : "POST",
 	                    data : nparmap,
@@ -411,7 +411,7 @@
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"sharedHeader.dox",
+	                    url:"bagStrap/sharedHeader.dox",
 	                    dataType:"json",    
 	                    type : "POST", 
 	                    data : nparmap,
@@ -432,10 +432,10 @@
 	                });
 	            },
 	            fnShop(){
-	                location.href="/shop";
+	                location.href="/bagStrap/shop";
 	            },
 	            fnStudy(){
-	                location.href="/study";
+	                location.href="/bagStrap/study";
 	            }
 	        },
 	        mounted() {

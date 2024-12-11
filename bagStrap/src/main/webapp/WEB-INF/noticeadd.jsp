@@ -126,7 +126,7 @@
                     };
                     //console.log(nparam);
                     $.ajax({
-                        url: "notice-add.dox",
+                        url: "bagStrap/notice-add.dox",
                         dataType: "json",	
                         type: "POST", 
                         data: nparam,
@@ -140,7 +140,7 @@
                 },
                 fnSession() {
                     $.ajax({
-                        url: "sharedHeader.dox",
+                        url: "bagStrap/sharedHeader.dox",
                         dataType: "json",	
                         type: "POST", 
                         success: (data)  => {

@@ -581,7 +581,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"/cartList.dox",
+					url:"/bagStrap/cartList.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -593,7 +593,7 @@
 				});
             },
 			fnToShop(){
-				$.pageChange("/shop/list",{category : 'All'});	
+				$.pageChange("/bagStrap/shop/list",{category : 'All'});
 			},
 			changeQuantity(book, numb){
 				var self = this;
@@ -623,7 +623,7 @@
 						quantity : item[0].quantity
 					};
 					$.ajax({
-						url:"/changeCartItem.dox",
+						url:"/bagStrap/changeCartItem.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -636,7 +636,7 @@
 			toOrder(){
 				var self = this;
 				if(self.selectedBooks.length !== 0){
-					$.pageChange("/payment/order",{orderList : self.selectedBooks, priceSum : self.priceSum});	
+					$.pageChange("/bagStrap/payment/order",{orderList : self.selectedBooks, priceSum : self.priceSum});
 				} else {
 					alert("주문할 상품을 선택해주세요");
 				}
@@ -650,7 +650,7 @@
 						bookId : bookId
 					};
 					$.ajax({
-						url:"/deleteCartItem.dox",
+						url:"/bagStrap/deleteCartItem.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

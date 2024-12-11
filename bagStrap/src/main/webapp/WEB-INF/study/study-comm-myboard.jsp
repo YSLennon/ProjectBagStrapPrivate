@@ -390,7 +390,7 @@
 			   var self = this;
                var nparmap = {studyGroupId : studyGroupId, fetchappuserid : fetchappuserid};
                $.ajax({
-                   url: "updateStuGroupHide.dox",
+                   url: "bagStrap/updateStuGroupHide.dox",
                    dataType: "json",	
                    type: "POST", 
                    data: nparmap,
@@ -424,7 +424,7 @@
                 var self = this;
                 var nparmap = {};
                 $.ajax({
-                    url: "sharedHeader.dox",
+                    url: "bagStrap/sharedHeader.dox",
                     dataType: "json",	
                     type: "POST", 
                     data: nparmap,
@@ -454,7 +454,7 @@
                     outputNumber: outputNumber 
                 };
                 $.ajax({
-                    url: "myCnt.dox",
+                    url: "bagStrap/myCnt.dox",
                     dataType: "json",	
                     type: "POST", 
                     data: nparmap,
@@ -474,10 +474,10 @@
                 });
             },
             fnBoardDetail(boardId) {
-                $.pageChange("/study-comm-detail", { boardId: boardId });
+                $.pageChange("/bagStrap/study-comm-detail", { boardId: boardId });
             },
 			fnStudyHome(studyGroupId) {
-                $.pageChange("/study-mygroup-detail", { studyGroupId: studyGroupId });
+                $.pageChange("/bagStrap/study-mygroup-detail", { studyGroupId: studyGroupId });
             },
         },
         mounted() {

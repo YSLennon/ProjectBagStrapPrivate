@@ -48,7 +48,7 @@
 				fnGetCategoryList(){
 					var self = this;
 				    $.ajax({
-				        url: '/selectCategory.dox',
+				        url: '/bagStrap/selectCategory.dox',
 				        type: 'POST',
 				        contentType: 'application/json',  // JSON으로 보낼 것을 명시
 				        success: function(data) {
@@ -63,7 +63,7 @@
 		        fnSearch() {
 		            var self = this;
 		            $.ajax({
-		                url: '/search1',
+		                url: '/bagStrap/search1',
 		                type: 'GET',
 		                data: { query: self.query },
 		                success: function(data) {
@@ -94,7 +94,7 @@
 				fnCreateDB() {
 				    var self = this;
 				    $.ajax({
-				        url: '/addBook.dox',
+				        url: '/bagStrap/addBook.dox',
 				        type: 'POST',
 				        contentType: 'application/json',  // JSON으로 보낼 것을 명시
 				        data: JSON.stringify({ bookList: self.parMap }),  // 데이터를 JSON 문자열로 변환
@@ -137,7 +137,7 @@
 </head>
 <body>
     <h1>Book Search</h1>
-    <form action="/searchBook" method="get">
+    <form action="/bagStrap/searchBook" method="get">
         <input type="text" name="query" placeholder="책 제목을 입력하세요" required>
         <button type="submit">검색</button>
     </form>

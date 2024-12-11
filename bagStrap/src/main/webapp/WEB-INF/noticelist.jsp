@@ -213,7 +213,7 @@
 				};
 				
 				$.ajax({
-					url:"notice-list.dox",
+					url:"bagStrap/notice-list.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -226,10 +226,10 @@
 				});
             },
 			fnDetail(noticeId){
-				$.pageChange("noticedetail",{noticeId: noticeId});
+				$.pageChange("bagStrap/noticedetail",{noticeId: noticeId});
 			},
 			goAddNotice() {
-			    location.href = "noticeadd"; // 공지사항 추가 페이지로 이동
+			    location.href = "bagStrap/noticeadd"; // 공지사항 추가 페이지로 이동
 			}
 
         },

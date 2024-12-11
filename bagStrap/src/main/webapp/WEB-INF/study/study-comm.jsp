@@ -357,12 +357,12 @@
         },
         methods: {
 			fnInsertComm() {
-				location.href = "commInsert";
+				location.href = "bagStrap/commInsert";
 			},
 			fnboardtypeList() {
 				var self = this;
 				$.ajax({
-					url: "selectStuCommType.dox",
+					url: "bagStrap/selectStuCommType.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: {},
@@ -390,7 +390,7 @@
 					period: period 
 				};
 				$.ajax({
-					url: "selectStuCommListBoard.dox",
+					url: "bagStrap/selectStuCommListBoard.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: nparmap,
@@ -414,7 +414,7 @@
 			fnSession() {
 				var self = this;
 				$.ajax({
-					url: "sharedHeader.dox",
+					url: "bagStrap/sharedHeader.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: {},
@@ -433,10 +433,10 @@
 				});
 			},
 			fnView(boardId) {
-				$.pageChange("/study-comm-detail", { boardId: boardId });
+				$.pageChange("/bagStrap/study-comm-detail", { boardId: boardId });
 			},
 			fnUserboard(author, userNickName) {
-				$.pageChange("/study-comm-myboard", { author: author, itemMode: "board", userNickName: userNickName });
+				$.pageChange("/bagStrap/study-comm-myboard", { author: author, itemMode: "board", userNickName: userNickName });
 			},
 			fnInsertComm(){
 				var self = this;

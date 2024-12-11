@@ -1396,7 +1396,7 @@
 			
 	        methods: {		
 				fnView(bookId) {
-					$.pageChange("/shop/detail", { bookId: bookId });
+					$.pageChange("bagStrap//shop/detail", { bookId: bookId });
 				},
 				scrollToBottom() {
 						       this.$nextTick(() => {
@@ -1413,7 +1413,7 @@
 								   startIndex: startIndex, 
 								   outputNumber: outputNumber, };
 					$.ajax({
-						url:"selectStuGroupSubscriptionSearchPage.dox",
+						url:"bagStrap/selectStuGroupSubscriptionSearchPage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1430,7 +1430,7 @@
 					var self = this;
 					var nparmap = {fetchapplicationid : fetchapplicationid,studygoal : studygoal };
 					$.ajax({
-						url:"updateStuGoal.dox",
+						url:"bagStrap/updateStuGoal.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1449,7 +1449,7 @@
 					var self = this;
 					var nparmap = {messageId : messageId};
 					$.ajax({
-						url:"deletGroupMessage.dox",
+						url:"bagStrap/deletGroupMessage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1464,7 +1464,7 @@
 					var self = this;
 					var nparmap = {studyGroupId : self.studyGroupId};
 					$.ajax({
-						url:"selectStuGroupMessage.dox",
+						url:"bagStrap/selectStuGroupMessage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1484,7 +1484,7 @@
 				            messageContent : self.messageContent
 				        };
 				        $.ajax({
-				            url:"insertStuGroupMessage.dox",
+				            url:"bagStrap/insertStuGroupMessage.dox",
 				            dataType:"json",  
 				            type : "POST", 
 				            data : nparmap,
@@ -1496,7 +1496,7 @@
 				                    formData.append('file1', self.file);
 				                    formData.append('idx', idx);
 				                    $.ajax({
-				                        url: '/fileUpload.dox',
+				                        url: '/bagStrap/fileUpload.dox',
 				                        type: 'POST',
 				                        data: formData,
 				                        processData: false,  
@@ -1528,14 +1528,14 @@
 					var nparmap = { studyGroupId : self.studyGroupId
 					};
 					$.ajax({
-						url:"deleteStuGroup.dox",
+						url:"bagStrap/deleteStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
 						success : function(data) { 
 							 
 							alert("그룹 삭제 완료..bye bye~");
-							location.href="/study-group-list";
+							location.href="/bagStrap/study-group-list";
 							
 						}
 					});
@@ -1557,7 +1557,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"updateStuGroupJoin.dox",
+						url:"bagStrap/updateStuGroupJoin.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1579,7 +1579,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid, sessionId : self.sessionUserId
 					};
 					$.ajax({
-						url:"updateStuGroupBossDelegation.dox",
+						url:"bagStrap/updateStuGroupBossDelegation.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1607,7 +1607,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"deleteStuGroupUnblocking.dox",
+						url:"bagStrap/deleteStuGroupUnblocking.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1635,7 +1635,7 @@
 									rejectionMessage : self.rejectionMessage
 					};
 					$.ajax({
-						url:"updateStuGroupLeave.dox",
+						url:"bagStrap/updateStuGroupLeave.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1653,7 +1653,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"updateStuGroupLeaveMode.dox",
+						url:"bagStrap/updateStuGroupLeaveMode.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1682,7 +1682,7 @@
 									description : description, maxParticipants : maxparticipants
 					};
 					$.ajax({
-						url:"updateStuGroup.dox",
+						url:"bagStrap/updateStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1695,7 +1695,7 @@
 								  formData.append('file1', self.file);
 								  formData.append('idx', idx);
 								  $.ajax({
-										url: '/fileUpload.dox',
+										url: '/bagStrap/fileUpload.dox',
 										type: 'POST',
 										data: formData,
 										processData: false,  
@@ -1746,7 +1746,7 @@
                var nparmap = { boardTypeId : boardTypeId
                };
                $.ajax({
-                  url:"selectStuGroupInsertBoardType.dox",
+                  url:"bagStrap/selectStuGroupInsertBoardType.dox",
                   dataType:"json",   
                   type : "POST", 
                   data : nparmap,
@@ -1781,7 +1781,7 @@
                     const self = this;
                     const nparmap = { studyGroupId: self.studyGroupId };
                     $.ajax({
-                        url: "selectStuGroupDetail.dox",
+                        url: "bagStrap/selectStuGroupDetail.dox",
                         dataType: "json",
                         type: "POST",
                         data: nparmap,
@@ -1798,7 +1798,7 @@
                    const self = this;
                    const nparmap = { category : category  };
                    $.ajax({
-                       url: "selectTop5.dox",
+                       url: "bagStrap/selectTop5.dox",
                        dataType: "json",
                        type: "POST",
                        data: nparmap,
@@ -1812,7 +1812,7 @@
                     const self = this;
                     const nparmap = { userId : userId, sessionId : self.sessionUserId, studyGroupId : studyGroupId   };
                     $.ajax({
-                        url: "selectStuGroupUserSearch.dox",
+                        url: "bagStrap/selectStuGroupUserSearch.dox",
                         dataType: "json",
                         type: "POST",
                         data: nparmap,
@@ -1831,7 +1831,7 @@
                var nparmap = {
                };
                $.ajax({
-                  url:"sharedHeader.dox",
+                  url:"bagStrap/sharedHeader.dox",
                   dataType:"json",   
                   type : "POST", 
                   data : nparmap,

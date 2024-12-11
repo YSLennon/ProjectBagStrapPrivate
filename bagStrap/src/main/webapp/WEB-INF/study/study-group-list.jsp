@@ -342,7 +342,7 @@
 	        },
 	        methods: {
 				fnDetail(boardId) {
-					$.pageChange("/study-group-detail", { boardNo: boardId });
+					$.pageChange("/bagStrap/study-group-detail", { boardNo: boardId });
 				},
 				fnFullView(){
 					var self = this;
@@ -364,7 +364,7 @@
 						document.getElementById('inputId').focus();
 						return;
 					}else{
-					location.href="/study-group-insert";						
+					location.href="/bagStrap/study-group-insert";
 					}
 				},
 				fnGetList(page = 1){
@@ -379,7 +379,7 @@
 									outputNumber: outputNumber , search : self.search
 					};
 					$.ajax({
-						url:"/selectStuGroupListSidebar.dox",
+						url:"/bagStrap/selectStuGroupListSidebar.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -396,7 +396,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"sharedHeader.dox",
+						url:"bagStrap/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

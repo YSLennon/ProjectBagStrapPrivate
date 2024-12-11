@@ -159,7 +159,7 @@
 					userId: self.sessionUserId
 				};
 				$.ajax({
-					url: "/insertComm.dox",
+					url: "/bagStrap/insertComm.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: nparmap,
@@ -213,7 +213,7 @@
             fnGetList() {
 				var self = this;
 				$.ajax({
-					url: "/selectMyCommCategory.dox",
+					url: "/bagStrap/selectMyCommCategory.dox",
 					dataType: "json",	
 					type: "POST", 
 					success: function(data) { 
@@ -224,7 +224,7 @@
 			fnSession() {
 				var self = this;
 				$.ajax({
-					url: "sharedHeader.dox",
+					url: "bagStrap/sharedHeader.dox",
 					dataType: "json",	
 					type: "POST", 
 					success: function(data) {

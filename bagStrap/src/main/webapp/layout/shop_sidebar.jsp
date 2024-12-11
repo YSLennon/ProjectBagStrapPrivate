@@ -242,7 +242,7 @@
 
 				    };
 				    $.ajax({
-				        url: "/getBookCat.dox", // 서버의 URL
+				        url: "/bagStrap/getBookCat.dox", // 서버의 URL
 				        dataType: "json",
 				        type: "POST",
 				        data: nparmap, // 검색어 데이터를 함께 전송

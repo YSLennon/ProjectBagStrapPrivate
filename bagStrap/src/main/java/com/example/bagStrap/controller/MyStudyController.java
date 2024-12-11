@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/bagStrap")
 public class MyStudyController {
 
 	@RequestMapping("/mystudy/calendar") 

@@ -74,7 +74,7 @@
 				});
 			},
 			ToMy() {
-				location.href = "myinquiry"; // 목록 페이지로 이동
+				location.href = "bagStrap/myinquiry"; // 목록 페이지로 이동
 			}
         },
         mounted() {

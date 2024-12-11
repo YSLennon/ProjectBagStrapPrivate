@@ -19,6 +19,7 @@ import com.example.bagStrap.dao.BookSearchService;
 import com.google.gson.Gson;
 
 @RestController
+@RequestMapping("/bagStrap")
 public class NaverBookSearchController {
 
     @Autowired

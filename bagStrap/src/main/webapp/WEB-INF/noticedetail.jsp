@@ -91,7 +91,7 @@
 					keyword: self.noticeId
 				};
 				$.ajax({
-					url: "notice-detail.dox",
+					url: "bagStrap/notice-detail.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -102,7 +102,7 @@
 				});
 			},
 			ToList() {
-				location.href = "noticelist"; // 목록 페이지로 이동
+				location.href = "bagStrap/noticelist"; // 목록 페이지로 이동
 			}
         },
         mounted() {

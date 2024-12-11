@@ -160,7 +160,7 @@
 		            };
 		            
 		            $.ajax({
-		                url: "/selectMyReview.dox", 
+		                url: "/bagStrap/selectMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -182,7 +182,7 @@
 						reviewComment: self.reviewComment
 		            };
 		            $.ajax({
-		                url: "/updateMyReview.dox", 
+		                url: "/bagStrap/updateMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -190,7 +190,7 @@
 						
 							if(data.result){
 								alert(data.message);
-								location.href="/myshop/orders";
+								location.href="/bagStrap/myshop/orders";
 							}
 						}
 		            });
@@ -203,7 +203,7 @@
 						reviewComment: self.reviewComment
 		            };
 		            $.ajax({
-		                url: "/insertMyReview.dox", 
+		                url: "/bagStrap/insertMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -211,7 +211,7 @@
 							
 							if(data.result){
 								alert(data.message);
-								location.href="/myshop/orders";
+								location.href="/bagStrap/myshop/orders";
 							}
 						}
 		            });
@@ -222,7 +222,7 @@
 		                bookId: self.book.bookId,
 		            };
 		            $.ajax({
-		                url: "/deleteMyReview.dox", 
+		                url: "/bagStrap/deleteMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -230,7 +230,7 @@
 							
 							if(data.result){
 								alert(data.message);
-								location.href="/myshop/orders";
+								location.href="/bagStrap/myshop/orders";
 							}
 						}
 		            });

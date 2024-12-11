@@ -65,7 +65,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"sharedHeader.dox",
+					url:"bagStrap/sharedHeader.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -92,7 +92,7 @@
 				var nparmap = { userId : sessionUserId
 				};
 				$.ajax({
-					url:"sidebarCnt.dox",
+					url:"bagStrap/sidebarCnt.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -109,7 +109,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"selectStuCommType.dox",
+					url:"bagStrap/selectStuCommType.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -122,22 +122,22 @@
 				});
             },
 			fnboardview(boardTypeId,name){
-				$.pageChange("/study-comm",{boardTypeId : boardTypeId, name : name});
+				$.pageChange("/bagStrap/study-comm",{boardTypeId : boardTypeId, name : name});
 			},
 			fnView(boardId){
-				 $.pageChange("/study-comm-detail",{boardId : boardId});
+				 $.pageChange("/bagStrap/study-comm-detail",{boardId : boardId});
 			},
 			fnMyboard(){
-				 $.pageChange("/study-comm-myboard",{itemMode : "board"});
+				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "board"});
 		    },
 			fnMycomment(){
-				 $.pageChange("/study-comm-myboard",{itemMode : "comment"});
+				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "comment"});
 		    },
 			fnMoveComm(){
-				location.href="/study-comm"
+				location.href="/bagStrap/study-comm"
 			},
 			fnMoveGroup(){
-				location.href="/study-group-list"
+				location.href="/bagStrap/study-group-list"
 			},
         },
         mounted() {

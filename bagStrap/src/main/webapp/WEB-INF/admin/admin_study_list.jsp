@@ -337,7 +337,7 @@
 				currentPage: currentPage
 				};
 				$.ajax({
-					url:"/selectStudyGroupForAdmin.dox",
+					url:"/bagStrap/selectStudyGroupForAdmin.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -356,7 +356,7 @@
 					studyGroupId: studyGroupId
 				};
 				$.ajax({
-					url:"/updateStudyGroupForAdmin.dox",
+					url:"/bagStrap/updateStudyGroupForAdmin.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -374,7 +374,7 @@
 					studyGroupId: studyGroupId
 				};
 				$.ajax({
-					url:"/deleteStudyGroupForAdmin.dox",
+					url:"/bagStrap/deleteStudyGroupForAdmin.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -386,7 +386,7 @@
 				});
 			},
 			goToDetail(id){
-					$.pageChange("/study-group-detail", {boardNo:id})
+					$.pageChange("/bagStrap/study-group-detail", {boardNo:id})
 			}
         },
         mounted() {

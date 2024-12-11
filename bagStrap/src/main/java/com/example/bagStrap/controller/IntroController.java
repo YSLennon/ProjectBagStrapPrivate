@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 @Controller
+@RequestMapping("/bagStrap")
 public class IntroController {
 	
 	@Autowired

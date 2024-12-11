@@ -329,7 +329,7 @@
 						var nparmap = { userId : sessionUserId
 						};
 						$.ajax({
-							url:"sidebarCnt.dox",
+							url:"bagStrap/sidebarCnt.dox",
 							dataType:"json",	
 							type : "POST", 
 							data : nparmap,
@@ -350,7 +350,7 @@
 	   					document.getElementById('inputId').focus();
 	   					
 	   				}else{
-	   				 $.pageChange("/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
+	   				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
 	   				}
 	   		    },
 				fnMoveAge(Age) {
@@ -397,7 +397,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"/selectMyCommCategory.dox",
+						url:"/bagStrap/selectMyCommCategory.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -412,7 +412,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"sharedHeader.dox",
+						url:"bagStrap/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

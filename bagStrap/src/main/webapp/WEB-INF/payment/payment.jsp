@@ -78,7 +78,7 @@
 					// buyer_postcode: "123-456",
 				};
 				$.ajax({
-					url:"itemList.dox",
+					url:"bagStrap/itemList.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -119,7 +119,7 @@
 					
 				};
 				$.ajax({
-					url:"/refund.dox",
+					url:"/bagStrap/refund.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

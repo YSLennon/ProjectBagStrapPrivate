@@ -304,7 +304,7 @@
 					var nparmap = { userId : userId , idx : idx
 					};
 					$.ajax({
-						url:"insertStuGroupKingApply.dox",
+						url:"bagStrap/insertStuGroupKingApply.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -386,7 +386,7 @@
 									relatedBook : self.relatedBook, description : self.description
 					};
 					$.ajax({
-						url:"insertStuGroup.dox",
+						url:"bagStrap/insertStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -400,14 +400,14 @@
 								  formData.append('file1', self.file);
 								  formData.append('idx', idx);
 								  $.ajax({
-										url: '/fileUpload.dox',
+										url: '/bagStrap/fileUpload.dox',
 										type: 'POST',
 										data: formData,
 										processData: false,  
 										contentType: false,  
 										success: function() {
 										 alert("개설 신청이 완료 되었습니다. 관리자 확인후 개설됩니다.");
-										  location.href = "/study-group-list";
+										  location.href = "/bagStrap/study-group-list";
 										  self.filePreview = "";
 										},
 										error: function(jqXHR, textStatus, errorThrown) {
@@ -416,7 +416,7 @@
 								  });		
 							  } else {
 								alert("개설 신청이 완료 되었습니다. 관리자 확인후 개설됩니다.");
-								  location.href = "/study-group-list";
+								  location.href = "/bagStrap/study-group-list";
 								  self.filePreview = "";
 							  }		
 						}
@@ -445,7 +445,7 @@
 					var nparmap = { boardTypeId : boardTypeId
 					};
 					$.ajax({
-						url:"selectStuGroupInsertBoardType.dox",
+						url:"bagStrap/selectStuGroupInsertBoardType.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -460,7 +460,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"selectMyCommCategory.dox",
+						url:"bagStrap/selectMyCommCategory.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -475,7 +475,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"sharedHeader.dox",
+						url:"bagStrap/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

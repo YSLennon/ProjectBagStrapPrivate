@@ -110,7 +110,7 @@
 					keyword:self.keyword
 				};
 				$.ajax({
-					url:"/join.dox",
+					url:"/bagStrap/join.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparam,
@@ -127,7 +127,7 @@
 					ban:ban
 				};
 				$.ajax({
-					url:"/updateAdmin.dox",
+					url:"/bagStrap/updateAdmin.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparam,

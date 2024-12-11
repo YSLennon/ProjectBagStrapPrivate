@@ -45,7 +45,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"sharedHeader.dox",
+						url:"bagStrap/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
