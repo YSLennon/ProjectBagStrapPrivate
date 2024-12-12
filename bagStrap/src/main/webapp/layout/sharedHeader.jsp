@@ -330,7 +330,7 @@
 	<header id="sharedHeader" class="header">
 
 	        <div class="header-logo">
-	            <a href="/intro">			
+	            <a href="/bagStrap/intro">
 	                현이의 가방끈 
 	            </a>
 	        </div>
