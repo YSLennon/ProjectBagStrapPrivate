@@ -30,7 +30,7 @@ COPY --from=build --chown=worker:worker /app/target/*.war ./app.war
 
 USER worker:worker
 
-ENV PROFILE=${PROFILE}
+ENV PROFILE="docker"
 
 EXPOSE 8080
 
