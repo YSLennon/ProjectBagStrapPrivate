@@ -90,7 +90,7 @@
 				    };
 				   
 				    $.ajax({
-				        url: "bagStrap/answer-inq.dox",
+				        url: "${pageContext.request.contextPath}/answer-inq.dox",
 				        dataType: "json",	
 				        type: "POST", 
 				        data: nparam,
@@ -98,14 +98,14 @@
 				        	
 				            alert(data.message);
  				            if (data.result === "success") {
-				                location.href = "bagStrap/history";
+				                location.href = "${pageContext.request.contextPath}/history";
 				            } 
 				        }
 				    });
 				},
 				fnSession() {
 				    $.ajax({
-				        url: "bagStrap/sharedHeader.dox",
+				        url: "${pageContext.request.contextPath}/sharedHeader.dox",
 				        dataType: "json",	
 				        type: "POST", 
 				        success: (data) => {

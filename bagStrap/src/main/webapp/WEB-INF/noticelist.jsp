@@ -213,7 +213,7 @@
 				};
 				
 				$.ajax({
-					url:"bagStrap/notice-list.dox",
+					url:"${pageContext.request.contextPath}/notice-list.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -226,10 +226,10 @@
 				});
             },
 			fnDetail(noticeId){
-				$.pageChange("bagStrap/noticedetail",{noticeId: noticeId});
+				$.pageChange("${pageContext.request.contextPath}/noticedetail",{noticeId: noticeId});
 			},
 			goAddNotice() {
-			    location.href = "bagStrap/noticeadd"; // 공지사항 추가 페이지로 이동
+			    location.href = "${pageContext.request.contextPath}/noticeadd"; // 공지사항 추가 페이지로 이동
 			}
 
         },

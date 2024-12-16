@@ -581,7 +581,7 @@ s<%@ page language="java" contentType="text/html; charset=UTF-8"
 					orderId : self.orderId
 				};
 				$.ajax({
-					url:"/bagStrap/orderListForRefund.dox",
+					url:"${pageContext.request.contextPath}/orderListForRefund.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -712,7 +712,7 @@ s<%@ page language="java" contentType="text/html; charset=UTF-8"
 					imp : self.imp
 				};
 				$.ajax({
-					url:"/bagStrap/refund.dox",
+					url:"${pageContext.request.contextPath}/refund.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -729,7 +729,7 @@ s<%@ page language="java" contentType="text/html; charset=UTF-8"
 								  formData.append('file1', self.file);
 								  formData.append('idx', idx);
 								  $.ajax({
-										url: '/bagStrap/fileUpload.dox',
+										url: '${pageContext.request.contextPath}/fileUpload.dox',
 										type: 'POST',
 										data: formData,
 										processData: false,  
@@ -737,7 +737,7 @@ s<%@ page language="java" contentType="text/html; charset=UTF-8"
 										success: function() {
 											alert(message);
 										  self.filePreview = "";
-										  location.href = "/bagStrap/myshop/refunds";
+										  location.href = "${pageContext.request.contextPath}/myshop/refunds";
 
 										},
 										error: function(jqXHR, textStatus, errorThrown) {
@@ -746,7 +746,7 @@ s<%@ page language="java" contentType="text/html; charset=UTF-8"
 								  });		
 							  } else {
 								alert(message);
-								location.href = "/bagStrap/myshop/refunds";
+								location.href = "${pageContext.request.contextPath}/myshop/refunds";
 							  }		
 						}
 						

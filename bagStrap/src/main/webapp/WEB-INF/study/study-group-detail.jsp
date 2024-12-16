@@ -327,7 +327,7 @@
 									additionalQuestions : additionalQuestions				
 					   };
 		              $.ajax({
-		                  url:"/bagStrap/selectStuGroupSubscription.dox",
+		                  url:"${pageContext.request.contextPath}/selectStuGroupSubscription.dox",
 		                  dataType:"json",    
 		                  type : "POST", 
 		                  data : nparmap,
@@ -353,7 +353,7 @@
 									additionalQuestions : additionalQuestions				
 					   };
 		              $.ajax({
-		                  url:"/bagStrap/insertStuGroupApply.dox",
+		                  url:"${pageContext.request.contextPath}/insertStuGroupApply.dox",
 		                  dataType:"json",    
 		                  type : "POST", 
 		                  data : nparmap,
@@ -384,7 +384,7 @@
                     const self = this;
                     const nparmap = { studyGroupId: self.boardNo };
                     $.ajax({
-                        url: "bagStrap/selectStuGroupDetail.dox",
+                        url: "${pageContext.request.contextPath}/selectStuGroupDetail.dox",
                         dataType: "json",
                         type: "POST",
                         data: nparmap,
@@ -397,7 +397,7 @@
                 fnSession() {
                     const self = this;
                     $.ajax({
-                        url: "bagStrap/sharedHeader.dox",
+                        url: "${pageContext.request.contextPath}/sharedHeader.dox",
                         dataType: "json",
                         type: "POST",
                         success: function(data) {

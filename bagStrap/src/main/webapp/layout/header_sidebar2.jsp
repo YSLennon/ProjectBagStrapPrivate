@@ -33,7 +33,7 @@
             <hr>
             <p><strong>MyShop</strong></p>
             <ul>
-                <li><a href="/bagStrap/myshop/orders">내 주문내역</a></li>
+                <li><a href="${pageContext.request.contextPath}/myshop/orders">내 주문내역</a></li>
                 <li><a href="javascript:;">내 환불내역</a></li>
             </ul>
         </div>
@@ -73,7 +73,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"bagStrap/selectStuCommType.dox",
+					url:"${pageContext.request.contextPath}/selectStuCommType.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -86,7 +86,7 @@
 				});
             },
 			fnboardview(boardTypeId){
-				$.pageChange("/bagStrap/study_comm",{boardTypeId : boardTypeId});
+				$.pageChange("${pageContext.request.contextPath}/study_comm",{boardTypeId : boardTypeId});
 			}
         },
         mounted() {

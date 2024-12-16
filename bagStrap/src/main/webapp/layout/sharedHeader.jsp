@@ -330,7 +330,7 @@
 	<header id="sharedHeader" class="header">
 
 	        <div class="header-logo">
-	            <a href="/bagStrap/intro">
+	            <a href="${pageContext.request.contextPath}/intro">
 	                현이의 가방끈 
 	            </a>
 	        </div>
@@ -338,7 +338,7 @@
 	        <nav class="header-menu">
 	            <ul class="header-menu-list">
 	                <li class="header-menu-item">
-	                    <a href="/bagStrap/intro">HOME</a>
+	                    <a href="${pageContext.request.contextPath}/intro">HOME</a>
 	                </li>
 	                <li class="header-menu-item">
 	                    <a href="javascript:;" @click="fnToShop('All')">SHOP</a>
@@ -350,16 +350,16 @@
 -->	                    </ul>
 	                </li>
 	                <li class="header-menu-item">
-	                    <a href="/bagStrap/study-group-list">STUDY</a>
+	                    <a href="${pageContext.request.contextPath}/study-group-list">STUDY</a>
 	                </li>
 	                <li class="header-menu-item">
-	                    <a href="/bagStrap/study-comm">COMMUNITY</a>
+	                    <a href="${pageContext.request.contextPath}/study-comm">COMMUNITY</a>
 	                </li>
 	                <li class="header-menu-item">
-	                    <a href="/bagStrap/study-group-event">EVENT</a>
+	                    <a href="${pageContext.request.contextPath}/study-group-event">EVENT</a>
 	                </li>
 	                <li class="header-menu-item">
-	                    <a href="/bagStrap/faqlist">FAQ</a>
+	                    <a href="${pageContext.request.contextPath}/faqlist">FAQ</a>
 	                </li>												
 	            </ul>
 	        </nav>
@@ -371,22 +371,22 @@
 	                    <a v-if="isLogin" class="clickableText" href="javascript:;">{{sessionUserNickName}}님 안녕하세요.</a>
 	                </div>
 	                <ul class="headerloginSubMenu">
-	                    <li v-if="isLogin"><a href="/bagStrap/myinfo">MyInfo</a></li>
-	                    <li v-if="!isLogin"><a href="/bagStrap/join">Join</a></li>
+	                    <li v-if="isLogin"><a href="${pageContext.request.contextPath}/myinfo">MyInfo</a></li>
+	                    <li v-if="!isLogin"><a href="${pageContext.request.contextPath}/join">Join</a></li>
 	                    <li><a href="javascript:;" @click="fnPageChangeStudy()">MyStudy</a></li>
-	                    <li><a href="javascript:;" @click="fnPageChange('/bagStrap/myshop/orders')">MyShop</a></li>
-	                    <li v-if="isAdmin"><a href="/bagStrap/admin/orders">Admin</a></li>
+	                    <li><a href="javascript:;" @click="fnPageChange('${pageContext.request.contextPath}/myshop/orders')">MyShop</a></li>
+	                    <li v-if="isAdmin"><a href="${pageContext.request.contextPath}/admin/orders">Admin</a></li>
 	                    <li v-if="isLogin"><a href="javascript:;" @click="fnLogout()">Logout</a></li>
 	                </ul>
 	            </div>
 
 	            <div class="headerCSCenter headerCustomerSub">
-	                <a class="clickableText" href="/bagStrap/cscenter">CSCenter</a>
+	                <a class="clickableText" href="${pageContext.request.contextPath}/cscenter">CSCenter</a>
 	            </div>
 	            
 	            <!-- Cart -->
 	            <div class="headerCart headerIcon headerCustomerSub">
-	                <a href="javascript:;" @click="fnPageChange('/bagStrap/myshop/cart')">
+	                <a href="javascript:;" @click="fnPageChange('${pageContext.request.contextPath}/myshop/cart')">
 	                    <svg class="headerIcon clickableSvg" alt="icon_cart" xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
 	                        <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/>
 	                    </svg>
@@ -467,7 +467,7 @@
 						<button v-if="flg !== '' && flg !== 'confirmPwd' && flg !== 'confirmId' && flg !== 'changePwd'" @click="checkAccountInfo()">인증번호 받기</button>
 						<button v-if="flg === 'confirmPwd' || flg === 'confirmId'"@click="confirmInputNumb()">인증하기</button>
 						<button v-if="flg === 'changePwd'"@click="changePwd()">비밀번호 변경</button>
-	                    계정이 없으신가요? <a href="/bagStrap/join" style="color:#87CEFA">회원가입</a>
+	                    계정이 없으신가요? <a href="${pageContext.request.contextPath}/join" style="color:#87CEFA">회원가입</a>
 	               </div>
 	           </dialog>
 			   
@@ -510,7 +510,7 @@
 	        methods: {
 				fnPageChangeStudy(){
 					var self = this;
-					$.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+					$.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
 				},
 				fnCloseLogin(){
 					var self = this;
@@ -560,7 +560,7 @@
 						flg : self.flg
 					}
 		  			$.ajax({
-		  				url:"bagStrap/checkAccountInfo.dox",
+		  				url:"${pageContext.request.contextPath}/checkAccountInfo.dox",
 		  				dataType:"json",	
 		  				type : "POST", 
 		  				data : nparmap,
@@ -586,7 +586,7 @@
 		  			var self = this;		
 		  			var nparmap = {userPhone : self.userPhone}
 		  			$.ajax({
-		  				url:"bagStrap/confirm.dox",
+		  				url:"${pageContext.request.contextPath}/confirm.dox",
 		  				dataType:"json",	
 		  				type : "POST", 
 		  				data : nparmap,
@@ -646,7 +646,7 @@
 						password : self.password
 					}
 		  			$.ajax({
-		  				url:"bagStrap/changePwd.dox",
+		  				url:"${pageContext.request.contextPath}/changePwd.dox",
 		  				dataType:"json",	
 		  				type : "POST", 
 		  				data : nparmap,
@@ -685,7 +685,7 @@
 						pageSize: self.pageSize
 					};
 					$.ajax({
-						url:"/bagStrap/sharedHeader.dox",
+						url:"${pageContext.request.contextPath}/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -723,7 +723,7 @@
 					
 				},
 				fnToShop(categoryStr){
-					$.pageChange("/bagStrap/shop/list",{category : categoryStr});
+					$.pageChange("${pageContext.request.contextPath}/shop/list",{category : categoryStr});
 				},
 	            fnLogin(){
 					var self = this;
@@ -733,7 +733,7 @@
 
 					};
 					$.ajax({
-						url:"/bagStrap/login.dox",
+						url:"${pageContext.request.contextPath}/login.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -756,7 +756,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"/bagStrap/logout.dox",
+						url:"${pageContext.request.contextPath}/logout.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -776,7 +776,7 @@
 						notiId: notiId
 					};
 					$.ajax({
-						url:"/bagStrap/checkNoti.dox",
+						url:"${pageContext.request.contextPath}/checkNoti.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -784,18 +784,18 @@
 
 							//admin check
 							if(status === 'ADMIN'){
-								if(str.includes('스터디 요청')) location.href="/bagStrap/admin/studyList";
-								else if(str.includes('환불 요청')) location.href="/bagStrap/admin/orders";
-								else if(str.includes('고객 문의')) location.href="/bagStrap/history";
+								if(str.includes('스터디 요청')) location.href="${pageContext.request.contextPath}/admin/studyList";
+								else if(str.includes('환불 요청')) location.href="${pageContext.request.contextPath}/admin/orders";
+								else if(str.includes('고객 문의')) location.href="${pageContext.request.contextPath}/history";
 							} else {
-								if(str.includes('문의에 답변')) location.href="/bagStrap/myinquiry";
-								else if(str.includes('강퇴되었습니다'))  $.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+								if(str.includes('문의에 답변')) location.href="${pageContext.request.contextPath}/myinquiry";
+								else if(str.includes('강퇴되었습니다'))  $.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
 								else if(str.includes('가입이 거절되었습니다')) ; 
-								else if(str.includes('스터디 가입 요청')) $.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
-								else if(str.includes('가입이 승인되었습니다')) $.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
-								else if(str.includes('그룹장이 되셨습니다')) $.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
-								else if(str.includes('환불 요청')) location.href="/bagStrap/myshop/refunds";
-								else if(str.includes('생성이 승인')) $.pageChange("/bagStrap/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+								else if(str.includes('스터디 가입 요청')) $.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+								else if(str.includes('가입이 승인되었습니다')) $.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+								else if(str.includes('그룹장이 되셨습니다')) $.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
+								else if(str.includes('환불 요청')) location.href="${pageContext.request.contextPath}/myshop/refunds";
+								else if(str.includes('생성이 승인')) $.pageChange("${pageContext.request.contextPath}/study-comm-myboard", {itemMode : "board", author : self.sessionUserId});
 								}
 						}
 					});
@@ -810,7 +810,7 @@
 						notiId: notiId
 					};
 					$.ajax({
-						url:"/bagStrap/deleteNoti.dox",
+						url:"${pageContext.request.contextPath}/deleteNoti.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

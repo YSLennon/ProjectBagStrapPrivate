@@ -85,7 +85,7 @@
 				};
 				
 				$.ajax({
-					url:"/bagStrap/recheckPassword.dox",
+					url:"${pageContext.request.contextPath}/recheckPassword.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparam,
@@ -107,7 +107,7 @@
 					userId:self.userId
 				};
 				$.ajax({
-					url:"/bagStrap/deleteQuit1.dox",
+					url:"${pageContext.request.contextPath}/deleteQuit1.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparam,

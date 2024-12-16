@@ -32,7 +32,6 @@ import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 import net.nurigo.sdk.message.service.DefaultMessageService;
 
 @RestController
-@RequestMapping("/bagStrap")
 public class RestPaymentController {
 	
 	final DefaultMessageService messageService;

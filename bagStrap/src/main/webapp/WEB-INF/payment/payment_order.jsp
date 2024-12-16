@@ -268,7 +268,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"/bagStrap/selectMyAddress.dox",
+					url:"${pageContext.request.contextPath}/selectMyAddress.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -332,7 +332,7 @@
 					entrancePassword : self.entrancePassword
 				};
 				$.ajax({
-					url:"/bagStrap/order.dox",
+					url:"${pageContext.request.contextPath}/order.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -383,7 +383,7 @@
 			completeOrder(){
 				var self = this;
 				$.ajax({
-					url:"/bagStrap/completeOrder.dox",
+					url:"${pageContext.request.contextPath}/completeOrder.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : {
@@ -395,7 +395,7 @@
 					success : function(data) { 
 						
 						alert(data.message);
-						$.pageChange("/bagStrap/payment/complete", {orderId: self.data.paymentId, orderList: self.orderList, priceSum: self.priceSum})
+						$.pageChange("${pageContext.request.contextPath}/payment/complete", {orderId: self.data.paymentId, orderList: self.orderList, priceSum: self.priceSum})
 					}
 				});
 			},
@@ -406,7 +406,7 @@
 					amount : '21600' 	
 				};
 				$.ajax({
-					url:"/bagStrap/refund.dox",
+					url:"${pageContext.request.contextPath}/refund.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -464,7 +464,7 @@
 					addressNo : addressNo 	
 				};
 				$.ajax({
-					url:"/bagStrap/changeDefaultYN.dox",
+					url:"${pageContext.request.contextPath}/changeDefaultYN.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -486,7 +486,7 @@
 					addressNo : addressNo 	
 				};
 				$.ajax({
-					url:"/bagStrap/updateSaveYN.dox",
+					url:"${pageContext.request.contextPath}/updateSaveYN.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

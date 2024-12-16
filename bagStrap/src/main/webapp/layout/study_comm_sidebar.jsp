@@ -224,7 +224,7 @@
         },
         methods: {
 			fnStudy(){
-				location.href="/bagStrap/study-group-list";
+				location.href="${pageContext.request.contextPath}/study-group-list";
 			},
 			fnboardview(boardTypeId,name){
 				var self = this;
@@ -239,7 +239,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"bagStrap/sharedHeader.dox",
+					url:"${pageContext.request.contextPath}/sharedHeader.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -266,7 +266,7 @@
 				var nparmap = { userId : sessionUserId
 				};
 				$.ajax({
-					url:"bagStrap/sidebarCnt.dox",
+					url:"${pageContext.request.contextPath}/sidebarCnt.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -284,7 +284,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"bagStrap/selectStuCommType.dox",
+					url:"${pageContext.request.contextPath}/selectStuCommType.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -297,10 +297,10 @@
 				});
             },
 			fnboardview(boardTypeId,name){
-				$.pageChange("/bagStrap/study-comm",{boardTypeId : boardTypeId, name : name});
+				$.pageChange("${pageContext.request.contextPath}/study-comm",{boardTypeId : boardTypeId, name : name});
 			},
 			fnView(boardId){
-				 $.pageChange("/bagStrap/study-comm-detail",{boardId : boardId});
+				 $.pageChange("${pageContext.request.contextPath}/study-comm-detail",{boardId : boardId});
 			},
 			fnMyboard(){
 				var self = this;
@@ -310,7 +310,7 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
+				 $.pageChange("${pageContext.request.contextPath}/study-comm-myboard",{itemMode : "board", author : self.sessionUserId});
 				}
 		    },
 			fnMycomment(){
@@ -321,7 +321,7 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				 $.pageChange("/bagStrap/study-comm-myboard",{itemMode : "comment"});
+				 $.pageChange("${pageContext.request.contextPath}/study-comm-myboard",{itemMode : "comment"});
 				}
 		    },
 			fnLogin(){
@@ -332,7 +332,7 @@
 
 				};
 				$.ajax({
-					url:"/bagStrap/login.dox",
+					url:"${pageContext.request.contextPath}/login.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

@@ -1396,7 +1396,7 @@
 			
 	        methods: {		
 				fnView(bookId) {
-					$.pageChange("bagStrap//shop/detail", { bookId: bookId });
+					$.pageChange("${pageContext.request.contextPath}//shop/detail", { bookId: bookId });
 				},
 				scrollToBottom() {
 						       this.$nextTick(() => {
@@ -1413,7 +1413,7 @@
 								   startIndex: startIndex, 
 								   outputNumber: outputNumber, };
 					$.ajax({
-						url:"bagStrap/selectStuGroupSubscriptionSearchPage.dox",
+						url:"${pageContext.request.contextPath}/selectStuGroupSubscriptionSearchPage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1430,7 +1430,7 @@
 					var self = this;
 					var nparmap = {fetchapplicationid : fetchapplicationid,studygoal : studygoal };
 					$.ajax({
-						url:"bagStrap/updateStuGoal.dox",
+						url:"${pageContext.request.contextPath}/updateStuGoal.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1449,7 +1449,7 @@
 					var self = this;
 					var nparmap = {messageId : messageId};
 					$.ajax({
-						url:"bagStrap/deletGroupMessage.dox",
+						url:"${pageContext.request.contextPath}/deletGroupMessage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1464,7 +1464,7 @@
 					var self = this;
 					var nparmap = {studyGroupId : self.studyGroupId};
 					$.ajax({
-						url:"bagStrap/selectStuGroupMessage.dox",
+						url:"${pageContext.request.contextPath}/selectStuGroupMessage.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1484,7 +1484,7 @@
 				            messageContent : self.messageContent
 				        };
 				        $.ajax({
-				            url:"bagStrap/insertStuGroupMessage.dox",
+				            url:"${pageContext.request.contextPath}/insertStuGroupMessage.dox",
 				            dataType:"json",  
 				            type : "POST", 
 				            data : nparmap,
@@ -1496,7 +1496,7 @@
 				                    formData.append('file1', self.file);
 				                    formData.append('idx', idx);
 				                    $.ajax({
-				                        url: '/bagStrap/fileUpload.dox',
+				                        url: '${pageContext.request.contextPath}/fileUpload.dox',
 				                        type: 'POST',
 				                        data: formData,
 				                        processData: false,  
@@ -1528,14 +1528,14 @@
 					var nparmap = { studyGroupId : self.studyGroupId
 					};
 					$.ajax({
-						url:"bagStrap/deleteStuGroup.dox",
+						url:"${pageContext.request.contextPath}/deleteStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
 						success : function(data) { 
 							 
 							alert("그룹 삭제 완료..bye bye~");
-							location.href="/bagStrap/study-group-list";
+							location.href="${pageContext.request.contextPath}/study-group-list";
 							
 						}
 					});
@@ -1557,7 +1557,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"bagStrap/updateStuGroupJoin.dox",
+						url:"${pageContext.request.contextPath}/updateStuGroupJoin.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1579,7 +1579,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid, sessionId : self.sessionUserId
 					};
 					$.ajax({
-						url:"bagStrap/updateStuGroupBossDelegation.dox",
+						url:"${pageContext.request.contextPath}/updateStuGroupBossDelegation.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1607,7 +1607,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"bagStrap/deleteStuGroupUnblocking.dox",
+						url:"${pageContext.request.contextPath}/deleteStuGroupUnblocking.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1635,7 +1635,7 @@
 									rejectionMessage : self.rejectionMessage
 					};
 					$.ajax({
-						url:"bagStrap/updateStuGroupLeave.dox",
+						url:"${pageContext.request.contextPath}/updateStuGroupLeave.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1653,7 +1653,7 @@
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
-						url:"bagStrap/updateStuGroupLeaveMode.dox",
+						url:"${pageContext.request.contextPath}/updateStuGroupLeaveMode.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1682,7 +1682,7 @@
 									description : description, maxParticipants : maxparticipants
 					};
 					$.ajax({
-						url:"bagStrap/updateStuGroup.dox",
+						url:"${pageContext.request.contextPath}/updateStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -1695,7 +1695,7 @@
 								  formData.append('file1', self.file);
 								  formData.append('idx', idx);
 								  $.ajax({
-										url: '/bagStrap/fileUpload.dox',
+										url: '${pageContext.request.contextPath}/fileUpload.dox',
 										type: 'POST',
 										data: formData,
 										processData: false,  
@@ -1746,7 +1746,7 @@
                var nparmap = { boardTypeId : boardTypeId
                };
                $.ajax({
-                  url:"bagStrap/selectStuGroupInsertBoardType.dox",
+                  url:"${pageContext.request.contextPath}/selectStuGroupInsertBoardType.dox",
                   dataType:"json",   
                   type : "POST", 
                   data : nparmap,
@@ -1781,7 +1781,7 @@
                     const self = this;
                     const nparmap = { studyGroupId: self.studyGroupId };
                     $.ajax({
-                        url: "bagStrap/selectStuGroupDetail.dox",
+                        url: "${pageContext.request.contextPath}/selectStuGroupDetail.dox",
                         dataType: "json",
                         type: "POST",
                         data: nparmap,
@@ -1798,7 +1798,7 @@
                    const self = this;
                    const nparmap = { category : category  };
                    $.ajax({
-                       url: "bagStrap/selectTop5.dox",
+                       url: "${pageContext.request.contextPath}/selectTop5.dox",
                        dataType: "json",
                        type: "POST",
                        data: nparmap,
@@ -1812,7 +1812,7 @@
                     const self = this;
                     const nparmap = { userId : userId, sessionId : self.sessionUserId, studyGroupId : studyGroupId   };
                     $.ajax({
-                        url: "bagStrap/selectStuGroupUserSearch.dox",
+                        url: "${pageContext.request.contextPath}/selectStuGroupUserSearch.dox",
                         dataType: "json",
                         type: "POST",
                         data: nparmap,
@@ -1831,7 +1831,7 @@
                var nparmap = {
                };
                $.ajax({
-                  url:"bagStrap/sharedHeader.dox",
+                  url:"${pageContext.request.contextPath}/sharedHeader.dox",
                   dataType:"json",   
                   type : "POST", 
                   data : nparmap,

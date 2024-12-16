@@ -127,7 +127,7 @@
 					searchOption:self.searchOption,
 				};
 				$.ajax({
-					url:"bagStrap/faq-list.dox",
+					url:"${pageContext.request.contextPath}/faq-list.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

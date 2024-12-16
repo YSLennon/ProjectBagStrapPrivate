@@ -304,7 +304,7 @@
 					var nparmap = { userId : userId , idx : idx
 					};
 					$.ajax({
-						url:"bagStrap/insertStuGroupKingApply.dox",
+						url:"${pageContext.request.contextPath}/insertStuGroupKingApply.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -386,7 +386,7 @@
 									relatedBook : self.relatedBook, description : self.description
 					};
 					$.ajax({
-						url:"bagStrap/insertStuGroup.dox",
+						url:"${pageContext.request.contextPath}/insertStuGroup.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -400,14 +400,14 @@
 								  formData.append('file1', self.file);
 								  formData.append('idx', idx);
 								  $.ajax({
-										url: '/bagStrap/fileUpload.dox',
+										url: '${pageContext.request.contextPath}/fileUpload.dox',
 										type: 'POST',
 										data: formData,
 										processData: false,  
 										contentType: false,  
 										success: function() {
 										 alert("개설 신청이 완료 되었습니다. 관리자 확인후 개설됩니다.");
-										  location.href = "/bagStrap/study-group-list";
+										  location.href = "${pageContext.request.contextPath}/study-group-list";
 										  self.filePreview = "";
 										},
 										error: function(jqXHR, textStatus, errorThrown) {
@@ -416,7 +416,7 @@
 								  });		
 							  } else {
 								alert("개설 신청이 완료 되었습니다. 관리자 확인후 개설됩니다.");
-								  location.href = "/bagStrap/study-group-list";
+								  location.href = "${pageContext.request.contextPath}/study-group-list";
 								  self.filePreview = "";
 							  }		
 						}
@@ -445,7 +445,7 @@
 					var nparmap = { boardTypeId : boardTypeId
 					};
 					$.ajax({
-						url:"bagStrap/selectStuGroupInsertBoardType.dox",
+						url:"${pageContext.request.contextPath}/selectStuGroupInsertBoardType.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -460,7 +460,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"bagStrap/selectMyCommCategory.dox",
+						url:"${pageContext.request.contextPath}/selectMyCommCategory.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,
@@ -475,7 +475,7 @@
 					var nparmap = {
 					};
 					$.ajax({
-						url:"bagStrap/sharedHeader.dox",
+						url:"${pageContext.request.contextPath}/sharedHeader.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparmap,

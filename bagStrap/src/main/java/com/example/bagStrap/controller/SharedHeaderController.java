@@ -19,7 +19,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class SharedHeaderController {
 
 	@Autowired
@@ -29,34 +28,34 @@ public class SharedHeaderController {
 	
 	@RequestMapping("/myStudy")
 	public String main(Model model) throws Exception {
-		return "/header/myStudy";
+		return "header/myStudy";
 	}
 	@RequestMapping("/admin/orders")
 	public String adminOrders(Model model) throws Exception {
-		return "/admin/admin_order_list";
+		return "admin/admin_order_list";
 	}
 	@RequestMapping("/myshop/orders")
 	public String orders(Model model) throws Exception {
-		return "/header/header_myshop_orders";
+		return "header/header_myshop_orders";
 	}
 	@RequestMapping("/myshop/refund")
 	public String refund(HttpServletRequest request, Model model, @RequestParam HashMap<String, Object> map) throws Exception {
 		 request.setAttribute("orderId", map.get("orderId"));
 		 request.setAttribute("imp", map.get("imp"));
-		return "/header/header_refund";
+		return "header/header_refund";
 	}
 	@RequestMapping("/myshop/refunds") 
     public String refundList(Model model) throws Exception{
-		return "/header/header_refund_list";
+		return "header/header_refund_list";
     }
 	@RequestMapping("/myshop/cart")
 	public String cart(Model model) throws Exception {
-		return "/header/header_cart";
+		return "header/header_cart";
 	}
 
 	@RequestMapping("/admin/studyList")
 	public String adminStudyList(Model model) throws Exception {
-		return "/admin/admin_study_list";
+		return "admin/admin_study_list";
 	}
     @RequestMapping("/myshop/review") 
     public String shop_cart(HttpServletRequest request, Model model, @RequestParam HashMap<String, Object> map) throws Exception {

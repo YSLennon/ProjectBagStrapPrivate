@@ -320,7 +320,7 @@
 					keyword: self.keyword
 				};
 				$.ajax({
-					url:"/bagStrap/refundList.dox",
+					url:"${pageContext.request.contextPath}/refundList.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

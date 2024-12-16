@@ -463,7 +463,7 @@
 				var nparmap = {
 				};
 				$.ajax({
-					url:"/bagStrap/join.dox",
+					url:"${pageContext.request.contextPath}/join.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -592,7 +592,7 @@
 						gender:self.gender
 				};
 				$.ajax({
-					url:"/bagStrap/joinadd1.dox",
+					url:"${pageContext.request.contextPath}/joinadd1.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -605,14 +605,14 @@
 						  formData.append('file1', self.file);
 						  formData.append('idx', idx);
 						  $.ajax({
-								url: '/bagStrap/JoinfileUpload.dox',
+								url: '${pageContext.request.contextPath}/JoinfileUpload.dox',
 								type: 'POST',
 								data: formData,
 								processData: false,  
 								contentType: false,  
 								success: function() {
 								 
-								  location.href = "/bagStrap/intro";
+								  location.href = "${pageContext.request.contextPath}/intro";
 								  self.filePreview = "";
 								},
 								error: function(jqXHR, textStatus, errorThrown) {
@@ -620,7 +620,7 @@
 								}
 						  });		
 					  } else {
-						location.href = "/bagStrap/intro";
+						location.href = "${pageContext.request.contextPath}/intro";
 					  }		
 				}
 			});
@@ -665,7 +665,7 @@
 				userId : self.userId
 			};
 			$.ajax({
-				url:"/bagStrap/joinMultiCheck1.dox",
+				url:"${pageContext.request.contextPath}/joinMultiCheck1.dox",
 				dataType:"json",	
 				type : "POST", 
 				data : nparam,
@@ -756,7 +756,7 @@
 		     };
 
 		     $.ajax({
-		         url: "/bagStrap/nickNameMultiCheck1.dox",
+		         url: "${pageContext.request.contextPath}/nickNameMultiCheck1.dox",
 		         dataType: "json",
 		         type: "POST",
 		         data: nparam,
@@ -875,7 +875,7 @@
 		            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
 		            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
 					$.ajax({
-		 				url:"/bagStrap/addAddress1.dox",
+		 				url:"${pageContext.request.contextPath}/addAddress1.dox",
 		 				dataType:"json",	
 		 				type : "POST", 
 		 				data : nparam,

@@ -140,21 +140,21 @@
 				    };
 				   
 				    $.ajax({
-				        url: "bagStrap/inquiry-add.dox",
+				        url: "${pageContext.request.contextPath}/inquiry-add.dox",
 				        dataType: "json",	
 				        type: "POST", 
 				        data: nparam,
 				        success: function(data) { 
 				            alert(data.message);
 				            if (data.result === "success") {
-				                location.href = "bagStrap/cscenter";
+				                location.href = "${pageContext.request.contextPath}/cscenter";
 				            }
 				        }
 				    });
 				},
 				fnSession() {
 				    $.ajax({
-				        url: "bagStrap/sharedHeader.dox",
+				        url: "${pageContext.request.contextPath}/sharedHeader.dox",
 				        dataType: "json",	
 				        type: "POST", 
 				        success: (data) => {
@@ -171,7 +171,7 @@
 				    });
 				},
 				goBack(){
-					location.href="bagStrap/cscenter";
+					location.href="${pageContext.request.contextPath}/cscenter";
 				}
 		},
         mounted() {

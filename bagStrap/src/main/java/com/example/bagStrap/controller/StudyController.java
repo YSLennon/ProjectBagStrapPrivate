@@ -21,7 +21,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class StudyController {
 	
 	@Autowired
@@ -43,13 +42,13 @@ public class StudyController {
 		 request.setAttribute("boardTypeId", map.get("boardTypeId")); 
 		request.setAttribute("boardTypeId2", map.get("boardTypeId2"));
 		 request.setAttribute("name2", map.get("name"));
-		return "/study/study-comm";
+		return "study/study-comm";
 	}
 	// 스터디 커뮤니티 게시글 상세보기 
 	@RequestMapping("/study-comm-detail") 
 	 public String study_comm_default(HttpServletRequest request, Model model, @RequestParam HashMap<String, Object> map) throws Exception {
 		 request.setAttribute("boardId", map.get("boardId"));
-       return "/study/study-comm-detail";
+       return "study/study-comm-detail";
 	}       
 	// 스터디 커뮤니티 나의 게시글, 댓글 
 	@RequestMapping("/study-comm-myboard") 
@@ -83,11 +82,11 @@ public class StudyController {
 		 request.setAttribute("Age", map.get("Age"));
          return "study/study-group-list";
     }
-	// 스터디 그룹 사이드바
-	@RequestMapping("/study-group-sidebar") 
-    public String study_group_sidebar(Model model) throws Exception{
-         return "../layout/study-group-sidebar";
-    }
+//	// 스터디 그룹 사이드바
+//	@RequestMapping("/study-group-sidebar")
+//    public String study_group_sidebar(Model model) throws Exception{
+//         return "../layout/study-group-sidebar";
+//    }
 	// 스터디 그룹 상세페이지
 	@RequestMapping("/study-group-detail") 
     public String studygroupdetail(HttpServletRequest request, Model model, @RequestParam HashMap<String, Object> map) throws Exception {
@@ -245,7 +244,7 @@ public class StudyController {
 	        }catch(Exception e) {
 	            System.out.println(e);
 	        }
-	        return "redirect:/study-comm";
+	        return "redirect:"+request.getContextPath()+"/study-comm";
 	    }
 	    
 	    // 현재 시간을 기준으로 파일 이름 생성

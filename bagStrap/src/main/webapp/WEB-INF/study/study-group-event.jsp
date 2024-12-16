@@ -377,7 +377,7 @@
 		        },
 		        methods: {
 					fnView(boardId) {
-						$.pageChange("/bagStrap/study-comm-detail", { boardId: boardId });
+						$.pageChange("${pageContext.request.contextPath}/study-comm-detail", { boardId: boardId });
 					},
 					fnSee(a){
 						this.eventType = a;
@@ -387,7 +387,7 @@
 						var nparmap = { month : month
 						};
 						$.ajax({
-							url:"bagStrap/selectEvent3001.dox",
+							url:"${pageContext.request.contextPath}/selectEvent3001.dox",
 							dataType:"json",	
 							type : "POST", 
 							data : nparmap,
@@ -403,7 +403,7 @@
 						var nparmap = {
 						};
 						$.ajax({
-							url:"bagStrap/sharedHeader.dox",
+							url:"${pageContext.request.contextPath}/sharedHeader.dox",
 							dataType:"json",	
 							type : "POST", 
 							data : nparmap,

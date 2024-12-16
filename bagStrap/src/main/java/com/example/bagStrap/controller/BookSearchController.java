@@ -19,7 +19,6 @@ import com.example.bagStrap.model.User;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class BookSearchController {
 
     private static final String KAKAO_API_KEY = "2f08d038d65384d4cd73c73993f414c6";  // 발급받은 Kakao API Key

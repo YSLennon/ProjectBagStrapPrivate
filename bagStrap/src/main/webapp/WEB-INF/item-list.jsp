@@ -50,7 +50,7 @@
 				var self = this;
 				var nparmap = {selectedCodes: JSON.stringify(self.selectedCodes)};
 				$.ajax({
-					url:"bagStrap/itemList.dox",
+					url:"${pageContext.request.contextPath}/itemList.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,

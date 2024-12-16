@@ -22,7 +22,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class PaymentController {
     
 	@Autowired
@@ -31,14 +30,14 @@ public class PaymentController {
 	PaymentService paymentService;
 	@RequestMapping("/payment") 
     public String main(Model model) throws Exception{
-         return "/payment/payment";
+         return "payment/payment";
     }
 	@RequestMapping("/payment/order") 
     public String order(HttpServletRequest request, Model model, @RequestParam HashMap<String, Object> map) throws Exception {
 		request.setAttribute("orderList", map.get("orderList"));
 		request.setAttribute("priceSum", map.get("priceSum"));
         
-		return "/payment/payment_order";
+		return "payment/payment_order";
     }
 
 	@RequestMapping("/payment/complete") 
@@ -47,7 +46,7 @@ public class PaymentController {
 		request.setAttribute("priceSum", map.get("priceSum"));
 		request.setAttribute("orderId", map.get("orderId"));
         
-		return "/payment/payment_complete";
+		return "payment/payment_complete";
     }
 	
 	@RequestMapping(value = "/order.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

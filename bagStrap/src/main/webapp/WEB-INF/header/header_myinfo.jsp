@@ -207,7 +207,7 @@
 					userId:self.userList.userId
 				};
 				$.ajax({
-					url:"/bagStrap/myinfo.dox",
+					url:"${pageContext.request.contextPath}/myinfo.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -233,7 +233,7 @@
 	           addressDetail: self.userList.addressDetail
 			};
 			$.ajax({
-				url:"/bagStrap/addressUpdate.dox",
+				url:"${pageContext.request.contextPath}/addressUpdate.dox",
 				dataType:"json",	
 				type : "POST", 
 				data : nparmap,
@@ -265,7 +265,7 @@
 		  			var self = this;		  			
 		  			var nparmap = {userPhone : self.userPhone}
 		  			$.ajax({
-		  				url:"bagStrap/confirm.dox",
+		  				url:"${pageContext.request.contextPath}/confirm.dox",
 		  				dataType:"json",	
 		  				type : "POST", 
 		  				data : nparmap,
@@ -318,7 +318,7 @@
 					};
 					
 					$.ajax({
-						url:"/bagStrap/NickUpdate1.dox",
+						url:"${pageContext.request.contextPath}/NickUpdate1.dox",
 						dataType:"json",	
 						type : "POST", 
 						data : nparam,

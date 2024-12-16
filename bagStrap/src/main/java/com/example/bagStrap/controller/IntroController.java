@@ -3,6 +3,7 @@ package com.example.bagStrap.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class IntroController {
 	
 	@Autowired
@@ -29,10 +29,8 @@ public class IntroController {
     }
 	@RequestMapping(value = "/intro.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public String intro(Model model, @RequestParam HashMap<String, Object> map) throws Exception {
-		System.out.println(map);
+	public String intro(@RequestParam HashMap<String, Object> map) throws Exception {
 		HashMap<String, Object> resultMap = new HashMap();
-
 
 		return new Gson().toJson(resultMap);
 	}

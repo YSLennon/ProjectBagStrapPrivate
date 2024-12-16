@@ -525,7 +525,7 @@ a:hover, a:active {text-decoration: none; color:#222; }
 			            };
 			            
 			            $.ajax({
-			                url: "/bagStrap/bookList.dox", // 서버의 URL
+			                url: "${pageContext.request.contextPath}/bookList.dox", // 서버의 URL
 			                dataType: "json",
 			                type: "POST",
 			                data: nparmap, // 검색어 데이터를 함께 전송
@@ -545,7 +545,7 @@ a:hover, a:active {text-decoration: none; color:#222; }
 			            });
 			        },
 					goToDetail(bookId){
-						$.pageChange("/bagStrap/shop/detail",{bookId : bookId});
+						$.pageChange("${pageContext.request.contextPath}/shop/detail",{bookId : bookId});
 
 					},
 					insertCartItem(bookId){
@@ -555,7 +555,7 @@ a:hover, a:active {text-decoration: none; color:#222; }
 							return;
 						}
 						$.ajax({
-						    url: "/bagStrap/insertCartItem.dox", // 서버의 URL
+						    url: "${pageContext.request.contextPath}/insertCartItem.dox", // 서버의 URL
 						    type: "POST", // GET 방식으로 전송
 						    data: { bookId: bookId }, // bookIds를 전송
 						    success: function(data) {

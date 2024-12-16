@@ -148,7 +148,7 @@
 				};
 				
 				$.ajax({
-					url: "bagStrap/inquiry-list.dox",
+					url: "${pageContext.request.contextPath}/inquiry-list.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: nparmap,
@@ -160,7 +160,7 @@
             },
 			fnSession() {
 			    $.ajax({
-			        url: "bagStrap/sharedHeader.dox",
+			        url: "${pageContext.request.contextPath}/sharedHeader.dox",
 			        dataType: "json",	
 			        type: "POST", 
 			        success: (data) => {
@@ -186,7 +186,7 @@
 				var fList = JSON.stringify(self.selectItem);
 				var nparmap = {selectItem : fList};
 				$.ajax({
-					url:"bagStrap/delete-inquiry.dox",
+					url:"${pageContext.request.contextPath}/delete-inquiry.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -203,7 +203,7 @@
 					inquiryId : num
 				};
 				$.ajax({
-					url:"bagStrap/inquiry-remove.dox",
+					url:"${pageContext.request.contextPath}/inquiry-remove.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -214,7 +214,7 @@
 				});
 			},
 			fnView(inquiryId){
-				$.pageChange("bagStrap/answerdetail",{inquiryId: inquiryId});
+				$.pageChange("${pageContext.request.contextPath}/answerdetail",{inquiryId: inquiryId});
 			}
         },
         mounted() {

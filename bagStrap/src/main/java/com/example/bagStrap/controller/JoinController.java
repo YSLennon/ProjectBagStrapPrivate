@@ -27,7 +27,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class JoinController {
 
 	@Autowired
@@ -281,13 +280,13 @@ public class JoinController {
 	                
 	                model.addAttribute("filename", multi.getOriginalFilename());
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
-	                
-	                return "redirect:/study-comm";
+
+	                return "redirect:"+request.getContextPath()+"/study-comm";
 	            }
 	        }catch(Exception e) {
 	            System.out.println(e);
 	        }
-	        return "redirect:/study-comm";
+	        return "redirect:"+request.getContextPath()+"/study-comm";
 	    }
 	    
 	    // 현재 시간을 기준으로 파일 이름 생성

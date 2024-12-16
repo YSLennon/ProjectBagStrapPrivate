@@ -291,7 +291,7 @@
 			            };
 			            
 			            $.ajax({
-			                url: "/bagStrap/selectBookDetail.dox", // 서버의 URL
+			                url: "${pageContext.request.contextPath}/selectBookDetail.dox", // 서버의 URL
 			                dataType: "json",
 			                type: "POST",
 			                data: nparmap, // 검색어 데이터를 함께 전송
@@ -317,7 +317,7 @@
 			            });
 			        },
 					goToReview(book){
-						$.pageChange("/bagStrap/myshop/review",{book : book});
+						$.pageChange("${pageContext.request.contextPath}/myshop/review",{book : book});
 					},
 					insertCartItem(){
 						var self = this;
@@ -326,14 +326,14 @@
 							return;
 						}
 						$.ajax({
-						    url: "/bagStrap/insertCartItem.dox", // 서버의 URL
+						    url: "${pageContext.request.contextPath}/insertCartItem.dox", // 서버의 URL
 						    type: "POST", // GET 방식으로 전송
 						    data: { bookId: self.bookId }, // bookIds를 전송
 						    success: function(data) {
 								
 								if(data.result){
 									if(confirm(data.message +'장바구니로 이동하시겠습니까?')){
-										$.pageChange("/bagStrap/myshop/cart", {});
+										$.pageChange("${pageContext.request.contextPath}/myshop/cart", {});
 									}
 								} else {
 									alert(data.message);
@@ -345,10 +345,10 @@
 						});
 					},
 					goToOtherBook(bookId){
-						$.pageChange("/bagStrap/shop/detail", {bookId : bookId})
+						$.pageChange("${pageContext.request.contextPath}/shop/detail", {bookId : bookId})
 					},
 					goToStudy(boardId) {
-						$.pageChange("/bagStrap/study-group-detail", { boardNo: boardId });
+						$.pageChange("${pageContext.request.contextPath}/study-group-detail", { boardNo: boardId });
 					}
 			    },
 			    mounted() {

@@ -19,7 +19,6 @@ import com.google.gson.Gson;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/bagStrap")
 public class CSCenterController {
 	
 	@Autowired

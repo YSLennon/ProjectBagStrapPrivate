@@ -89,7 +89,7 @@
 					keyword: self.inquiryId
 				};
 				$.ajax({
-					url: "bagStrap/answer-detail.dox",
+					url: "${pageContext.request.contextPath}/answer-detail.dox",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
@@ -100,7 +100,7 @@
 				});
 			},
 			ToMy() {
-				location.href = "bagStrap/myinquiry"; // 목록 페이지로 이동
+				location.href = "${pageContext.request.contextPath}/myinquiry"; // 목록 페이지로 이동
 			}
         },
         mounted() {

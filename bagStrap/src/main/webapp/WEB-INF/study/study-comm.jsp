@@ -357,12 +357,12 @@
         },
         methods: {
 			fnInsertComm() {
-				location.href = "bagStrap/commInsert";
+				location.href = "${pageContext.request.contextPath}/commInsert";
 			},
 			fnboardtypeList() {
 				var self = this;
 				$.ajax({
-					url: "bagStrap/selectStuCommType.dox",
+					url: "${pageContext.request.contextPath}/selectStuCommType.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: {},
@@ -390,7 +390,7 @@
 					period: period 
 				};
 				$.ajax({
-					url: "bagStrap/selectStuCommListBoard.dox",
+					url: "${pageContext.request.contextPath}/selectStuCommListBoard.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: nparmap,
@@ -414,7 +414,7 @@
 			fnSession() {
 				var self = this;
 				$.ajax({
-					url: "bagStrap/sharedHeader.dox",
+					url: "${pageContext.request.contextPath}/sharedHeader.dox",
 					dataType: "json",	
 					type: "POST", 
 					data: {},
@@ -433,10 +433,10 @@
 				});
 			},
 			fnView(boardId) {
-				$.pageChange("/bagStrap/study-comm-detail", { boardId: boardId });
+				$.pageChange("${pageContext.request.contextPath}/study-comm-detail", { boardId: boardId });
 			},
 			fnUserboard(author, userNickName) {
-				$.pageChange("/bagStrap/study-comm-myboard", { author: author, itemMode: "board", userNickName: userNickName });
+				$.pageChange("${pageContext.request.contextPath}/study-comm-myboard", { author: author, itemMode: "board", userNickName: userNickName });
 			},
 			fnInsertComm(){
 				var self = this;

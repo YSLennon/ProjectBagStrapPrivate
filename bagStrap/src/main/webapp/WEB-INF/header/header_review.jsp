@@ -160,7 +160,7 @@
 		            };
 		            
 		            $.ajax({
-		                url: "/bagStrap/selectMyReview.dox",
+		                url: "${pageContext.request.contextPath}/selectMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -182,7 +182,7 @@
 						reviewComment: self.reviewComment
 		            };
 		            $.ajax({
-		                url: "/bagStrap/updateMyReview.dox",
+		                url: "${pageContext.request.contextPath}/updateMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -190,7 +190,7 @@
 						
 							if(data.result){
 								alert(data.message);
-								location.href="/bagStrap/myshop/orders";
+								location.href="${pageContext.request.contextPath}/myshop/orders";
 							}
 						}
 		            });
@@ -203,7 +203,7 @@
 						reviewComment: self.reviewComment
 		            };
 		            $.ajax({
-		                url: "/bagStrap/insertMyReview.dox",
+		                url: "${pageContext.request.contextPath}/insertMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -211,7 +211,7 @@
 							
 							if(data.result){
 								alert(data.message);
-								location.href="/bagStrap/myshop/orders";
+								location.href="${pageContext.request.contextPath}/myshop/orders";
 							}
 						}
 		            });
@@ -222,7 +222,7 @@
 		                bookId: self.book.bookId,
 		            };
 		            $.ajax({
-		                url: "/bagStrap/deleteMyReview.dox",
+		                url: "${pageContext.request.contextPath}/deleteMyReview.dox",
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap,
@@ -230,7 +230,7 @@
 							
 							if(data.result){
 								alert(data.message);
-								location.href="/bagStrap/myshop/orders";
+								location.href="${pageContext.request.contextPath}/myshop/orders";
 							}
 						}
 		            });
