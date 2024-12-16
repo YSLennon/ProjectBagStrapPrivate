@@ -5,7 +5,6 @@
 <head>
    <meta charset="UTF-8">
    <jsp:include page="/layout/sharedHeader.jsp"></jsp:include>
-   <link rel="stylesheet" type="text/css" href="/css/style.css">
    <title>첫번째 페이지</title>
 </head>
 <style>
@@ -805,7 +804,7 @@
 				 <div class="study-mygroup-detail2-sidebar">
 					<template v-if="detailList.filePath">
 				   <div class="sidebar-header">
-				     <img :src="detailList.filePath" alt="스터디 사진" class="study-group-image"/>
+				     <img :src="contextPath+detailList.filePath" alt="스터디 사진" class="study-group-image"/>
 				   </div>
 				   </template>
 				   <template v-else>
@@ -831,7 +830,7 @@
 				       <!-- 관리자 -->
 				       <li class="user-card">
 				         <template v-if="adminlist.filePath">
-				           <img :src="adminlist.filePath" alt="유저 사진" class="user-profile-img"/>
+				           <img :src="contextPath+adminlist.filePath" alt="유저 사진" class="user-profile-img"/>
 				         </template>
 				         <template v-if="!adminlist.filePath">
 				           <img src="${pageContext.request.contextPath}/src/profile.png" alt="유저 사진" class="user-profile-img"/>
