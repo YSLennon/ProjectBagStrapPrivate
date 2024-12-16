@@ -615,7 +615,7 @@
 						    <div class="left-section" v-for="item in studyList">
 						        <a href="javascript:;" @click="goToDetail('study', item.studyGroupId)" class="ordered-product">
 									<template v-if="item.filePath">
-										<img  class="ordered-product-image" :src="item.filePath" alt="Product Image" class="">
+										<img  class="ordered-product-image" :src="contextPath+item.filePath" alt="Product Image" class="">
 									</template>
 									<template v-else>
 										<img  class="ordered-product-image" src="${pageContext.request.contextPath}/src/profile.png" alt="Product Image" class="">
@@ -660,7 +660,7 @@
 				studyList: [],
 				priceSum: '${priceSum}',
 				orderId: '${orderId}',
-				
+				contextPath:'${pageContext.request.contextPath}'
             };
         },
         methods: {

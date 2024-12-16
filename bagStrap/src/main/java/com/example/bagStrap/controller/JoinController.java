@@ -270,7 +270,7 @@ public class JoinController {
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
 	                map.put("fileName", saveFileName);
-	                map.put("filePath", "../src/" + saveFileName);
+	                map.put("filePath", "/src/" + saveFileName);
 	                map.put("idx", idx);
 	                map.put("fileOrgName", originFilename);
 	                map.put("fileSize", size);

@@ -257,7 +257,7 @@
 			                  <li class="admin-study-list-item" v-for="item in studyList">
 								<a class="admin-study-left" href="javascript:;" @click="goToDetail(item.studyGroupId)">
 									<template v-if="item.filePath">
-										<img style="width: 100px; height: 100px" :src="item.filePath" alt=" Image" class="">
+										<img style="width: 100px; height: 100px" :src="contextPath+item.filePath" alt=" Image" class="">
 									</template>
 									<template v-else>
 										<img style="width: 100px; height: 100px" src="${pageContext.request.contextPath}/src/profile.png" alt=" Image" class="">
@@ -308,7 +308,8 @@
 				currentPage: 1,
 				totalPages: 1,
 				pageSize: 10,
-				maxPageDisplay: 10
+				maxPageDisplay: 10,
+				contextPath:'${pageContext.request.contextPath}'
             };
         },
 		computed: {

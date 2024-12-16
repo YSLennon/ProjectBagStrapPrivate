@@ -385,7 +385,7 @@
 	                <div class="stu-comm-detail-board-content">
 	                    <div v-html="viewList.content"></div>
 	                    <template v-if="viewList.filePath">
-	                        <img style="width:400px; height:400px;" :src="viewList.filePath">
+	                        <img style="width:400px; height:400px;" :src="contextPath+viewList.filePath">
 	                    </template>
 	                </div>
 
@@ -431,7 +431,7 @@
 	                                    <template v-if="item.commentstatus === 'N'">
 	                                        <div style="width:90%;">{{item.comcontents}}</div>
 	                                        <template v-if="item.filePath">
-	                                            <div><img style="width:200px; height:200px;" :src="item.filePath"></div>
+	                                            <div><img style="width:200px; height:200px;" :src="contextPath+item.filePath"></div>
 	                                        </template>
 	                                        <template v-if="item.comUpdateDay">
 	                                            <div><small>{{item.comUpdateDay}}(수정됨)</small></div>
@@ -443,7 +443,7 @@
 	                                    <template v-if="item.commentstatus === 'Y' && isAdmin">
 	                                        <div style="width:90%;">{{item.comcontents}} <span style="color:red;">(숨김 처리된 댓글 입니다. 관리자만 보임)</span></div>
 	                                        <template v-if="item.filePath">
-	                                            <img style="width:200px; height:200px;" :src="item.filePath">
+	                                            <img style="width:200px; height:200px;" :src="contextPath+item.filePath">
 	                                        </template>
 	                                        <div><small>{{item.comCreateDay}}</small></div>
 	                                    </template>
@@ -476,7 +476,7 @@
 	                                        <template v-if="reply.commentstatus === 'N'">
 	                                            <div style="width:90%;">{{reply.comcontents}}</div>
 	                                            <template v-if="reply.filePath">
-	                                                <div><img style="width:200px; height:200px;" :src="reply.filePath"></div>
+	                                                <div><img style="width:200px; height:200px;" :src="contextPath+reply.filePath"></div>
 	                                            </template>
 	                                            <template v-if="reply.comUpdateDay">
 	                                                <div><small>{{reply.comUpdateDay}}(수정됨)</small></div>
@@ -488,7 +488,7 @@
 	                                        <template v-if="reply.commentstatus === 'Y' && isAdmin">
 	                                            <div >{{reply.comcontents}} <span style="color:red;">(숨김 처리된 댓글 입니다. 관리자만 보임)</span></div>
 	                                            <template v-if="reply.filePath">
-	                                                <img style="width:200px; height:200px;" :src="reply.filePath">
+	                                                <img style="width:200px; height:200px;" :src="contextPath+reply.filePath">
 	                                            </template>
 	                                            <div><small>{{reply.comCreateDay}}</small></div>
 	                                        </template>
@@ -554,7 +554,7 @@
 	                                                    </label>
 	                                                    <input type="file" id="file-upload" style="display: none;" @change="fnFileChange(item.commentId)" />
 	                                                    <div>
-	                                                        <img v-if="item.filePath || filePreview" :src="filePreview ? filePreview : item.filePath" style="width: 100px; height: 100px;" />
+	                                                        <img v-if="item.filePath || filePreview" :src="filePreview ? filePreview : contextPath+item.filePath" style="width: 100px; height: 100px;" />
 	                                                    </div>
 	                                                    <div v-if="fileName || item.fileName">{{ fileName ? fileName : item.fileName }}</div>
 	                                                </div>
@@ -591,7 +591,8 @@
                 fileName: '', // 파일명 저장
                 filePreview: '', // 이미지 미리보기 URL 저장
                 selectLikeCheck : {},
-				imageView : '1'
+				imageView : '1',
+				contextPath:'${pageContext.request.contextPath}'
             };
         },
         methods: {

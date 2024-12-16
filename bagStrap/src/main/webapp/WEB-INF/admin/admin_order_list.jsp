@@ -350,7 +350,7 @@
 										    <div style="flex:1;"> {{item.reason}}</div>
 										</template>
 										<template v-if="item.filePath">
-										    <img style="width:150px; height:150px;" :src="item.filePath">
+										    <img style="width:150px; height:150px;" :src="contextPath+item.filePath">
 										</template>
 									</div>
 								</div>			                
@@ -440,7 +440,8 @@
 				maxPageDisplay: 10,
 				currentPage: 1,
 				totalPages: 10,
-				pageSize: 10
+				pageSize: 10,
+				contextPath:'${pageContext.request.contextPath}'
 				
             };
         },

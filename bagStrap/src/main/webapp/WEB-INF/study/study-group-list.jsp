@@ -278,7 +278,7 @@
 									    {{item.name}}
 									</h3>
 			                        <template v-if="item.filePath">
-			                            <img :src="${pageContext.request.contextPath}/item.filePath" alt="Study Group Image" class="study-group-list-image">
+			                            <img :src="contextPath+item.filePath" alt="Study Group Image" class="study-group-list-image">
 			                        </template>
 			                        <template v-else>
 			                            <img src="${pageContext.request.contextPath}/src/profile.png" alt="Default Image" class="study-group-list-image">
@@ -337,7 +337,8 @@
 					totalPages: 5,
 	                currentPage: 1,      // 현재 페이지 
 	                pageSize: 9,         // 한 페이지에 보여줄 개수 
-					search:""
+					search:"",
+					contextPath:'${pageContext.request.contextPath}'
 	            };
 	        },
 	        methods: {

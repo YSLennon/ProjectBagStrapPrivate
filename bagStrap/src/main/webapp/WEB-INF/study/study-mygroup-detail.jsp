@@ -74,7 +74,7 @@
 	    text-align: center;
 	    border-bottom: 1px solid #ecf0f1;
 		line-height: 40px;
-		
+
 	}
 
 	.study-mygroup-detail-member-admin-table th {
@@ -149,7 +149,7 @@
 	  padding: 20px;
 	  margin-left : -1px;
 	  border-radius: 10px;
-	  
+
 	}
 
 	h2 {
@@ -275,7 +275,7 @@
 
 	.user-list {
 	  max-height: 550px;
-	
+
 	}
 
 	/* 사용자 카드 스타일 */
@@ -318,7 +318,7 @@
 	  width: 85%;
 	  max-width: 1200px;
 	  margin: 50px auto;
-	 
+
 	}
 
 	/* 그룹 헤더 스타일 */
@@ -444,13 +444,13 @@
 	.chat-container {
 	    width: 103%;
 	    height: 800px;
-	   
+
 	    border-radius: 8px;
 	    display: flex;
 	    flex-direction: column;
 	    margin-left: -20px;
 	    margin-top: -30px;
-	
+
 	}
 	.chat-container::-webkit-scrollbar {
 	    display: none; /* Chrome, Safari 등 Webkit 기반 브라우저에서 스크롤바 숨기기 */
@@ -847,7 +847,7 @@
 				       <!-- 일반 유저 목록 -->
 				       <li v-for="item in userList" class="user-card">
 				         <template v-if="item.filePath">
-				           <img :src="item.filePath" alt="유저 사진" class="user-profile-img"/>
+				           <img :src="contextPath+item.filePath" alt="유저 사진" class="user-profile-img"/>
 				         </template>
 				         <template v-if="!item.filePath">
 				           <img src="${pageContext.request.contextPath}/src/profile.png" alt="유저 사진" class="user-profile-img"/>
@@ -869,7 +869,7 @@
 		   			</div>
 				</template>
 				 </div>
-		
+
 			        <!-- 사이드바 끝 -->
 
                  <!-- 콘텐츠 영역 -->
@@ -877,7 +877,7 @@
                      <div class="study-mygroup-detail2-top-bar"></div>
                      <div class="study-mygroup-detail2-email-list">
                      <div class="study-meta">
-                     
+
                      <!-- ===========================================그룹정보=========================================== -->
 					 <template v-if="pageView == '1'">
 					     <div class="group-detail-wrapper">
@@ -960,9 +960,9 @@
 								                <h6>{{ detailList.title }}</h6>
 								                <p>저자: {{ detailList.author }}</p>
 								            </div>
-											
+
 								        </div>
-								</template>		
+								</template>
 										</div>
 										 <!-- 다른 책 TOP5 섹션 -->
 										        <div class="book-Top5">
@@ -976,7 +976,7 @@
 										                    </div>
 										                </div>
 										            </div>
-										        
+
 										    </div>
 										</template>
 						   <!-- ===========================================그룹 정보=========================================== -->
@@ -995,7 +995,7 @@
 									<template v-if="item.userNickName === '그룹알리미'">
 									  <div class="message-left group-announcement">
 									    <div class="message-user">
-									      <img :src="item.filePath" alt="User Image" class="user-img">
+									      <img :src="contextPath+item.filePath" alt="User Image" class="user-img">
 									      <span class="user-name" style="color: #FF5722; font-weight: bold;">📢 {{ item.userNickName }}</span>
 									    </div>
 									    <div class="message-content" style="background-color: #ffeb3b; padding: 15px; border-radius: 10px; border: 2px dashed #FF9800;">
@@ -1008,7 +1008,7 @@
 									  <div class="message-left">
 									    <div class="message-user">
 										  <template v-if="item.filePath">
-									     	 <img :src="item.filePath" alt="User Image" class="user-img">
+									     	 <img :src="contextPath+item.filePath" alt="User Image" class="user-img">
 										  </template>
 										  <template v-else>
   									      	 <img src="${pageContext.request.contextPath}/src/profile.png" alt="User Image" class="user-img">
@@ -1017,7 +1017,7 @@
 									    </div>
 									    <div class="message-content">
 									      <template v-if="item.mFilepath">
-									        <img :src="item.mFilepath" style="width:300px; height:300px;">
+									        <img :src="contextPath+item.mFilepath" style="width:300px; height:300px;">
 									      </template>
 									      <p>{{ item.messageContent }}</p>
 									      <span class="message-time">{{ item.messageCreatedDate }}</span>
@@ -1025,13 +1025,13 @@
 									  </div>
 									</template>
 						           </template>
-									
+
 						           <template v-if="item.messageUserId === sessionUserId">
 						             <!-- 오른쪽 정렬 (본인) -->
 						             <div class="message-right">
 						               <div class="message-content">
 										<template v-if="item.mFilepath">
-						                 <img :src="item.mFilepath" style="width:300px; height:300px;">
+						                 <img :src="contextPath+item.mFilepath" style="width:300px; height:300px;">
 										 </template>
 						                 <p>{{ item.messageContent }}</p>
 						                 <span class="message-time">{{ item.messageCreatedDate }}</span>
@@ -1068,13 +1068,13 @@
 
 						       <!-- 메인 콘텐츠 영역 (상하 레이아웃) -->
 						       <div class="study-mygroup-detail-member-admin-content" style="display: block;">
-						         
+
 						         <!-- 좌측 회원 리스트 (1단) -->
 						         <details id="memberListfirst" class="study-mygroup-detail-member-admin-table" @toggle="closeOtherDetails('memberListDetails')" style="margin-bottom: 20px; max-width: 800px; width: 100%;">
 						           <summary style="cursor: pointer; padding: 10px; background: #f7f9fa; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
 						             회원 리스트
 						           </summary>
-						           
+
 						           <!-- 드롭다운 내용 -->
 						           <div style="margin-top: 10px;">
 						             <table>
@@ -1089,7 +1089,7 @@
 						                 <tr>
 						                   <td>
 						                     <template v-if="adminlist.filePath">
-						                       <img :src="adminlist.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+						                       <img :src="contextPath+adminlist.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 						                     </template>
 						                     <template v-if="!adminlist.filePath">
 						                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1102,7 +1102,7 @@
 						                   <template v-if="item.rejectionMessage !== 'Y'">
 						                     <td>
 						                       <template v-if="item.filePath">
-						                         <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+						                         <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 						                       </template>
 						                       <template v-if="!item.filePath">
 						                         <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1134,7 +1134,7 @@
 						           <summary style="cursor: pointer; padding: 10px; background: #f7f9fa; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
 						             가입 신청 목록
 						           </summary>
-						           
+
 						           <!-- 드롭다운 내용 -->
 						           <div style="margin-top: 10px;">
 						             <table>
@@ -1150,7 +1150,7 @@
 						                 <tr style="background-color: #f2f2f2;">
 						                   <td>
 						                     <template v-if="item.filePath">
-						                       <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;"/>
+						                       <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;"/>
 						                     </template>
 						                     <template v-if="!item.filePath">
 						                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;" />
@@ -1185,7 +1185,7 @@
  						           <summary style="cursor: pointer; padding: 10px; background: #f7f9fa; border: 1px solid #ddd; border-radius: 4px; text-align: center;">
  						             가입 차단된 사용자 리스트(강퇴)
  						           </summary>
-								   
+
 								   <!-- 드롭다운 내용 -->
 	   					           <div style="margin-top: 10px;">
 	   					             <table>
@@ -1201,7 +1201,7 @@
 	   					                 <tr v-for="item in searchnotLeaveGroup">
 	   					                   <td>
 	   					                     <template v-if="item.filePath">
-	   					                       <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+	   					                       <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 	   					                     </template>
 	   					                     <template v-if="!item.filePath">
 	   					                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1211,14 +1211,14 @@
 										   <td>{{item.rejectionMessage}}</td>
 	   					                   <td class="study-mygroup-detail-member-action-buttons">
 	   					                     <button class="study-mygroup-detail-member-btn study-mygroup-detail-member-approve-btn" @click="fnStuGroupUnblocking(item.fetchappuserid,'1')">차단해제</button>
-	   					                   
+
 	   					                   </td>
 	   					                 </tr>
 	   					               </tbody>
 	   					             </table>
 	   					           </div>
 	   					         </details>
-								 
+
 						       </div>
 						     </div>
 						   </template>
@@ -1331,12 +1331,12 @@
 							      <label for="file">변경할 스터디 그룹 이미지</label>
 								  <label style="margin-top:10px;"for="file">수정할 파일 업로드</label>
 			  	   		           <input type="file" @change="fnFileChange"/>
-			  	   				   <div><img v-if="filePreview" :src="item.filePath" style="margin-top:10px; width: 100px; height: 100px;" /></div> 
+			  	   				   <div><img v-if="filePreview" :src="contextPath+item.filePath" style="margin-top:10px; width: 100px; height: 100px;" /></div>
 								   <!-- 이미지 미리보기 -->
 							    </div>
 
 							    <div class="study-group-insert-actions">
-							      <button class="study-group-insert-submit-btn" 
+							      <button class="study-group-insert-submit-btn"
 							        @click="fnGroupUpdate(detailList.studyName,detailList.stgStartDate,detailList.stgEndDate,
 							        detailList.stgStudyTime,detailList.age,detailList.onOffMode,detailList.genderGroup,detailList.bookId,detailList.description
 									,detailList.maxparticipants)">
@@ -1387,16 +1387,14 @@
 					pageSize: 7,        // 한 페이지에 보여줄 개수
 					totalPages: 5,
 					file : null,
-					selectTop5 : []
-					
-					
-										
+					selectTop5 : [],
+					contextPath:'${pageContext.request.contextPath}'
 	            };
 	        },
-			
-	        methods: {		
+
+	        methods: {
 				fnView(bookId) {
-					$.pageChange("${pageContext.request.contextPath}//shop/detail", { bookId: bookId });
+					$.pageChange("${pageContext.request.contextPath}/shop/detail", { bookId: bookId });
 				},
 				scrollToBottom() {
 						       this.$nextTick(() => {
@@ -1410,19 +1408,19 @@
 					var outputNumber = self.pageSize;
 					self.currentPage = page;
 					var nparmap = {studyGroupId : self.studyGroupId,
-								   startIndex: startIndex, 
+								   startIndex: startIndex,
 								   outputNumber: outputNumber, };
 					$.ajax({
 						url:"${pageContext.request.contextPath}/selectStuGroupSubscriptionSearchPage.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
 						success : function(data) {
-							
+
 							self.userList = data.userList;
 							self.applyY = data.applyY;
 							self.totalPages = Math.ceil(self.applyY / self.pageSize);
-							
+
 						}
 					});
 		        },
@@ -1431,12 +1429,12 @@
 					var nparmap = {fetchapplicationid : fetchapplicationid,studygoal : studygoal };
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGoal.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
 						success : function(data) {
 							alert("수정완료");
-							self.editgoal = "N"; 
+							self.editgoal = "N";
 							self.fnDetail();
 							self.fnSidebar(1);
 						}
@@ -1450,10 +1448,10 @@
 					var nparmap = {messageId : messageId};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/deletGroupMessage.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
+						success : function(data) {
 							self.fnDetail();
 							self.fnSidebar(2);
 							self.fnMessageSelect()
@@ -1465,30 +1463,30 @@
 					var nparmap = {studyGroupId : self.studyGroupId};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/selectStuGroupMessage.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
+						success : function(data) {
 							self.fnDetail();
 							self.messagelist = data.messagelist;
 							self.scrollToBottom(); // 메시지 로드 후 스크롤 이동
-							
+
 						}
 					});
 		        },
 				fnMessage(){
 				        var self = this;
-				        var nparmap = { 
+				        var nparmap = {
 				            studyGroupId : self.studyGroupId,
-				            sessionId : self.sessionUserId, 
+				            sessionId : self.sessionUserId,
 				            messageContent : self.messageContent
 				        };
 				        $.ajax({
 				            url:"${pageContext.request.contextPath}/insertStuGroupMessage.dox",
-				            dataType:"json",  
-				            type : "POST", 
+				            dataType:"json",
+				            type : "POST",
 				            data : nparmap,
-				            success : function(data) { 
+				            success : function(data) {
 				                self.messageContent = "";
 				                var idx = data.idx;
 				                if (self.file) {
@@ -1499,27 +1497,27 @@
 				                        url: '${pageContext.request.contextPath}/fileUpload.dox',
 				                        type: 'POST',
 				                        data: formData,
-				                        processData: false,  
-				                        contentType: false,  
+				                        processData: false,
+				                        contentType: false,
 				                        success: function() {
 				                            self.filePreview = "";
 				                            self.fileName = "";
 				                            self.fnDetail();
 				                            self.fnSidebar(2);
-				                            self.fnMessageSelect();                      
+				                            self.fnMessageSelect();
 				                        },
 				                        error: function(jqXHR, textStatus, errorThrown) {
 				                            console.error('업로드 실패!', textStatus, errorThrown);
 				                        }
-				                    });   
+				                    });
 				                } else {
 				                    self.fnDetail();
 				                    self.fnSidebar(2);
-				                    self.fnMessageSelect();          
-				                }   
+				                    self.fnMessageSelect();
+				                }
 				            }
 				        });
-				    },		   
+				    },
 				fngroupdelete(){
 					var self = this;
 					if(!confirm("그룹을 삭제합니다. 되돌릴 수 없습니다.")){
@@ -1529,14 +1527,14 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/deleteStuGroup.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							alert("그룹 삭제 완료..bye bye~");
 							location.href="${pageContext.request.contextPath}/study-group-list";
-							
+
 						}
 					});
 		        },
@@ -1547,9 +1545,9 @@
 				},
 				fnJoinMember(fetchappuserid,userNickName){
 					var self = this;
-					// 인원 초과시 거절 
+					// 인원 초과시 거절
 					var a = self.detailList.applyY;
-					var b = self.detailList.maxparticipants; 
+					var b = self.detailList.maxparticipants;
 					if(a >= b){
 						alert("인원 초과입니다.");
 						return;
@@ -1558,16 +1556,16 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGroupJoin.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							alert(userNickName +"님 가입 완료");
 							self.fnDetail();
 							self.fnSidebar(3);
 							self.fnUserList(page = 1);
-							
+
 						}
 					});
 		        },
@@ -1580,11 +1578,11 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGroupBossDelegation.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							alert("그룹장 위임 완료");
 							self.fnDetail();
 							self.fnSidebar(1);
@@ -1596,32 +1594,32 @@
 					if(a == '1'){
 						if(!confirm("차단 해제합니다?(재가입가능)")){
 							return;
-						};								
+						};
 					};
 					if(a == '2'){
 						if(!confirm("가입을 거절합니다?")){
 							return;
-						};							
+						};
 					};
 					var self = this;
 					var nparmap = { studyGroupId : self.studyGroupId ,fetchappuserid : fetchappuserid
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/deleteStuGroupUnblocking.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							if(a == '1'){
-							alert("차단해제 되었습니다.");								
+							alert("차단해제 되었습니다.");
 							};
 							if(a == '2'){
-							alert("가입이 거절되었습니다.");								
+							alert("가입이 거절되었습니다.");
 							};
 							self.fnDetail();
 							self.fnSidebar(3);
-							
+
 						}
 					});
 		        },
@@ -1636,10 +1634,10 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGroupLeave.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
+						success : function(data) {
 							self.rejectionMessage = "";
 							alert(userNickName + "님이 강퇴되었습니다.");
 							self.fnDetail();
@@ -1654,15 +1652,15 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGroupLeaveMode.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							self.fnDetail();
 							self.fnSidebar(3);
 							self.fnUserList(page = 1);
-							
+
 						}
 					});
 		        },
@@ -1683,13 +1681,13 @@
 					};
 					$.ajax({
 						url:"${pageContext.request.contextPath}/updateStuGroup.dox",
-						dataType:"json",	
-						type : "POST", 
+						dataType:"json",
+						type : "POST",
 						data : nparmap,
-						success : function(data) { 
-							 
+						success : function(data) {
+
 							var idx = data.idx;
-							
+
 							if (self.file) {
 								  const formData = new FormData();
 								  formData.append('file1', self.file);
@@ -1698,8 +1696,8 @@
 										url: '${pageContext.request.contextPath}/fileUpload.dox',
 										type: 'POST',
 										data: formData,
-										processData: false,  
-										contentType: false,  
+										processData: false,
+										contentType: false,
 										success: function() {
 										self.filePreview = "";
 										self.fileName = "";
@@ -1709,20 +1707,20 @@
 		  								alert("정보변경 완료");
 										},
 										error: function(jqXHR, textStatus, errorThrown) {
-										 
+
 										}
-								  });		
+								  });
 							  } else {
 								self.fnDetail();
 								self.fnSidebar(1);
 								self.filePreview = "";
 								self.fileName = "";
 								alert("정보변경 완료");
-								
-							  }		
+
+							  }
 						}
 					});
-		        },			   
+		        },
             fnFileChange(event) {
                 const file = event.target.files[0];
                 this.file = file;
@@ -1740,25 +1738,25 @@
                 } else {
                     this.filePreview = null; // 이미지가 아니면 미리보기 없음
                 }
-            },      
+            },
             fnBoardType(boardTypeId){
                var self = this;
                var nparmap = { boardTypeId : boardTypeId
                };
                $.ajax({
                   url:"${pageContext.request.contextPath}/selectStuGroupInsertBoardType.dox",
-                  dataType:"json",   
-                  type : "POST", 
+                  dataType:"json",
+                  type : "POST",
                   data : nparmap,
-                  success : function(data) { 
-                      
+                  success : function(data) {
+
                      self.typeList = data.typeList;
                   }
                });
               },
             fnSidebar(a){
 			   var self = this;
-               self.pageView = a; 
+               self.pageView = a;
 			   self.filePreview ="";
 			   self.file = null;
 		     // 페이지가 2일 때, 실시간 채팅 폴링 시작
@@ -1786,7 +1784,7 @@
                         type: "POST",
                         data: nparmap,
                         success: function(data) {
-                             
+
                             self.detailList = data.detailList;
 							self.fnTop5(data.detailList.boardTypeId);
                      self.fnBoardType(self.detailList.boardTypeId);
@@ -1803,7 +1801,7 @@
                        type: "POST",
                        data: nparmap,
                        success: function(data) {
-						
+
 						self.selectTop5 = data.selectTop5;
                        },
                    });
@@ -1817,7 +1815,7 @@
                         type: "POST",
                         data: nparmap,
                         success: function(data) {
-                             
+
                             self.adminlist = data.adminlist;
 							self.searchUserlist = data.searchUserlist;
 							self.searchjoinGroup = data.searchjoinGroup;
@@ -1832,22 +1830,22 @@
                };
                $.ajax({
                   url:"${pageContext.request.contextPath}/sharedHeader.dox",
-                  dataType:"json",   
-                  type : "POST", 
+                  dataType:"json",
+                  type : "POST",
                   data : nparmap,
                   success : function(data) {
-                         
-                     self.isLogin = data.isLogin 
+
+                     self.isLogin = data.isLogin
                      if(data.isLogin){
                         self.sessionUserId = data.userId;
                         self.sessionUserNickName = data.userNickName;
                         self.isAdmin = data.isAdmin;
-                       
+
                      } else {
                         self.sessionUserId = '';
                         self.sessionUserNickName = '';
                      }
-                  
+
                   }
                });
             },
@@ -1862,12 +1860,10 @@
             self.fnDetail();
 			self.fnMessageSelect();
 			self.fnUserList(1);
-			
-		 
-			
+
             window.addEventListener('loginStatusChanged', function(){
                if(window.sessionStorage.getItem("isLogin") === 'true'){
-                  self.isLogin = true;   
+                  self.isLogin = true;
                } else{
                   self.isLogin = false;
                };

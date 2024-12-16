@@ -182,7 +182,7 @@
 			        </div>
 			        <div class="shop-detail-description">
 			            <h3>도서 설명</h3>
-			            {{book[0]?.description || '몰라인마'}}
+			            {{book[0]?.description || 'BookDescriptions'}}
 			        </div>
 	
 			        <div class="shop-detail-related-books">
@@ -203,7 +203,7 @@
 			            <div class="shop-detail-study-list">
 			                <div class="shop-detail-study-item" v-for="item in detailList">
 								<a href="javascript:;" @click="goToStudy(item.studyGroupId)">
-			                    <img :src="item.filePath" alt="스터디 이미지">
+			                    <img :src="contextPath+item.filePath || contextPath+'/src/profile.png'" alt="스터디 이미지">
 			                    <h4>{{item.studyName}}</h4>
 			                    <div class="study-info">진행 기간 <br>
 									{{item.startdate}} ~ {{item.enddate}}</div>
@@ -255,7 +255,8 @@
 						currentPage: 1,
 						totalPages: 5,
 						pageSize: 10,
-						maxPageDisplay: 5
+						maxPageDisplay: 5,
+						contextPath:'${pageContext.request.contextPath}'
 			        };
 			    },
 				computed: {
