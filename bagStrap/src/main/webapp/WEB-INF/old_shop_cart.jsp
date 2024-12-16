@@ -277,7 +277,7 @@
 						<div class="price">{{ book.price }}원</div>
 						<div class="discount">{{ book.discount }}% 할인</div>
 						<div class="rating">평점: {{ book.rating }}</div>
-						<img class="heart-icon" src="/src/heart.png" alt="좋아요">
+						<img class="heart-icon" src="${pageContext.request.contextPath}/src/heart.png" alt="좋아요">
 					</a>
 				</div>
 				

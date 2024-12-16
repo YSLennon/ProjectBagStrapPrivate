@@ -618,7 +618,7 @@
 										<img  class="ordered-product-image" :src="item.filePath" alt="Product Image" class="">
 									</template>
 									<template v-else>
-										<img  class="ordered-product-image" src="../src/profile.png" alt="Product Image" class="">
+										<img  class="ordered-product-image" src="${pageContext.request.contextPath}/src/profile.png" alt="Product Image" class="">
 									</template>
 									<div class="ordered-product-info  book-details">
 					                	<h1 class="ordered-product-name">{{ item.studyName }}</h1>

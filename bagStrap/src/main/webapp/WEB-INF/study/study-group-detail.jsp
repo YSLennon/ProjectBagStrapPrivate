@@ -211,7 +211,7 @@
 		<!-- 메인 컨텐츠 -->
 		<div id="app" class="content">
             <div class="stu-group-detail">              
-                <img src="../src/스터디디테일.png" alt="책 표지" style="width: 100%; max-width: 400px; display: block; margin: 0 auto 20px auto;">
+                <img src="${pageContext.request.contextPath}/src/스터디디테일.png" alt="책 표지" style="width: 100%; max-width: 400px; display: block; margin: 0 auto 20px auto;">
 
                 <h1>[ {{ detailList.name }} ] {{ detailList.studyName }}</h1>
                 <div class="intro">

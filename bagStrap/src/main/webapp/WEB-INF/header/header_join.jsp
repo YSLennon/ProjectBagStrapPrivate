@@ -29,7 +29,7 @@
 			<div class="header_inner">
 				<div class="logo_box">
 					<a href="" class="logo_link">
-						<img src="../src/현이의가방끈.png" alt="로고">
+						<img src="${pageContext.request.contextPath}/src/현이의가방끈.png" alt="로고">
 					</a>	
 				</div>	
 			</div>	
@@ -179,7 +179,7 @@
 										    <!-- 첫 번째 조건: 비밀번호가 8자리 이상이고 영문, 숫자, 특수문자를 포함해야 함 -->
 										    <li v-if="!isPasswordValidForLength" class="pw_valid_item" 
 										        :style="{ 
-										            backgroundImage: isPasswordValidForLength ? 'url(../src/green-check.png)' : 'url(../src/check.png)', 
+										            backgroundImage: isPasswordValidForLength ? 'url(${pageContext.request.contextPath}/src/green-check.png)' : 'url(${pageContext.request.contextPath}/src/check.png)',
 										            color: isPasswordValidForLength ? 'green' : '#767676' 
 										        }">
 										        영문, 숫자, 특수문자 3가지 조합 8자리 이상
@@ -188,7 +188,7 @@
 										    <!-- 두 번째 조건: 비밀번호에 공백이 없고 3자 이상의 연속된 문자가 없어야 함 -->
 										    <li v-if="!isPasswordValidForNoSpaces" class="pw_valid_item" 
 										        :style="{ 
-										            backgroundImage: isPasswordValidForNoSpaces ? 'url(../src/green-check.png)' : 'url(../src/check.png)', 
+										            backgroundImage: isPasswordValidForNoSpaces ? 'url(${pageContext.request.contextPath}/src/green-check.png)' : 'url(${pageContext.request.contextPath}/src/check.png)',
 										            color: isPasswordValidForNoSpaces ? 'green' : '#767676' 
 										        }">
 										        공백 및 3자 이상의 연속 또는 중복 문자는 사용불가
@@ -197,7 +197,7 @@
 										    <!-- 모든 조건이 충족될 때 표시되는 메시지 -->
 										    <li v-if="isPasswordValid" class="pw_valid_item" 
 										        :style="{ 
-										            backgroundImage: 'url(../src/green-check.png)', 
+										            backgroundImage: 'url(${pageContext.request.contextPath}/src/green-check.png)',
 										            color: 'green' 
 										        }">
 										        사용 가능한 비밀번호입니다.
