@@ -172,14 +172,14 @@
 							  formData.append('file1', self.file);
 							  formData.append('idx', idx);
 							  $.ajax({
-									url: '/fileUpload.dox',
+									url: '${pageContext.request.contextPath}/fileUpload.dox',
 									type: 'POST',
 									data: formData,
 									processData: false,  
 									contentType: false,  
 									success: function() {
 									
-									  location.href = "/study-comm";
+									  location.href = "${pageContext.request.contextPath}/study-comm";
 									  self.filePreview = "";
 									},
 									error: function(jqXHR, textStatus, errorThrown) {
@@ -187,7 +187,7 @@
 									}
 							  });		
 						  } else {
-							location.href = "/study-comm";
+							location.href = "${pageContext.request.contextPath}/study-comm";
 						  }		
 					}
 				});

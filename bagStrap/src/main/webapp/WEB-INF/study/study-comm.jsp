@@ -446,7 +446,7 @@
 					document.getElementById('inputId').focus();
 					
 				}else{
-				location.href="commInsert"					
+				location.href="${pageContext.request.contextPath}/commInsert"
 				}
 			},
         },

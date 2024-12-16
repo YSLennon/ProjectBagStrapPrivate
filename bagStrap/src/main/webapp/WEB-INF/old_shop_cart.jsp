@@ -322,7 +322,7 @@
 		            };
 		            
 		            $.ajax({
-		                url: "bookList.dox", // 서버의 URL
+		                url: "${pageContext.request.contextPath}/bookList.dox", // 서버의 URL
 		                dataType: "json",
 		                type: "POST",
 		                data: nparmap, // 검색어 데이터를 함께 전송

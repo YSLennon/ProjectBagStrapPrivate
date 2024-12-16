@@ -133,7 +133,7 @@
                         success: function(data) { 
                             alert(data.message);
                             if (data.result === "success") {
-                                location.href = "noticelist"; 
+                                location.href = "${pageContext.request.contextPath}/noticelist";
                             }
                         }
                     });

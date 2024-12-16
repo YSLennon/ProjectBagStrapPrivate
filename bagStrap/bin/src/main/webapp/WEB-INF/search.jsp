@@ -48,7 +48,7 @@
 				fnGetCategoryList(){
 					var self = this;
 				    $.ajax({
-				        url: '/selectCategory.dox',
+				        url: '${pageContext.request.contextPath}/selectCategory.dox',
 				        type: 'POST',
 				        contentType: 'application/json',  // JSON으로 보낼 것을 명시
 				        success: function(data) {
@@ -63,7 +63,7 @@
 		        fnSearch() {
 		            var self = this;
 		            $.ajax({
-		                url: '/search1',
+		                url: '${pageContext.request.contextPath}/search1',
 		                type: 'GET',
 		                data: { query: self.query },
 		                success: function(data) {
@@ -95,7 +95,7 @@
 				fnCreateDB() {
 				    var self = this;
 				    $.ajax({
-				        url: '/addBook.dox',
+				        url: '${pageContext.request.contextPath}/addBook.dox',
 				        type: 'POST',
 				        contentType: 'application/json',  // JSON으로 보낼 것을 명시
 				        data: JSON.stringify({ bookList: self.parMap }),  // 데이터를 JSON 문자열로 변환

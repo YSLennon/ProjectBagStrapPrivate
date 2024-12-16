@@ -48,7 +48,7 @@
         },
         methods: {
 			fnmove(){
-				location.href="study-comm"
+				location.href="${pageContext.request.contextPath}/study-comm"
 			},
             fnGetList(){
 				var self = this;
