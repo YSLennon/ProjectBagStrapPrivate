@@ -466,7 +466,6 @@
 					               <p>배송비: <span class="refund-amount-value">0 원</span></p>
 					               <p>반품비: <span class="refund-amount-value">0 원</span></p>
 					               <p>환불 예상금액: <span class="refund-amount-value">{{priceSum}} 원</span></p>
-					               <p>환불 수단: <span class="refund-amount-value">삼성카드 / 일시불 {{priceSum}} 원</span></p>
 					           </div>
 					       </div>
 					   </div>
