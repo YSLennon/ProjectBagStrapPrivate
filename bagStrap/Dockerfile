@@ -35,4 +35,4 @@ ENV PROFILE="docker"
 EXPOSE 8080
 
 # WAR 파일을 실행하기 위한 ENTRYPOINT
-ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "app.war"]
+ENTRYPOINT ["java", "-jar", "app.war", "--spring.profiles.active=${PROFILE}"]
