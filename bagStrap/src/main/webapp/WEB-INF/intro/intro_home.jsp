@@ -384,7 +384,7 @@
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"bagStrap/selectIntroBook.dox",
+	                    url:"/bagStrap/selectIntroBook.dox",
 	                    dataType:"json",
 	                    type : "POST",
 	                    data : nparmap,
@@ -398,7 +398,7 @@
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"bagStrap/intro.dox",
+	                    url:"/bagStrap/intro.dox",
 	                    dataType:"json",
 	                    type : "POST",
 	                    data : nparmap,
@@ -411,7 +411,7 @@
 	                var self = this;
 	                var nparmap = {};
 	                $.ajax({
-	                    url:"bagStrap/sharedHeader.dox",
+	                    url:"/bagStrap/sharedHeader.dox",
 	                    dataType:"json",    
 	                    type : "POST", 
 	                    data : nparmap,
