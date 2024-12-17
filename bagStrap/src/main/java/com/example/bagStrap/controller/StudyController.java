@@ -205,9 +205,12 @@ public class StudyController {
 	    public String result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
 	    {
 	        String url = null;
-			String path=request.getContextPath();
-//			String path=System.getProperty("user.dir");
+//			String path=request.getContextPath();
+			String path=System.getProperty("user.dir");
 	        try {
+				String uploadDir = request.getServletContext().getRealPath("/src");
+				System.out.println("******************");
+				System.out.println(uploadDir);
 	 
 
 	            String uploadpath = path;
@@ -225,7 +228,7 @@ public class StudyController {
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File("/src", saveFileName);
+					File file = new File("/src/main/webapp/src", saveFileName);
 	                multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
