@@ -28,7 +28,8 @@ RUN addgroup -g 1000 worker && \
 
 COPY --from=build --chown=worker:worker /app/target/*.war ./app.war
 
-RUN mkdir -p /src && chown -R worker:worker /src && chmod 755 /src
+# /static 디렉토리 생성 및 권한 설정
+RUN mkdir -p /app/static && chown -R worker:worker /app/static && chmod 755 /app/static
 
 USER worker:worker
 
