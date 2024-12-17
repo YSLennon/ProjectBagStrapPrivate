@@ -203,7 +203,6 @@ public class StudyController {
 		return new Gson().toJson(resultMap);
 	}
 
-	File file = new File(realPath, "image.jpg");
 
 	//스터디 게시글 작성하기 이미지 첨부
 	 @RequestMapping("/fileUpload.dox")
@@ -213,11 +212,9 @@ public class StudyController {
 //			String path=request.getContextPath();
 			String path=System.getProperty("user.dir");
 			String realPath = servletContext.getRealPath("/src");
-
+			System.out.println(realPath+"11111111111111111111111111111111111111111111111");
 			try {
 				String uploadDir = request.getServletContext().getRealPath("/src");
-				System.out.println("******************");
-				System.out.println(uploadDir);
 	 
 
 	            String uploadpath = path;
