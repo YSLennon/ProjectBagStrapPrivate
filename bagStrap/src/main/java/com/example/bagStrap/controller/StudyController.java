@@ -233,6 +233,8 @@ public class StudyController {
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
 					File file = new File(realPath, saveFileName);
+					System.out.println(file.getPath());
+					System.out.println(file.getAbsolutePath());
 	                multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
