@@ -247,8 +247,13 @@ public class JoinController {
 	    public String result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
 	    {
 	        String url = null;
-	        String path=System.getProperty("user.dir");
-	        try {
+			String path=request.getContextPath();
+//			String path=System.getProperty("user.dir");
+			String getUploadPath = request.getServletContext().getRealPath("/uploads");
+			System.out.println("***************************");
+			System.out.println(getUploadPath);
+
+			try {
 	 
 	            //String uploadpath = request.getServletContext().getRealPath(path);
 	            String uploadpath = path;
@@ -266,7 +271,7 @@ public class JoinController {
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File(path + "/src/main/webapp/src", saveFileName);
+					File file = new File(path + "/src", saveFileName);
 
 					multi.transferTo(file);
 	                
