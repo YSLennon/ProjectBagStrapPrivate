@@ -342,7 +342,6 @@
 		
         <div class="content">
 			<div id="app">
-				{{lastRefundReasonContent}} {{refundReasonContent}}
 					<div class="progress-bar">
 					    <div :class="['step', { active: progress > 0 }]">
 					        <span class="step-number" :class="{ 'step-active': progress > 0 }">1</span>
