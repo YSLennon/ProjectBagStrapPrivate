@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +23,6 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class StudyController {
 
-	@Autowired
-	ServletContext servletContext;
 	@Autowired
 	StudyService studyService; 
 	@Autowired
@@ -203,7 +200,6 @@ public class StudyController {
 		return new Gson().toJson(resultMap);
 	}
 
-
 	//스터디 게시글 작성하기 이미지 첨부
 	 @RequestMapping("/fileUpload.dox")
 	    public String result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
@@ -211,10 +207,10 @@ public class StudyController {
 	        String url = null;
 //			String path=request.getContextPath();
 			String path=System.getProperty("user.dir");
-			String realPath = servletContext.getRealPath("/");
-			System.out.println(realPath+"11111111111111111111111111111111111111111111111");
-			try {
+	        try {
 				String uploadDir = request.getServletContext().getRealPath("/src");
+				System.out.println("******************");
+				System.out.println(uploadDir);
 	 
 
 	            String uploadpath = path;
@@ -228,13 +224,12 @@ public class StudyController {
 	            System.out.println("extensionName : " + extName);
 	            System.out.println("size : " + size);
 	            System.out.println("saveFileName : " + saveFileName);
-//	            String path2 = System.getProperty("user.dir");
+
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File(realPath+"/src", saveFileName);
-					System.out.println(file.getPath());
-					System.out.println(file.getAbsolutePath());
+					File file = new File("/src", saveFileName);
+					System.out.println(file.getAbsolutePath()+"******************************");
 	                multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();

@@ -28,7 +28,10 @@ RUN addgroup -g 1000 worker && \
 
 COPY --from=build --chown=worker:worker /app/target/*.war ./app.war
 
+RUN mkdir -p /src && chown -R worker:worker /src && chmod 755 /src
+
 USER worker:worker
+
 
 ENV PROFILE="docker"
 
