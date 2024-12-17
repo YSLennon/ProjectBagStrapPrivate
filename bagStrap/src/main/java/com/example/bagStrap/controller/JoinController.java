@@ -249,9 +249,6 @@ public class JoinController {
 	        String url = null;
 			String path=request.getContextPath();
 //			String path=System.getProperty("user.dir");
-			String getUploadPath = request.getServletContext().getRealPath("/src");
-			System.out.println("***************************");
-			System.out.println(getUploadPath);
 
 			try {
 	 
@@ -271,7 +268,7 @@ public class JoinController {
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File(path + "/src", saveFileName);
+					File file = new File("/src", saveFileName);
 
 					multi.transferTo(file);
 	                
