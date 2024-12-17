@@ -232,7 +232,7 @@ public class StudyController {
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File(realPath, saveFileName);
+					File file = new File(realPath+"/src", saveFileName);
 					System.out.println(file.getPath());
 					System.out.println(file.getAbsolutePath());
 	                multi.transferTo(file);
