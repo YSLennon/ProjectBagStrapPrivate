@@ -347,11 +347,11 @@
 				    <div class="split-container">
 				        <div class="split left">
 				            <h2>북스토어</h2>
-				            <a href="/shop/list" class="split-link"></a>
+				            <a href="${pageContext.request.contextPath}/shop/list" class="split-link"></a>
 				        </div>
 				        <div class="split right">
 				            <h2>스터디그룹</h2>
-				            <a href="/study-group-list" class="split-link"></a>
+				            <a href="${pageContext.request.contextPath}/study-group-list" class="split-link"></a>
 				        </div>
 				    </div>
 				</section>
