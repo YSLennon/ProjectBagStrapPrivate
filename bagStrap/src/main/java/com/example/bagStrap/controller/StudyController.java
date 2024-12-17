@@ -207,7 +207,7 @@ public class StudyController {
 	        String url = null;
 			String path=request.getContextPath();
 //			String path=System.getProperty("user.dir");
-			String getUploadPath = request.getServletContext().getRealPath("/uploads");
+			String getUploadPath = request.getServletContext().getRealPath("/src");
 			System.out.println("***************************");
 			System.out.println(getUploadPath);
 	        try {
