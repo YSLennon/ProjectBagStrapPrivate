@@ -208,8 +208,8 @@ public class StudyController {
 	        String path=System.getProperty("user.dir");
 	        try {
 	 
-	            String uploadpath = request.getContextPath();
-//	            String uploadpath = path;
+
+	            String uploadpath = path;
 	            String originFilename = multi.getOriginalFilename();
 	            String extName = originFilename.substring(originFilename.lastIndexOf("."),originFilename.length());
 	            long size = multi.getSize();
@@ -223,8 +223,7 @@ public class StudyController {
 //	            String path2 = System.getProperty("user.dir");
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
-//					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File(path + "/src", saveFileName);
+					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
 	                multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
