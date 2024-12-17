@@ -228,7 +228,7 @@ public class StudyController {
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
 //					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-					File file = new File("/src/main/webapp/src", saveFileName);
+					File file = new File(path+"/src", saveFileName);
 	                multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
