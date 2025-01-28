@@ -178,8 +178,10 @@
 									processData: false,  
 									contentType: false,  
 									success: function() {
+									console.log("${pageContext.request.contextPath}/study-comm");
 									  self.filePreview = "";
 									  location.href = "${pageContext.request.contextPath}/study-comm";
+									  console.log("log");
 									},
 									error: function(jqXHR, textStatus, errorThrown) {
 									  
