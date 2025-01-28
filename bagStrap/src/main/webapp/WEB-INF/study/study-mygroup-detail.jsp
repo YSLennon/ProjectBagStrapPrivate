@@ -804,7 +804,7 @@
 				 <div class="study-mygroup-detail2-sidebar">
 					<template v-if="detailList.filePath">
 				   <div class="sidebar-header">
-				     <img :src="contextPath+detailList.filePath" alt="스터디 사진" class="study-group-image"/>
+				     <img :src="detailList.filePath" alt="스터디 사진" class="study-group-image"/>
 				   </div>
 				   </template>
 				   <template v-else>
@@ -830,7 +830,7 @@
 				       <!-- 관리자 -->
 				       <li class="user-card">
 				         <template v-if="adminlist.filePath">
-				           <img :src="contextPath+adminlist.filePath" alt="유저 사진" class="user-profile-img"/>
+				           <img :src="adminlist.filePath" alt="유저 사진" class="user-profile-img"/>
 				         </template>
 				         <template v-if="!adminlist.filePath">
 				           <img src="${pageContext.request.contextPath}/src/profile.png" alt="유저 사진" class="user-profile-img"/>
@@ -846,7 +846,7 @@
 				       <!-- 일반 유저 목록 -->
 				       <li v-for="item in userList" class="user-card">
 				         <template v-if="item.filePath">
-				           <img :src="contextPath+item.filePath" alt="유저 사진" class="user-profile-img"/>
+				           <img :src="item.filePath" alt="유저 사진" class="user-profile-img"/>
 				         </template>
 				         <template v-if="!item.filePath">
 				           <img src="${pageContext.request.contextPath}/src/profile.png" alt="유저 사진" class="user-profile-img"/>
@@ -994,7 +994,7 @@
 									<template v-if="item.userNickName === '그룹알리미'">
 									  <div class="message-left group-announcement">
 									    <div class="message-user">
-									      <img :src="contextPath+item.filePath" alt="User Image" class="user-img">
+									      <img :src="item.filePath" alt="User Image" class="user-img">
 									      <span class="user-name" style="color: #FF5722; font-weight: bold;">📢 {{ item.userNickName }}</span>
 									    </div>
 									    <div class="message-content" style="background-color: #ffeb3b; padding: 15px; border-radius: 10px; border: 2px dashed #FF9800;">
@@ -1007,7 +1007,7 @@
 									  <div class="message-left">
 									    <div class="message-user">
 										  <template v-if="item.filePath">
-									     	 <img :src="contextPath+item.filePath" alt="User Image" class="user-img">
+									     	 <img :src="item.filePath" alt="User Image" class="user-img">
 										  </template>
 										  <template v-else>
   									      	 <img src="${pageContext.request.contextPath}/src/profile.png" alt="User Image" class="user-img">
@@ -1088,7 +1088,7 @@
 						                 <tr>
 						                   <td>
 						                     <template v-if="adminlist.filePath">
-						                       <img :src="contextPath+adminlist.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+						                       <img :src="adminlist.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 						                     </template>
 						                     <template v-if="!adminlist.filePath">
 						                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1101,7 +1101,7 @@
 						                   <template v-if="item.rejectionMessage !== 'Y'">
 						                     <td>
 						                       <template v-if="item.filePath">
-						                         <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+						                         <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 						                       </template>
 						                       <template v-if="!item.filePath">
 						                         <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1149,7 +1149,7 @@
 						                 <tr style="background-color: #f2f2f2;">
 						                   <td>
 						                     <template v-if="item.filePath">
-						                       <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;"/>
+						                       <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;"/>
 						                     </template>
 						                     <template v-if="!item.filePath">
 						                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" style="background-color: #f2f2f2;" />
@@ -1200,7 +1200,7 @@
 	   					                 <tr v-for="item in searchnotLeaveGroup">
 	   					                   <td>
 	   					                     <template v-if="item.filePath">
-	   					                       <img :src="contextPath+item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
+	   					                       <img :src="item.filePath" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
 	   					                     </template>
 	   					                     <template v-if="!item.filePath">
 	   					                       <img src="${pageContext.request.contextPath}/src/profile.png" class="study-mygroup-detail-member-profile-img" alt="유저 사진" />
@@ -1330,7 +1330,7 @@
 							      <label for="file">변경할 스터디 그룹 이미지</label>
 								  <label style="margin-top:10px;"for="file">수정할 파일 업로드</label>
 			  	   		           <input type="file" @change="fnFileChange"/>
-			  	   				   <div><img v-if="filePreview" :src="contextPath+item.filePath" style="margin-top:10px; width: 100px; height: 100px;" /></div>
+			  	   				   <div><img v-if="filePreview" :src="item.filePath" style="margin-top:10px; width: 100px; height: 100px;" /></div>
 								   <!-- 이미지 미리보기 -->
 							    </div>
 

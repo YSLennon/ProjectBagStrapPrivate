@@ -278,7 +278,7 @@
 									    {{item.name}}
 									</h3>
 			                        <template v-if="item.filePath">
-			                            <img :src="contextPath+item.filePath" alt="Study Group Image" class="study-group-list-image">
+			                            <img :src="item.filePath" alt="Study Group Image" class="study-group-list-image">
 			                        </template>
 			                        <template v-else>
 			                            <img src="${pageContext.request.contextPath}/src/profile.png" alt="Default Image" class="study-group-list-image">

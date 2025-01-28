@@ -207,7 +207,7 @@
 								    <img :src="contextPath+'/src/profile.png'" alt="스터디 이미지">
 								</template>
 								<template v-else>
-								    <img :src="contextPath+item.filePath" alt="스터디 이미지">
+								    <img :src="item.filePath" alt="스터디 이미지">
 								</template>
 
 			                    <h4>{{item.studyName}}</h4>

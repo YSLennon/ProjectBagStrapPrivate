@@ -231,7 +231,7 @@
                         <h3 class="stu-comm-myboard-h3">활동중인 스터디</h3>
                         <!-- fetchapplstatus가 'Y'인 데이터만 출력 -->
                         <div class="stu-comm-myboard-forum-container" v-for="item in activeStudies" :key="item.studyGroupId">
-                            <img :src="contextPath+item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon" @click="fnStudyHome(item.studyGroupId)">
+                            <img :src="item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon" @click="fnStudyHome(item.studyGroupId)">
                             <div class="stu-comm-myboard-forum-text">
                                 <span class="stu-comm-myboard-forum-title" @click="fnStudyHome(item.studyGroupId)">{{item.studyName}}</span>
                                 <span class="stu-comm-myboard-forum-subtitle" @click="fnStudyHome(item.studyGroupId)">
@@ -257,7 +257,7 @@
                         <!-- fetchapplstatus가 'Y'인 데이터만 출력 -->
                         <div class="stu-comm-myboard-forum-container" v-for="item in activeStudies" :key="item.studyGroupId">
                             <template v-if="item.sgHide === 'Y'">	
-                                <img :src="contextPath+item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon">
+                                <img :src="item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon">
                                 <div class="stu-comm-myboard-forum-text">
                                     <span class="stu-comm-myboard-forum-title">{{item.studyName}}</span>
                                     <template v-if="item.stustatus === 'admin'">
@@ -281,7 +281,7 @@
                         <h3 class="stu-comm-myboard-h3">신청 대기중인 스터디</h3>
                         <!-- fetchapplstatus가 'N'인 데이터만 출력 -->
                         <div class="stu-comm-myboard-forum-container" v-for="item in pendingStudies" :key="item.studyGroupId">
-                            <img :src="contextPath+item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon">
+                            <img :src="item.filePath || contextPath+'/src/profile.png'" alt="Forum Icon" class="stu-comm-myboard-forum-icon">
                             <div class="stu-comm-myboard-forum-text">
                                 <span class="stu-comm-myboard-forum-title">{{item.studyName}}</span>
                                 <span class="stu-comm-myboard-forum-subtitle">신청 대기중</span>
