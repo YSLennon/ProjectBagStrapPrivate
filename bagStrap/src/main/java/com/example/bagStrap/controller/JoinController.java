@@ -266,7 +266,7 @@ public class JoinController {
 //		            String path2 = System.getProperty("user.dir");
 	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
-					File file = new File( "\\src\\main\\webapp\\src", saveFileName);
+					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
 
 					multi.transferTo(file);
 	                

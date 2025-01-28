@@ -342,15 +342,15 @@
 					            </div>
 					        </summary>
 							<div class="admin-item-list" v-for="(item,index) in items" >
-								<div v-if="item.refundId != null && item.refundId != undefined" style="flex:1">
+								<div v-if="item.refundId != null && items[0].refundId != undefined && index === 0" style="flex:1">
 									<div class="admin-refund-reason" style="background: #E0E0E0; padding: 5px 20px;">환불 사유</div>
 									<div class="admin-refund-reason">
-										<template v-if="item.reason">
+										<template v-if="items[0].reason">
 	
-										    <div style="flex:1;"> {{item.reason}}</div>
+										    <div style="flex:1;"> {{items[0].reason}}</div>
 										</template>
-										<template v-if="item.filePath">
-										    <img style="width:150px; height:150px;" :src="contextPath+item.filePath">
+										<template v-if="items[0].filePath">
+										    <img style="width:150px; height:150px;" :src="contextPath+items[0].filePath">
 										</template>
 									</div>
 								</div>			                
