@@ -178,9 +178,8 @@
 									processData: false,  
 									contentType: false,  
 									success: function() {
-									
-									  location.href = "${pageContext.request.contextPath}/study-comm";
 									  self.filePreview = "";
+									  location.href = "${pageContext.request.contextPath}/study-comm";
 									},
 									error: function(jqXHR, textStatus, errorThrown) {
 									  
