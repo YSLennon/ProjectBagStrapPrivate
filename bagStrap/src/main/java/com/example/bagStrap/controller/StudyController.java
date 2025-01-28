@@ -239,12 +239,13 @@ public class StudyController {
 	                
 	                model.addAttribute("filename", multi.getOriginalFilename());
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
-
-					return "redirect:"+request.getContextPath()+"/study-comm";
+					System.out.println("redirect1");
+					return "redirect:/study-comm";
 	            }
 	        }catch(Exception e) {
 	            System.out.println(e);
 	        }
+			System.out.println("redirect2");
 	        return "redirect:"+request.getContextPath()+"/study-comm";
 	    }
 	    
