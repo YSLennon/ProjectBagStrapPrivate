@@ -240,7 +240,7 @@ public class StudyController {
 	                model.addAttribute("filename", multi.getOriginalFilename());
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
 					System.out.println("redirect1");
-					return "redirect:/study-comm";
+					return "redirect:"+request.getContextPath()+"/study-comm";
 	            }
 	        }catch(Exception e) {
 	            System.out.println(e);
