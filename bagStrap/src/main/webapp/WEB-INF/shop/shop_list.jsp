@@ -435,7 +435,7 @@ a:hover, a:active {text-decoration: none; color:#222; }
 				<div v-if="bookList.length === 0">해당하는 상품이 존재하지 않습니다.</div>
 				<div class="book-container" v-for="(book, index) in bookList" :key="book.bookId" style="text-decoration: none; color: inherit;">
 					<a @click="goToDetail(book.bookId)" href="javascript:;" >
-					    <img :src="book.image" alt="책 표지" class="book-cover">
+					    <img src="book.image" alt="책 표지" class="book-cover">
 					</a>
 					<a class="book-details" @click="goToDetail(book.bookId)" href="javascript:;" >
 							<h1>{{ book.shortTitle }}</h1>
