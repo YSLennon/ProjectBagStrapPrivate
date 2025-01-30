@@ -349,7 +349,7 @@
 	                    <h1 class="stu-comm-detail-board-title">{{viewList.title}}</h1>
 	                    <div class="stu-comm-detail-profile">
 	                        <template v-if="viewList.userFile">
-	                            <img :src="contextPath+viewList.userFile" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
+	                            <img :src="viewList.userFile" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
 	                        </template>
 	                        <template v-if="!viewList.userFile">
 	                            <img src="${pageContext.request.contextPath}/src/profile.png" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
