@@ -345,6 +345,9 @@
 					success : function(data) { 
 						
 						self.studyList = data.studyList;
+						self.studyList.forEach(element => {
+							element.filePath = "https://www.yslennon.dev/bagStrap/"+element.filePath
+						});
 						self.currentPage = currentPage;
 						self.totalPages = data.totalPages;
 
