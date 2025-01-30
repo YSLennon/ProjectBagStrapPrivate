@@ -22,11 +22,15 @@ public class IntroController {
 	
 	@Autowired
 	IntroService introService;
-	
-	@RequestMapping("/intro") 
-    public String main(Model model) throws Exception{
-         return "intro/intro_home";
-    }
+
+	@RequestMapping("/intro")
+	public String main(Model model) throws Exception{
+		return "intro/intro_home";
+	}
+	@RequestMapping("/")
+	public String defaultLocation(Model model) throws Exception{
+		return "intro/intro_home";
+	}
 	@RequestMapping(value = "/intro.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	@ResponseBody
 	public String intro(@RequestParam HashMap<String, Object> map) throws Exception {
