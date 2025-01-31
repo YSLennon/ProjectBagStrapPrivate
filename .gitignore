@@ -1,5 +1,5 @@
 HELP.md
-target/
+bagStrap/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -40,7 +40,21 @@ tmp/
 *.bak
 *.swp
 *~.nib
-local.properties
+
+# 환경별 설정 파일 제외
+application.properties
+application-docker.properties
+application-local.properties
+
 .settings/
 .loadpath
 .recommenders
+
+# IntelliJ IDEA 관련 설정 파일
+.idea/
+.smarttomcat/
+
+# Eclipse 관련 설정 파일
+.project
+.classpath
+.settings/
