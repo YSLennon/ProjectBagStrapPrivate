@@ -350,7 +350,7 @@
 										    <div style="flex:1;"> {{items[0].reason}}</div>
 										</template>
 										<template v-if="items[0].filePath">
-										    <img style="width:150px; height:150px;" :src="items[0].filePath">
+										    <img style="width:150px; height:150px;" :src="contextPath+items[0].filePath">
 										</template>
 									</div>
 								</div>			                
