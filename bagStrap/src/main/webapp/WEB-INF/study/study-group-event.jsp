@@ -221,7 +221,7 @@
 			                     <div class="award-item" v-if="event3001.length > 0" @click="fnView(event3001[0].targetId)">
 			                         <span class="award-medal gold">1st</span>
 			                         <div class="award-title">{{ event3001[0].userNickName }}</div>
-			                             <img :src="contextPath+event3001[0].filePath" class="award-image">
+			                             <img :src="event3001[0].filePath" class="award-image">
 			                         <div class="award-description">
 			                             <p class="award-highlight">대회 최고상 수상!</p>
 										 <p class="award-highlight"> 좋아요 수 : {{ event3001[0].cntLike }}</p>
@@ -229,7 +229,7 @@
 			                         </div>
 									 <div class="participant-photo">
 										<template v-if="event3001[0].userFile">
-					                    	<img :src="contextPath+event3001[0].userFile" class="award-image">
+					                    	<img :src="event3001[0].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
@@ -243,7 +243,7 @@
 			                     <div class="award-item" v-if="event3001.length > 1"  @click="fnView(event3001[1].targetId)">
 			                         <span class="award-medal silver">2nd</span>
 			                         <div class="award-title">{{ event3001[1].userNickName }}</div>
-			                         <img :src="contextPath+event3001[1].filePath" class="award-image">
+			                         <img :src="event3001[1].filePath" class="award-image">
 			                         <div class="award-description">
 			                             <p class="award-highlight">우수상 수상!</p>
 										 <p class="award-highlight"> 좋아요 수 : {{ event3001[1].cntLike }}</p>
@@ -251,7 +251,7 @@
 			                         </div>
 									 <div class="participant-photo">
 										<template v-if="event3001[1].userFile">
-					                    	<img :src="contextPath+event3001[1].userFile" class="award-image">
+					                    	<img :src="event3001[1].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
@@ -265,7 +265,7 @@
 			                     <div class="award-item" v-if="event3001.length > 2"  @click="fnView(event3001[2].targetId)">
 			                         <span class="award-medal bronze">3rd</span>
 			                         <div class="award-title">{{ event3001[2].userNickName }}</div>
-			                         <img :src="contextPath+event3001[2].filePath" class="award-image">
+			                         <img :src="event3001[2].filePath" class="award-image">
 			                         <div class="award-description">
 			                             <p class="award-highlight">장려상 수상!</p>
 										 <p class="award-highlight"> 좋아요 수 : {{ event3001[2].cntLike }}</p>
@@ -273,7 +273,7 @@
 			                         </div>
 									 <div class="participant-photo">
 										<template v-if="event3001[2].userFile">
-					                    	<img :src="contextPath+event3001[2].userFile" class="award-image">
+					                    	<img :src="event3001[2].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
@@ -289,7 +289,7 @@
 	 		                     <div class="award-item" v-if="event3002.length > 0"  @click="fnView(event3002[0].postId)">
 	 		                         <span class="award-medal gold">1st</span>
 	 		                         <div class="award-title">{{ event3002[0].userNickName }}</div>
-	 		                             <img :src="contextPath+event3002[0].filePath" class="award-image">
+	 		                             <img :src="event3002[0].filePath" class="award-image">
 	 		                         <div class="award-description">
 	 		                             <p class="award-highlight">대회 최고상 수상!</p>
 	 									 <p class="award-highlight"> 좋아요 수 : {{ event3002[0].cntLike }}</p>
@@ -297,7 +297,7 @@
 	 		                         </div>
 	 								 <div class="participant-photo">
 										<template v-if="event3002[0].userFile">
-					                    	<img :src="contextPath+event3002[0].userFile" class="award-image">
+					                    	<img :src="event3002[0].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
@@ -311,7 +311,7 @@
 	 		                     <div class="award-item" v-if="event3002.length > 1" @click="fnView(event3002[1].postId)" >
 	 		                         <span class="award-medal silver">2nd</span>
 	 		                         <div class="award-title">{{ event3002[1].userNickName }}</div>
-	 		                         <img :src="contextPath+event3002[1].filePath" class="award-image">
+	 		                         <img :src="event3002[1].filePath" class="award-image">
 	 		                         <div class="award-description">
 	 		                             <p class="award-highlight">우수상 수상!</p>
 	 									 <p class="award-highlight"> 좋아요 수 : {{ event3002[1].cntLike }}</p>
@@ -319,7 +319,7 @@
 	 		                         </div>
 	 								 <div class="participant-photo">
 										<template v-if="event3002[1].userFile">
-					                    	<img :src="contextPath+event3002[1].userFile" class="award-image">
+					                    	<img :src="event3002[1].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
@@ -333,7 +333,7 @@
 	 		                     <div class="award-item" v-if="event3002.length > 2" @click="fnView(event3002[2].postId)">
 	 		                         <span class="award-medal bronze">3rd</span>
 	 		                         <div class="award-title">{{ event3002[2].userNickName }}</div>
-	 		                         <img :src="contextPath+event3002[2].filePath" class="award-image">
+	 		                         <img :src="event3002[2].filePath" class="award-image">
 	 		                         <div class="award-description">
 	 		                             <p class="award-highlight">장려상 수상!</p>
 	 									 <p class="award-highlight"> 좋아요 수 : {{ event3002[2].cntLike }}</p>
@@ -341,7 +341,7 @@
 	 		                         </div>
 	 								 <div class="participant-photo">
 										<template v-if="event3002[2].userFile">
-					                    	<img :src="contextPath+event3002[2].userFile" class="award-image">
+					                    	<img :src="event3002[2].userFile" class="award-image">
 										</template>
 										<template v-else>
 					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
