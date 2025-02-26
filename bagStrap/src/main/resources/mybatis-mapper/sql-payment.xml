@@ -39,6 +39,7 @@
  	</update>
 	<insert id="insertAddress" parameterType="hashmap">
 		   INSERT INTO TBL_ADDRESS (
+			ADDRESS_NO,
             USER_ID,
             USER_NAME,
             PHONE,
@@ -50,6 +51,7 @@
             REQCOMMENT,
             ENTRANCE_PASSWORD
         ) VALUES (
+			SEQ_DOCKER_ADDRESS.NEXTVAL,
             #{userId},
             #{userName},
             #{phone},
@@ -62,7 +64,7 @@
              #{entrancePassword}
         )
           <selectKey keyProperty="addressNo" resultType="int" order="AFTER">
-		       SELECT ISEQ$$_26662.CURRVAL  FROM DUAL
+		       SELECT SEQ_DOCKER_ADDRESS.CURRVAL  FROM DUAL
 		  </selectKey>
         
 	</insert>
@@ -86,7 +88,7 @@
 
 <select id="selectBookList" parameterType="map" resultMap="clobDataResult">
     <foreach item="item" collection="orderList" index="index" separator=" UNION ">
-        SELECT B.BOOK_ID, TITLE, DBMS_LOB.SUBSTR(DESCRIPTION, 1, 4000) AS DESCRIPTION, AUTHOR, PUBLISHER, PRICE, IMAGE, QUANTITY, CATEGORY, EBOOK, CREATED_AT, UPDATED_AT, DISCOUNT, #{item.bookQuantity} AS ORDER_QUANTITY 
+        SELECT B.BOOK_ID, #{item.bookQuantity} AS ORDER_QUANTITY, TITLE, DBMS_LOB.SUBSTR(DESCRIPTION, 1, 4000) AS DESCRIPTION, AUTHOR, PUBLISHER, PRICE, IMAGE, QUANTITY, CATEGORY, EBOOK, CREATED_AT, UPDATED_AT, DISCOUNT
         FROM TBL_BOOK B
         WHERE 
             (BOOK_ID = #{item.bookId} AND QUANTITY >= #{item.bookQuantity}) 

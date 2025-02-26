@@ -352,7 +352,7 @@
 	                            <img :src="viewList.userFile" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
 	                        </template>
 	                        <template v-if="!viewList.userFile">
-	                            <img src="${pageContext.request.contextPath}/src/profile.png" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
+	                            <img src="${uploadUrlPath}profile.png" alt="프로필 사진" class="stu-comm-detail-profile-img" @click="fnUserboard(viewList.author,viewList.userNickName)">
 	                        </template>
 	                        <div class="stu-comm-detail-profile-info">
 	                            <div><a href="#" @click="fnUserboard(viewList.author,viewList.userNickName)"><strong>{{viewList.userNickName}} 님</strong></a></div>
@@ -405,7 +405,7 @@
 	                                <textarea placeholder="댓글을 남겨보세요..." v-model="contents" class="stu-comm-detail-comment-textarea" @keyup.enter="fnSave()"></textarea>
 	                                <div>
 	                                    <label for="file-upload" style="cursor: pointer;">
-	                                        <img src="${pageContext.request.contextPath}/src/첨부이모티콘.png" style="width: 25px; height: 25px;">
+	                                        <img src="${uploadUrlPath}첨부이모티콘.png" style="width: 25px; height: 25px;">
 	                                    </label>										
 	                                    <input type="file" id="file-upload" style="display: none;" @change="fnFileChange"/>
 										<template v-if="imageView === '1'">
@@ -524,7 +524,7 @@
 	                                                    <textarea placeholder="답글을 남겨보세요..." v-model="comcontents" class="stu-comm-detail-comment-textarea" @keyup.enter="fnupdateCommentReResult(item.commentId,comcontents,item.boardId)"></textarea>
 	                                                    <div>
 	                                                        <label for="file-upload" style="cursor: pointer;">
-	                                                            <img src="${pageContext.request.contextPath}/src/첨부이모티콘.png" style="width: 25px; height: 25px;">
+	                                                            <img src="${uploadUrlPath}첨부이모티콘.png" style="width: 25px; height: 25px;">
 	                                                        </label>
 	                                                        <input type="file" id="file-upload" style="display: none;" @change="fnFileChange(item.commentId)" />
 	                                                        <div v-if="fileName || filePreview">
@@ -549,7 +549,7 @@
 	                                                <textarea placeholder="댓글을 남겨보세요..." v-model="item.comcontents" class="stu-comm-detail-comment-textarea" @keyup.enter="fnupdateCommentResult(item.commentId, item.comcontents)"></textarea>
 	                                                <div>
 	                                                    <label for="file-upload" style="cursor: pointer;">
-	                                                        <img src="${pageContext.request.contextPath}/src/첨부이모티콘.png" style="width: 25px; height: 25px;">
+	                                                        <img src="${uploadUrlPath}첨부이모티콘.png" style="width: 25px; height: 25px;">
 	                                                    </label>
 	                                                    <input type="file" id="file-upload" style="display: none;" @change="fnFileChange(item.commentId)" />
 	                                                    <div>

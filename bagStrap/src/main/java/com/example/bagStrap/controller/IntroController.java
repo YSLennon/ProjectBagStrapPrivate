@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,16 +20,12 @@ import com.google.gson.Gson;
 
 @Controller
 public class IntroController {
-	
+
 	@Autowired
 	IntroService introService;
 
-	@RequestMapping("/intro")
+	@RequestMapping({"/intro", "/"})
 	public String main(Model model) throws Exception{
-		return "intro/intro_home";
-	}
-	@RequestMapping("/")
-	public String defaultLocation(Model model) throws Exception{
 		return "intro/intro_home";
 	}
 	@RequestMapping(value = "/intro.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

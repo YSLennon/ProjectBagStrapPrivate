@@ -19,7 +19,6 @@ public class DefaultServiceImpl implements DefaultService{
 
 	@Override
 	public HashMap<String, Object> searchItem(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		
 		try {

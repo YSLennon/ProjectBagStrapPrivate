@@ -19,7 +19,7 @@
 	    line-height: 1.6;
 	    color: #333;
 	    background-color: white; /* 화이트 테마 배경색 */
-	    background-image: url('${pageContext.request.contextPath}/src/인트로.jpg'); /* 배경 이미지 경로 */
+	    background-image: url('${uploadUrlPath}인트로.jpg'); /* 배경 이미지 경로 */
 	    background-size: cover;
 	    background-repeat: no-repeat;
 	    background-attachment: fixed;

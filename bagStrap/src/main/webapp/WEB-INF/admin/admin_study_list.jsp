@@ -260,7 +260,7 @@
 										<img style="width: 100px; height: 100px" :src="item.filePath" alt=" Image" class="">
 									</template>
 									<template v-else>
-										<img style="width: 100px; height: 100px" src="${pageContext.request.contextPath}/src/profile.png" alt=" Image" class="">
+										<img style="width: 100px; height: 100px" src="${uploadUrlPath}profile.png" alt=" Image" class="">
 									</template>		
 									<div class="admin-study-left-flex">			                      
 										<h1>{{item.studyName}}<h2>

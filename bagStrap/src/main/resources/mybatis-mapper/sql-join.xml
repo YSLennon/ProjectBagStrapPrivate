@@ -41,8 +41,8 @@
 	<!--주소테이블추가-->
 	<insert id="addressInsert" parameterType="hashmap">
 		INSERT INTO TBL_ADDRESS
-		( USER_ID, USER_NAME, PHONE, ADDRESS, ADDRESS_DETAIL, ZONECODE)
-		VALUES ( #{userId}, #{userName}, #{phone}, #{address}, #{addressDetail}, #{zonecode})
+		( ADDRESS_NO, USER_ID, USER_NAME, PHONE, ADDRESS, ADDRESS_DETAIL, ZONECODE)
+		VALUES ( SEQ_DOCKER_ADDRESS.NEXTVAL, #{userId}, #{userName}, #{phone}, #{address}, #{addressDetail}, #{zonecode})
 	</insert>
 
 

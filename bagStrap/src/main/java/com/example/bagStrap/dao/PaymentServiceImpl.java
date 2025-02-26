@@ -26,8 +26,6 @@ public class PaymentServiceImpl implements PaymentService{
 
 	@Autowired
 	PaymentMapper paymentMapper;
-	@Autowired
-	SharedHeaderMapper sharedHeaderMapper;
 
 
 	@Override
@@ -59,7 +57,7 @@ public class PaymentServiceImpl implements PaymentService{
 	@Transactional
 	@Override
 	public ResponseEntity<Map> refund(HashMap<String, Object> refundMap,HashMap<String, Object> tokenMap) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		int[] amount = {0};
 		try {
@@ -174,12 +172,11 @@ public class PaymentServiceImpl implements PaymentService{
 		}
 	}
 	public void  makeRefundTable(HashMap<String, Object> refundMap) {
-		// TODO Auto-generated method stub		
+
 		try {
 			paymentMapper.insertRefund(refundMap);
         	paymentMapper.insertRefundItem(refundMap);
         	paymentMapper.updateOrderStatus(refundMap);
-        	
         	
         	// 환불 수량 체크하기
 		} catch(Exception e) {
@@ -207,16 +204,15 @@ public class PaymentServiceImpl implements PaymentService{
 	@Transactional
 	@Override
 	public HashMap<String, Object> selectRefundList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
-		
+
 		try {
 			int totalPages = paymentMapper.selectRefundListCount(map);
 			List<Order> refundList = paymentMapper.selectRefundList(map);
 			resultMap.put("totalPages", totalPages);
 			resultMap.put("refundList", refundList);
 			resultMap.put("result", true);
-			
+
 		} catch(Exception e) {
 			failedResultMap(resultMap, e.getMessage());
 		}
@@ -239,65 +235,59 @@ public class PaymentServiceImpl implements PaymentService{
 
 			return ResponseEntity.ok(response.getBody());
 	}
+
 	@Override
 	public HashMap<String, Object> createOrder(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<>();
-		
 		try {
 			// 책 구매 수량 체크
 			if(!isBookAvailableForPurchase(map)) {
-				failedResultMap(resultMap, "책없어용");
+				failedResultMap(resultMap, "책의 수량이 부족합니다");
 				return resultMap;
 			}
-			System.out.println("수량 이상 무");
 			// 가격 이상 유무 체크
 			if(!checkPriceSum(map)) {
 				failedResultMap(resultMap, "가격이 일치하지않습니다");
 				return resultMap;
 			}
-			System.out.println("가격 이상 무");
-			
+			//주소 저장
 			if(map.get("addressNo").toString().equals("0")) saveAddress(map,resultMap);
 			
 			resultMap.put("result", true);
 		} catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Exception e : " + e);
 		}
 		return resultMap;
 	}
+
 	private void saveAddress(HashMap<String, Object> map, HashMap<String, Object> resultMap) {
 		// 주소 저장 시 최대 개수 체크
 		if(map.get("saveYN").equals("Y")) {
-			map.put("checkSave", "check");		
-			if(paymentMapper.selectAddress(map).size() >= 10) {
+			map.put("checkSave", "check"); //저장된 주소검색
+			if(paymentMapper.selectAddress(map).size() > 10) {
 				map.replace("saveYN", "N");
-				resultMap.put("message", "배송지 저장 개수 3개 넘어서 저장은 안대용~");
-			} else {
+				resultMap.put("message", "배송지 저장 개수가 최대입니다");
+			} else if (map.get("defaultYN").equals("Y")){
 				paymentMapper.updateAddressDefaultToN(map);
 			};
 			map.remove("checkSave");
-		} 
-		
-		System.out.println(map);
+		}
 		// 배송 주소 저장
 		try {
 			if(map.get("reqComment") == null) map.put("reqComment", "");
 			if(map.get("entrancePassword") == null) map.put("entrancePassword", "");
-			System.out.println(map);
-			int idx = paymentMapper.insertAddress(map);
+
+			paymentMapper.insertAddress(map);
+
 			resultMap.put("addressNo", map.get("addressNo"));
 		}catch(Exception e) {
 			e.printStackTrace();
 			failedResultMap(resultMap, "주소지 입력에 실패했습니다.");
-			throw new RuntimeException("Address insertion failed", e);
-			
 		}
 	}
 	@Override
 	public HashMap<String, Object> changeDefaultYN(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 			try {
 				paymentMapper.changeDefaultYN(map);
@@ -311,7 +301,7 @@ public class PaymentServiceImpl implements PaymentService{
 	}
 	@Override
 	public HashMap<String, Object> updateSaveYN(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 			try {
 				paymentMapper.updateSaveYN(map);
@@ -326,30 +316,26 @@ public class PaymentServiceImpl implements PaymentService{
 	
 	@Override
 	public HashMap<String, Object> completeOrder(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<>();
-		String message = "주문이 완료되었습니다"; 
+		String message = "주문이 완료되었습니다";
+
 		//상점 책 개수 업데이트
 		if(!updateBookTable(map)) {
 			message = "책 개수 변경 에러";
-			resultMap.put("result", false);
-			resultMap.put("message", message);
+			failedResultMap(resultMap, message);
 		}
 		
-		//상점 책 개수 업데이트
+		//주문 테이블 업데이트
 		if(!createOrderTable(map)) {
-			message = "orderList 못만들어용";
-			resultMap.put("result", false);
-			resultMap.put("message", message);
+			message = "orderList 생성 에러";
+			failedResultMap(resultMap, message);
 		}
 		
-		//카트에서 삭제
+		//장바구니에서 삭제
 		if(!deleteCart(map)) {
-			message = "카트에서 못지워용";
-			resultMap.put("result", false);
-			resultMap.put("message", message);
+			message = "카트 삭제 에러";
+			failedResultMap(resultMap, message);
 		}
-		
 		
 		resultMap.put("result", true);
 		resultMap.put("message", message);
@@ -359,7 +345,7 @@ public class PaymentServiceImpl implements PaymentService{
 	// 내 주소 불러오기
 	@Override
 	public HashMap<String, Object> selectMyAddress(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		List<Order> addressList = paymentMapper.selectMyAddress(map);
 		resultMap.put("addressList", addressList);
@@ -382,15 +368,13 @@ public class PaymentServiceImpl implements PaymentService{
 		final int[] comparePrice = {0};
 		orderList.forEach(item -> {
 			comparePrice[0] += item.getPrice().intValue() * item.getOrderQuantity();
-			System.out.println(priceSum);
-			System.out.println(comparePrice[0]);
 		});
 		
 		return priceSum == comparePrice[0];
 	}
-	private void failedResultMap(HashMap<String, Object> map, String message) {
-		map.put("message", message);
-		map.put("result", false);
+	private void failedResultMap(HashMap<String, Object> resultMap, String message) {
+		resultMap.put("message", message);
+		resultMap.put("result", false);
 	}
 
 	//북테이블 개수 변경

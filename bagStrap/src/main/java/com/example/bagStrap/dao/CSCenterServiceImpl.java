@@ -18,7 +18,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> searchCS(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap=new HashMap<String, Object>();
 		List<StudyComm> list = CSMapper.searchList(map);
 		
@@ -30,7 +29,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> NoticeList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap=new HashMap<String, Object>();
 		List<Notice> list=CSMapper.searchNotice(map);
 		int count = CSMapper.CountNoticeList(map);
@@ -44,7 +42,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> searchNoticeInfo(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println(map);
@@ -57,7 +54,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 			resultMap.put("message", "검색되었습니다.");
 			
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}
@@ -65,7 +62,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 	}
 	@Override
 	public HashMap<String, Object> addNotice(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			//System.out.println("입력 데이터: " + map);
@@ -75,7 +71,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 			resultMap.put("message", "등록되었습니다.");
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}
@@ -84,7 +80,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 	
 	@Override
 	public HashMap<String, Object> FaqList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		List<Notice> list=CSMapper.faqlist(map);
 		
@@ -98,7 +93,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> addInquiry(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			CSMapper.insertInquiry(map);
@@ -106,7 +100,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 			resultMap.put("result", "success");
 			resultMap.put("message", "문의가 접수되었습니다.");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}
@@ -115,7 +109,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> selectInq(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		List<Notice> list= CSMapper.searchInqList(map);
 		
@@ -127,13 +120,12 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> removeInqBoard(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			CSMapper.deleteInqBoard(map);
 			resultMap.put("result", "success");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 		}
 		return resultMap;
@@ -141,13 +133,12 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> deleteInq(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			CSMapper.deleteInq(map);
 			resultMap.put("message", "삭제되었습니다.");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}
 		return resultMap;
@@ -155,7 +146,6 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> InqList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		List<Notice> list= CSMapper.historyInq(map);
 		int count=CSMapper.CountInqList(map);
@@ -169,7 +159,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> updateInqList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		CSMapper.updateInq(map);
 		resultMap.put("message", "변경 성공");
@@ -179,7 +169,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> addInqAnswer(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println(map);
@@ -190,7 +180,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 			resultMap.put("result", "success");
 			resultMap.put("message", "답변완료.");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}
@@ -199,7 +189,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 
 	@Override
 	public HashMap<String, Object> searchAnswerInfo(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println(map);
@@ -212,7 +202,7 @@ public class CSCenterServiceImpl implements CSCenterService{
 			resultMap.put("message", "검색되었습니다.");
 			
 		}catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 			resultMap.put("result", "fail");
 			resultMap.put("message", "예기치 못한 문제가 발생했습니다. \n나중에 다시 시도해주세요.");
 		}

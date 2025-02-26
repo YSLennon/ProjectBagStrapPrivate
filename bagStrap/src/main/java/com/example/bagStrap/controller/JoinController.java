@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +34,13 @@ public class JoinController {
 	JoinService joinService;
 	@Autowired
 	HttpSession session;
-	/*
-	 * @Autowired SmsService smsService;
-	 */
+
+	private String path=System.getProperty("user.dir")+"/";
+	@Value("${upload.path}")
+	private String uploadpath;
+	@Value("${upload.url.path}")
+	private String uploadUrl;
+
 	private JoinService userService;
 
 	@RequestMapping("/join") 
@@ -246,33 +251,21 @@ public class JoinController {
 	 @RequestMapping("/JoinfileUpload.dox")
 	    public String result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
 	    {
-	        String url = null;
-			String path=System.getProperty("user.dir");
 
 			try {
-	 
-	            //String uploadpath = request.getServletContext().getRealPath(path);
-	            String uploadpath = path;
 	            String originFilename = multi.getOriginalFilename();
-	            String extName = originFilename.substring(originFilename.lastIndexOf("."),originFilename.length());
+	            String extName = originFilename.substring(originFilename.lastIndexOf("."));
 	            long size = multi.getSize();
 	            String saveFileName = genSaveFileName(extName);
 
-				System.out.println("uploadpath : " + uploadpath);
-	            System.out.println("originFilename : " + originFilename);
-	            System.out.println("extensionName : " + extName);
-	            System.out.println("size : " + size);
-	            System.out.println("saveFileName : " + saveFileName);
-//		            String path2 = System.getProperty("user.dir");
-	            System.out.println("Working Directory = " + path + "\\src\\webapp\\img");
 	            if(!multi.isEmpty()){
-					File file = new File(path + "\\src\\main\\webapp\\src", saveFileName);
-
+					File file = new File(path + uploadpath, saveFileName);
+					System.out.println("filePath: " + file.getAbsolutePath());
 					multi.transferTo(file);
 	                
 	                HashMap<String, Object> map = new HashMap<String, Object>();
 	                map.put("fileName", saveFileName);
-	                map.put("filePath", "/src/" + saveFileName);
+					map.put("filePath", uploadUrl+saveFileName);
 	                map.put("idx", idx);
 	                map.put("fileOrgName", originFilename);
 	                map.put("fileSize", size);
@@ -283,12 +276,12 @@ public class JoinController {
 	                model.addAttribute("filename", multi.getOriginalFilename());
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
 
-	                return "redirect:"+request.getContextPath()+"/study-comm";
+	                return "redirect:"+request.getContextPath();
 	            }
 	        }catch(Exception e) {
-	            System.out.println(e);
+	            e.printStackTrace();
 	        }
-	        return "redirect:"+request.getContextPath()+"/study-comm";
+			return "redirect:"+request.getContextPath();
 	    }
 	    
 	    // 현재 시간을 기준으로 파일 이름 생성

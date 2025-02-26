@@ -13,7 +13,7 @@
 <body>
 	<aside id="studycommsidebar">
 		<div class="stu-comm-profile">
-            <img src="${pageContext.request.contextPath}/src/profile.png" alt="프로필 사진" class="stu-comm-profile-img" @click="fnMyboard">
+            <img src="${uploadUrlPath}profile.png" alt="프로필 사진" class="stu-comm-profile-img" @click="fnMyboard">
             <div class="stu-comm-profile-info">
                 <p @click="fnMyboard"><strong>{{sessionUserNickName}} 님</strong></p>
             </div>

@@ -485,9 +485,9 @@
 					isAdmin : false, //세션 체크
 					sessionUserId : '',
 					sessionUserNickName: '',
-					userId : '',
+					userId : 'admin',
 					name : '',
-					password : '',
+					password : 'admin1234',
 					user: '${sessionScope.user}',
 					notiList:[],
 					flg: '',

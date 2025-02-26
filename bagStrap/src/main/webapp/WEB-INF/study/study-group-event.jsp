@@ -232,7 +232,7 @@
 					                    	<img :src="event3001[0].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template>
 									     <p>{{ event3001[0].userNickName }}</p>
 									 </div>
@@ -254,7 +254,7 @@
 					                    	<img :src="event3001[1].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template> 
 									     <p>{{ event3001[1].userNickName }}</p>
 									 </div>
@@ -276,7 +276,7 @@
 					                    	<img :src="event3001[2].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template>
 									     <p>{{ event3001[2].userNickName }}</p>
 									 </div>
@@ -300,7 +300,7 @@
 					                    	<img :src="event3002[0].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template> 
 	 								     <p>{{ event3002[0].userNickName }}</p>
 	 								 </div>
@@ -322,7 +322,7 @@
 					                    	<img :src="event3002[1].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template> 
 	 								     <p>{{ event3002[1].userNickName }}</p>
 	 								 </div>
@@ -344,7 +344,7 @@
 					                    	<img :src="event3002[2].userFile" class="award-image">
 										</template>
 										<template v-else>
-					                    	<img  src="${pageContext.request.contextPath}/src/profile.png" class="award-image" >
+					                    	<img  src="${uploadUrlPath}profile.png" class="award-image" >
 										</template>   
 	 								     <p>{{ event3002[2].userNickName }}</p>
 	 								 </div>

@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService{
 	@Transactional
 	@Override
 	public HashMap<String, Object> login(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		
 		try {
@@ -56,7 +55,6 @@ public class UserServiceImpl implements UserService{
 	@Transactional
 	@Override
 	public HashMap<String, Object> checkAccountInfo(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		try {
 			if(map.get("flg").toString().equals("id")) {

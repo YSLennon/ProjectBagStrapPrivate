@@ -51,7 +51,7 @@ public class PaymentController {
 	
 	@RequestMapping(value = "/order.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public String order(Model model, @RequestParam HashMap<String, Object> map) throws Exception {
+	public String order(@RequestParam HashMap<String, Object> map) throws Exception {
 		HashMap<String, Object> resultMap = new HashMap();
 
 		try {
@@ -64,6 +64,7 @@ public class PaymentController {
 				List<Object> orderList = mapper.readValue(json, new TypeReference<List<Object>>(){});
 				map.put("orderList", orderList);
 				map.put("userId", user.getUserId());
+
 				resultMap = paymentService.createOrder(map);
 				
 				if((boolean)resultMap.get("result")) {
@@ -73,12 +74,8 @@ public class PaymentController {
 					resultMap.put("userId", user.getUserId());
 					resultMap.put("userEmail", user.getEmail());
 					resultMap.put("phone", user.getPhone());
-					
 				}
 				System.out.println(resultMap);
-
-				
-				
 
 			} else {
 				resultMap.put("isLogin", false);
@@ -86,8 +83,10 @@ public class PaymentController {
 				resultMap.put("message", "로그인 후 이용해주세요");
 			}
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
+			resultMap.put("isAdmin", false);
+			resultMap.put("message", "로그인 후 이용해주세요");
 		}
 
 		return new Gson().toJson(resultMap);
@@ -101,10 +100,11 @@ public class PaymentController {
 		try {
 			User user = (User) session.getAttribute("user");
 			if(user.getUserNickName() != null) {
-				System.out.println(map);
-				String json = map.get("orderList").toString(); 
+
+				String json = map.get("orderList").toString();
 				ObjectMapper mapper = new ObjectMapper();
 				List<Object> orderList = mapper.readValue(json, new TypeReference<List<Object>>(){});
+
 				map.put("orderList", orderList);
 				map.put("userId", user.getUserId());
 				resultMap = paymentService.completeOrder(map);
@@ -115,11 +115,15 @@ public class PaymentController {
 				
 
 			} else {
-
+				resultMap.put("isLogin", false);
+				resultMap.put("isAdmin", false);
+				resultMap.put("message", "로그인 후 이용해주세요");
 			}
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
+			resultMap.put("isAdmin", false);
+			resultMap.put("message", "로그인 후 이용해주세요");
 		}
 
 		return new Gson().toJson(resultMap);
@@ -137,7 +141,7 @@ public class PaymentController {
 			}
 			
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
 		}
 
@@ -156,7 +160,7 @@ public class PaymentController {
 			}
 			
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
 		}
 
@@ -181,7 +185,7 @@ public class PaymentController {
 				resultMap.put("message", "내 주소를 불러는데 실패했습니다.");
 			}
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
 		}
 
@@ -203,7 +207,7 @@ public class PaymentController {
 				resultMap.put("message", "로그인 후 이용해주세요");
 			}
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
 		}
 
@@ -226,7 +230,7 @@ public class PaymentController {
 				resultMap.put("message", "로그인 후 이용해주세요");
 			}
 		} catch(NullPointerException e) {
-			System.out.println(e);
+			e.printStackTrace();
 			resultMap.put("isLogin", false);
 		}
 

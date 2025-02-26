@@ -297,7 +297,6 @@
 			    }).open();
 			},
 			fnOrder(){
-				//TODO 정규식 체크해야함
 				var self = this;
 				if(!self.userName){
 					alert("이름을 입력해주세요");
@@ -315,8 +314,6 @@
 					alert("상세주소를 입력해주세요");
 					return;
 				}
-				
-				var self = this;
 				var nparmap = {
 					orderList : JSON.stringify(self.orderList),
 					priceSum : self.priceSum, 
@@ -336,19 +333,16 @@
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
-					success : function(data) { 
-						
-						
+					success : function(data) {
 						if(data.result){
-							self.data.totalAmount = +data.totalAmount;
 							self.data.paymentId = data.userId +'_'+ Date.now();
+							self.data.totalAmount = +data.totalAmount;
 							self.data.userName = data.userName;
 							self.data.userEmail = data.userEmail;
 							self.data.phone = data.phone;
 							self.addressNo = data.addressNo;
+
 							self.fnImp();
-						//	self.imp = 'rsp.imp_uid'; // 테스트용
-						//	self.completeOrder(); // 테스트용
 						} else {
 							alert(data.message);
 						}
@@ -359,14 +353,14 @@
 				var self = this;
 				IMP.request_pay(
 				  {
-				    pg: "html5_inicis.${IMP_UID}", //테스트 시 html5_inicis.INIpayTest 기재
+				    pg: "html5_inicis.${IMP_UID}",
 				    pay_method: "card",
 				    merchant_uid: self.data.paymentId, //상점에서 생성한 고유 주문번호
 				    name: "현이의 가방끈",
 				    amount: self.data.totalAmount,
 				    buyer_email: self.data.userEmail,
 				    buyer_name: self.data.userName,
-				    buyer_tel: self.data.phone, //필수 파라미터 입니다.
+				    buyer_tel: self.data.phone,
 				    buyer_addr: self.address + self.address_detail,
 				    buyer_postcode: self.zonecode,
 				  },
@@ -399,29 +393,13 @@
 					}
 				});
 			},
-			fnRefund(){
-				var self = this;
-				var nparmap = {
-					imp : 'imp_925969653488',
-					amount : '21600' 	
-				};
-				$.ajax({
-					url:"${pageContext.request.contextPath}/refund.dox",
-					dataType:"json",	
-					type : "POST", 
-					data : nparmap,
-					success : function(data) { 
-						
-					}
-				});
-			},
 			fnChangeYN(flg){
 				var self = this;
 				if(self.myAddressList.length >= 10){
 					document.querySelector(flg).checked = false;
 					alert("저장 가능한 배송지의 개수는 최대 10개입니다. 삭제 후 적용해주세요.")
 				} else if(flg === '#defaultYN' && !document.querySelector("#saveYN").checked){
-					
+
 					document.querySelector("#saveYN").checked = true;
 				} else if(flg === '#saveYN' && document.querySelector("#defaultYN").checked){
 					document.querySelector("#defaultYN").checked = false;
@@ -490,8 +468,7 @@
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
-					success : function(data) { 
-						
+					success : function(data) {
 						self.fnMyAddress();
 						alert(data.message);
 					}

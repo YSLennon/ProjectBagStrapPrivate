@@ -125,11 +125,8 @@ public class ShopController {
     @ResponseBody
     public String getBookCat(Model model, @RequestParam HashMap<String, Object> map) throws Exception {
         HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap = shopService.getBookCat(map);
 
-
-    		resultMap = shopService.getBookCat(map);	
-
-        
         return new Gson().toJson(resultMap);
     }
     @RequestMapping(value = "/selectBookDetail.dox", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

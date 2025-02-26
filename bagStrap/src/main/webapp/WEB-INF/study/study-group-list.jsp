@@ -281,7 +281,7 @@
 			                            <img :src="item.filePath" alt="Study Group Image" class="study-group-list-image">
 			                        </template>
 			                        <template v-else>
-			                            <img src="${pageContext.request.contextPath}/src/profile.png" alt="Default Image" class="study-group-list-image">
+			                            <img src="${uploadUrlPath}profile.png" alt="Default Image" class="study-group-list-image">
 			                        </template>
 			                    </div>
 			                    <div class="study-group-content">

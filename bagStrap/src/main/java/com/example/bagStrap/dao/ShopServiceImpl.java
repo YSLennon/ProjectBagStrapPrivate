@@ -22,7 +22,6 @@ public class ShopServiceImpl implements ShopService{
 	@Transactional
 	@Override
 	public HashMap<String, Object> searchBookList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		
 		try {
@@ -67,7 +66,6 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public HashMap<String, Object> deleteCartItem(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		try {
 			shopMapper.deleteCartItem(map);
@@ -84,7 +82,6 @@ public class ShopServiceImpl implements ShopService{
 
 	@Override
 	public HashMap<String, Object> insertCartItem(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
 		HashMap<String, Object> resultMap = new HashMap();
 		try {
 			map.put("quantity", 1);
@@ -147,8 +144,6 @@ public class ShopServiceImpl implements ShopService{
 	public HashMap<String, Object> selectBookDetail(HashMap<String, Object> map) {
 		HashMap<String, Object> resultMap = new HashMap();
 		try {
-			System.out.println("----------------------------------");
-			System.out.println(map);
 			List<Order> detailList = shopMapper.selectBookDetail(map);
 			int totalPages = shopMapper.selectreviewListCount(map);
 			List<Order> reviewList = shopMapper.selectreviewList(map);

@@ -25,7 +25,7 @@ public class JoinServiceImpl implements JoinService{
 	
 	@Override
 	public HashMap<String, Object> searchJoin(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println("map1 : " + map);
@@ -44,7 +44,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> addJoin(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			System.out.println("map3 : " + map);
@@ -63,7 +63,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> doubleCheckJoin(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 	        System.out.println("map5: " + map);
@@ -89,7 +89,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> doubleNickName(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			System.out.println("map6 : " + map);
@@ -113,7 +113,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> addAddress(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try{
 			System.out.println("map7 : " + map);
@@ -131,7 +131,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> searchmyInfo(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			List<User> list	 = joinMapper.myInfoList(map);
@@ -148,7 +148,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> reloadAddress(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			joinMapper.addressUpdate(map);
@@ -163,7 +163,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> updateNickName(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			System.out.println("map11 : " + map);
@@ -182,7 +182,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> QuitId(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			System.out.println("map9 : " + map);
@@ -200,7 +200,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> PasswordCheck(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println("map13" + map);
@@ -222,7 +222,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> adminUsersCheck(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			List<User> list = joinMapper.adminUsers(map);
@@ -239,7 +239,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> updateAdminUsers(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			System.out.println("map15" + map);
@@ -256,7 +256,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> extraBanOut(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<>();
 		try {
 			int count4 = joinMapper.banExtra(map);
@@ -275,7 +275,7 @@ public class JoinServiceImpl implements JoinService{
 
 	@Override
 	public HashMap<String, Object> insertJoinProFile(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
+
 		HashMap<String, Object> resultMap = new HashMap<String, Object>();
 		try {
 			joinMapper.insertJoinProFile(map);
