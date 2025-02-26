@@ -19,7 +19,7 @@ RUN chmod +x ./mvnw
 RUN ./mvnw clean package -DskipTests
 
 # 런타임 스테이지
-FROM eclipse-temurin:17-jre-alpine as runtime
+FROM eclipse-temurin:17-jre-alpine AS runtime
 
 WORKDIR /app
 

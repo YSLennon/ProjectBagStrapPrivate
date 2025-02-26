@@ -14,9 +14,6 @@ target/
 .DS_Store
 Thumbs.db
 
-src/main/resources/application-*.yml
-src/main/resources/application-*.properties
-
 src/test/
 
 README.md
