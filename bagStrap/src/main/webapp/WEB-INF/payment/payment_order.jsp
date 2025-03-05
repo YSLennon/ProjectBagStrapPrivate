@@ -276,7 +276,6 @@
 						
 						if("data.result"){
 							self.myAddressList = data.addressList;
-
 						}
 						
 					}
@@ -369,6 +368,11 @@
 					if(rsp.success){
 						self.imp = rsp.imp_uid;
 						self.completeOrder();
+					} else {
+						console.log(rsp.error_code)
+						console.log(rsp)
+
+						alert('error code: ' + rsp.error_code + '\n 관리자에게 문의해주세요')
 					}
 					
 				  },

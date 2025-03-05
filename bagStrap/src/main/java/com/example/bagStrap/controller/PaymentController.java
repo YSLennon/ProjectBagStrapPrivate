@@ -109,11 +109,6 @@ public class PaymentController {
 				map.put("userId", user.getUserId());
 				resultMap = paymentService.completeOrder(map);
 
-				System.out.println(resultMap);
-
-				
-				
-
 			} else {
 				resultMap.put("isLogin", false);
 				resultMap.put("isAdmin", false);

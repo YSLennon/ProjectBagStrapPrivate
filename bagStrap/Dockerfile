@@ -1,19 +1,16 @@
 # 빌드 스테이지
 FROM eclipse-temurin:17-alpine AS build
-RUN apk add --no-cache bash
 
 WORKDIR /app
 
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
-
+COPY src src
 RUN chmod +x mvnw
-RUN ./mvnw dependency:go-offline -B
+# RUN ./mvnw dependency:go-offline -B
 
-COPY . .
-
-RUN chmod +x ./mvnw
+# RUN chmod +x ./mvnw
 
 # WAR로 패키지 빌드
 RUN ./mvnw clean package -DskipTests
@@ -30,7 +27,7 @@ COPY --from=build --chown=worker:worker /app/target/*.war ./app.war
 
 # /static 디렉토리 생성 및 권한 설정
 RUN mkdir -p /app/static && chown -R worker:worker /app/static && chmod 755 /app/static
-COPY ./src/main/resources/static/src /app/static
+# COPY ./src/main/resources/static/src /app/static
 
 USER worker:worker
 

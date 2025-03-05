@@ -385,7 +385,7 @@
 						type : "POST", 
 						data : nparmap,
 						success : function(data) { 
-							
+
 							self.groupList = data.groupList;
 							self.groupListCnt = data.groupListCnt;
 							self.totalPages = Math.ceil(self.groupListCnt / self.pageSize);

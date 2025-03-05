@@ -10,15 +10,34 @@
 	        USER_ID = #{userId} AND SAVEYN = 'Y'
 	        ORDER BY DEFAULTYN DESC
 	</select>
+
 	<select id="selectAddress" parameterType="hashmap" resultType="com.example.bagStrap.model.Order">
-		  SELECT *
-		        FROM TBL_ADDRESS
-		        WHERE 
-		        USER_ID = #{userId}
- 				<if test='checkSave != null'>
- 				AND SAVEYN = 'Y'
- 		        </if>
+	  		SELECT *
+			FROM TBL_ADDRESS
+			WHERE USER_ID = #{userId}
+			<if test='checkSave != null'>
+				AND SAVEYN = 'Y'
+			</if>
 	</select>
+	<update id="updateAddressDefaultToN" parameterType="hashmap">
+		UPDATE TBL_ADDRESS
+		SET DEFAULTYN = 'N'
+		WHERE USER_ID = #{userId}
+	</update>
+	<insert id="insertAddress" parameterType="hashmap">
+		INSERT INTO TBL_ADDRESS (
+			ADDRESS_NO, USER_ID, USER_NAME, PHONE, ADDRESS,
+			ADDRESS_DETAIL, ZONECODE, DEFAULTYN, SAVEYN, REQCOMMENT, ENTRANCE_PASSWORD
+		) VALUES (
+			SEQ_DOCKER_ADDRESS.NEXTVAL, #{userId}, #{userName}, #{phone}, #{address},
+			#{addressDetail}, #{zonecode}, #{defaultYN}, #{saveYN}, #{reqComment}, #{entrancePassword}
+		)
+		<selectKey keyProperty="addressNo" resultType="int" order="AFTER">
+			SELECT SEQ_DOCKER_ADDRESS.CURRVAL  FROM DUAL
+		</selectKey>
+
+	</insert>
+
 	<update id="changeDefaultYN" parameterType="hashmap">
 			UPDATE TBL_ADDRESS
 			SET DEFAULTYN = CASE
@@ -32,71 +51,35 @@
 			SET SAVEYN = 'N'
 			WHERE USER_ID = #{userId} AND ADDRESS_NO = #{addressNo} 
  	</update>
-	<update id="updateAddressDefaultToN" parameterType="hashmap">
-			UPDATE TBL_ADDRESS
-			SET DEFAULTYN = 'N'
-			WHERE USER_ID = #{userId}
- 	</update>
-	<insert id="insertAddress" parameterType="hashmap">
-		   INSERT INTO TBL_ADDRESS (
-			ADDRESS_NO,
-            USER_ID,
-            USER_NAME,
-            PHONE,
-            ADDRESS,
-            ADDRESS_DETAIL,
-            ZONECODE,
-            DEFAULTYN,
-            SAVEYN,
-            REQCOMMENT,
-            ENTRANCE_PASSWORD
-        ) VALUES (
-			SEQ_DOCKER_ADDRESS.NEXTVAL,
-            #{userId},
-            #{userName},
-            #{phone},
-            #{address},
-            #{addressDetail},
-            #{zonecode},
-            #{defaultYN},
-            #{saveYN},
-             #{reqComment},
-             #{entrancePassword}
-        )
-          <selectKey keyProperty="addressNo" resultType="int" order="AFTER">
-		       SELECT SEQ_DOCKER_ADDRESS.CURRVAL  FROM DUAL
-		  </selectKey>
-        
-	</insert>
 	
-<resultMap id="clobDataResult" type="com.example.bagStrap.model.Order">
-    <result property="bookId" column="BOOK_ID"/>
-    <result property="title" column="TITLE"/>
-    <result property="description" column="DESCRIPTION" jdbcType="VARCHAR" javaType="java.lang.String"/>
-    <result property="author" column="AUTHOR"/>
-    <result property="publisher" column="PUBLISHER"/>
-    <result property="price" column="PRICE"/>
-    <result property="image" column="IMAGE"/>
-    <result property="quantity" column="QUANTITY"/>
-    <result property="category" column="CATEGORY"/>
-    <result property="ebook" column="EBOOK"/>
-    <result property="createdAt" column="CREATED_AT"/>
-    <result property="updatedAt" column="UPDATED_AT"/>
-    <result property="discount" column="DISCOUNT"/>
-    <result property="orderQuantity" column="ORDER_QUANTITY"/>
-</resultMap>
+	<resultMap id="clobDataResult" type="com.example.bagStrap.model.Order">
+		<result property="bookId" column="BOOK_ID"/>
+		<result property="title" column="TITLE"/>
+		<result property="description" column="DESCRIPTION" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="author" column="AUTHOR"/>
+		<result property="publisher" column="PUBLISHER"/>
+		<result property="price" column="PRICE"/>
+		<result property="image" column="IMAGE"/>
+		<result property="quantity" column="QUANTITY"/>
+		<result property="category" column="CATEGORY"/>
+		<result property="ebook" column="EBOOK"/>
+		<result property="createdAt" column="CREATED_AT"/>
+		<result property="updatedAt" column="UPDATED_AT"/>
+		<result property="discount" column="DISCOUNT"/>
+		<result property="orderQuantity" column="ORDER_QUANTITY"/>
+	</resultMap>
 
-<select id="selectBookList" parameterType="map" resultMap="clobDataResult">
-    <foreach item="item" collection="orderList" index="index" separator=" UNION ">
-        SELECT B.BOOK_ID, #{item.bookQuantity} AS ORDER_QUANTITY, TITLE, DBMS_LOB.SUBSTR(DESCRIPTION, 1, 4000) AS DESCRIPTION, AUTHOR, PUBLISHER, PRICE, IMAGE, QUANTITY, CATEGORY, EBOOK, CREATED_AT, UPDATED_AT, DISCOUNT
-        FROM TBL_BOOK B
-        WHERE 
-            (BOOK_ID = #{item.bookId} AND QUANTITY >= #{item.bookQuantity}) 
-    </foreach>
-</select>
+	<select id="selectBookList" parameterType="map" resultMap="clobDataResult">
+		<foreach item="item" collection="orderList" index="index" separator=" UNION ">
+			SELECT B.BOOK_ID,
+				#{item.bookQuantity} AS ORDER_QUANTITY, TITLE, DBMS_LOB.SUBSTR(DESCRIPTION, 1, 4000) AS DESCRIPTION,
+				AUTHOR, PUBLISHER, PRICE, IMAGE, QUANTITY, CATEGORY, EBOOK, CREATED_AT, UPDATED_AT, DISCOUNT
+			FROM TBL_BOOK B
+			WHERE
+				(BOOK_ID = #{item.bookId} AND QUANTITY >= #{item.bookQuantity})
+		</foreach>
+	</select>
 
-
-	
 	<update id="updateBookTable" parameterType="hashmap">
 			UPDATE TBL_BOOK
 			SET QUANTITY = QUANTITY - CASE
@@ -117,18 +100,20 @@
 	<insert id="createOrderItem" parameterType="hashmap" >
 			INSERT ALL
 			<foreach item="item" collection="orderList" separator=" ">
-			INTO TBL_ORDER_ITEM (ORDER_ID, BOOK_ID, QUANTITY, PRICE)
-			VALUES ( #{orderId}, #{item.bookId}, #{item.bookQuantity}, #{item.bookPrice} )
+				INTO TBL_ORDER_ITEM (ORDER_ID, BOOK_ID, QUANTITY, PRICE)
+				VALUES ( #{orderId}, #{item.bookId}, #{item.bookQuantity}, #{item.bookPrice} )
 			</foreach>
 			SELECT * FROM DUAL
 	</insert>
  	<delete id="deleteCart" parameterType="hashmap" >
 			DELETE FROM TBL_CART
-			WHERE USER_ID = #{userId} AND BOOK_ID IN 
+			WHERE USER_ID = #{userId} AND BOOK_ID IN
 			<foreach item="item" collection="orderList" open="(" close=")" separator=",">
-			#{item.bookId}
+				#{item.bookId}
 			</foreach>
 	</delete>
+
+
 	<select id="checkRefund" parameterType="hashmap" resultType="com.example.bagStrap.model.Order">
 				SELECT OI.BOOK_ID, OI.QUANTITY, O.STATUS, RI.STATUS AS REFUND_STATUS ,CASE 
 				<foreach item="item" collection="orderList">   
