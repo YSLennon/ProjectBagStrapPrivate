@@ -210,9 +210,10 @@ public class StudyController {
 
 	//스터디 게시글 작성하기 이미지 첨부
 	 @RequestMapping("/fileUpload.dox")
-	    public String result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
+	 @ResponseBody
+	    public HashMap<String, Object> result(@RequestParam("file1") MultipartFile multi, @RequestParam("idx") int idx, HttpServletRequest request,HttpServletResponse response, Model model)
 	    {
-	        String url = null;
+	        HashMap<String, Object> resultMap = new HashMap<>();
 
 			try {
 	            String originFilename = multi.getOriginalFilename();
@@ -237,14 +238,16 @@ public class StudyController {
 	                
 	                model.addAttribute("filename", multi.getOriginalFilename());
 	                model.addAttribute("uploadPath", file.getAbsolutePath());
-					System.out.println("redirect1");
-					return "redirect:/study-comm";
+
+					resultMap.put("result", true);
+					return resultMap;
 	            }
 	        }catch(Exception e) {
 	            e.printStackTrace();
 	        }
-			System.out.println("redirect2");
-	        return "redirect:"+request.getContextPath()+"/study-comm";
+			resultMap.put("result", false);
+
+	        return resultMap;
 	    }
 	    
 	    // 현재 시간을 기준으로 파일 이름 생성

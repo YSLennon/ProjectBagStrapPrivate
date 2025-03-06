@@ -329,6 +329,7 @@
 				};
 				$.ajax({
 					url:"${pageContext.request.contextPath}/order.dox",
+					contentType: "application/json",
 					dataType:"json",	
 					type : "POST", 
 					data : nparmap,
