@@ -706,7 +706,7 @@
 				var nparmap = {
 					orderList : JSON.stringify(self.selectedBooks), // bookId, bookQuantity
 					orderId : self.orderId,
-					refundReasonContent : self.lastRefundReasonContent + ' ' + self.refundReasonContent,
+					refundReasonContent : self.lastRefundReasonContent + '\n ' + self.refundReasonContent,
 					imp : self.imp
 				};
 				$.ajax({
