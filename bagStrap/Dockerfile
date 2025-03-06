@@ -8,11 +8,7 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 RUN chmod +x mvnw
-# RUN ./mvnw dependency:go-offline -B
 
-# RUN chmod +x ./mvnw
-
-# WAR로 패키지 빌드
 RUN ./mvnw clean package -DskipTests
 
 # 런타임 스테이지
